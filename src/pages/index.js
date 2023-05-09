@@ -46,8 +46,8 @@ const IndexPage = () => {
 	      observer.observe(target);
 	    });
 	}, [])
-	return <main className=" min-h-screen">
-		<header className="absolute md:relative text-teal-800 py-4">
+	return <main className="">
+		<header className="hidden md:block absolute md:relative text-teal-800 py-4">
 			<nav className="container mx-auto flex justify-between px-6">
 				<div className="flex items-center space-x-4">
 				<Link to={`/`} className="font-epicursive text-3xl text-black font-bold">Ricki's Walking Tours</Link>
