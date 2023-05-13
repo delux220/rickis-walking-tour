@@ -5,8 +5,8 @@ require("dotenv").config({
 const strapiConfig = {
   apiURL: process.env.STRAPI_API_URL,
   accessToken: process.env.STRAPI_TOKEN,
-  collectionTypes: ['show'],
-  singleTypes: ['about', 'contact', 'seo'],
+  collectionTypes: ['tour'],
+  singleTypes: ['social-media'],
   remoteFileHeaders: {
     /**
      * Customized request headers
@@ -28,5 +28,15 @@ module.exports = {
     title: `Ricki's Walking Tours`,
     siteUrl: `https://rickiswalkingtours.com`
   },
-  plugins: ["gatsby-plugin-postcss", "gatsby-plugin-sitemap"]
+  plugins: ["gatsby-plugin-postcss", "gatsby-plugin-sitemap",{
+    resolve: 'gatsby-plugin-i18n',
+    options: {        
+      langKeyDefault: 'en',
+      useLangKeyLayout: true,
+      prefixDefault: false
+    }
+  },{
+      resolve: `gatsby-source-strapi`,
+      options: strapiConfig,
+    }]
 };
