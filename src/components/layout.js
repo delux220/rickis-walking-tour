@@ -4,7 +4,7 @@ import {Link, Script, navigate} from 'gatsby';
 const callback = function(entries) {
   entries.forEach(entry => {
 
-    // Is the element in the viewport?
+    // Is the element in the viewport ?
     if (entry.isIntersecting) {
 
       // Add the fadeIn class:
