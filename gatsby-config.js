@@ -6,7 +6,7 @@ const strapiConfig = {
   apiURL: process.env.STRAPI_API_URL,
   accessToken: process.env.STRAPI_TOKEN,
   collectionTypes: ['tour'],
-  singleTypes: ['social-media'],
+  singleTypes: ['social-media', 'about-page'],
   remoteFileHeaders: {
     /**
      * Customized request headers
