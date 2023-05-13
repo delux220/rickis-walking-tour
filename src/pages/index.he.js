@@ -5,7 +5,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 import {YouTube, Instagram, Facebook, TikTok, Twitter, MenuButton} from '../components/index';
 import {faArrowRight, faArrowLeft, faEnvelope} from '@fortawesome/free-solid-svg-icons';
 import numeral from 'numeral';
-import Layout from '../components/Layout';
+import Layout from '../components/layout';
 
 const IndexPage = ({data}) => {
 

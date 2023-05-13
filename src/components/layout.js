@@ -18,7 +18,7 @@ const callback = function(entries) {
 };
 
 
-function Layout({lang, children}) {
+const Layout = ({lang, children}) => {
 
 	const [open, setOpen] = useState(false);
 
