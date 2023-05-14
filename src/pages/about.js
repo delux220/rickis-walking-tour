@@ -16,7 +16,7 @@ const AboutPage = ({data}) => {
 		<div className={`bg-teal-300`}>
 			<div className="border-b-4 border-white md:hidden relative h-[80vh] bg-cover bg-center" style={{backgroundImage: `url('${data.strapiAboutPage.Photo.formats.large.url}')`}}>
 				<div className="absolute bottom-0 left-0 w-full px-6">
-						<h1 className=" font-epicursive text-white font-bold text-6xl mb-3 mx-auto on-scroll">{data.strapiAboutPage.Title}</h1>
+						<h1 className=" font-epicursive text-white text-center font-bold text-6xl mb-3 mx-auto on-scroll">{data.strapiAboutPage.Title}</h1>
 				</div>
 			</div>
 
@@ -30,7 +30,7 @@ const AboutPage = ({data}) => {
 						<p className="text-xl on-scroll leading-10 md:text-lg on-scroll mb-4">{data.strapiAboutPage.Description.data.Description}</p>
 						<Link to={'/#tours'} className="text-white font-bold hover:underline"><FontAwesomeIcon icon={faArrowRight}/> Book a tour with me!</Link>
 						<div className="on-scroll">
-							<div className="items-center justify-start flex space-x-8 mt-6">
+							<div className="items-center justify-center md:justify-start flex space-x-8 mt-6">
 								<a href="#"><Facebook className="hover:fill-white fill-black w-10 h-10"/></a>
 								<a href="#"><Instagram className="hover:fill-white fill-black w-10 h-10"/></a>
 								<a href="#"><YouTube className="hover:fill-white fill-black w-10 h-10"/></a>

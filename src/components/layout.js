@@ -78,7 +78,7 @@ const Layout = ({lang, children, className=''}) => {
 		<Script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes" />
 		<header className=" absolute z-20 md:relative text-teal-800 py-4 w-full">
 			<nav className="container mx-auto flex justify-between px-6">
-				<div className="flex items-center space-x-4">
+				<div className="flex items-center space-x-0 md:space-x-4">
 				<Link to={`/`} className="hidden md:block font-epicursive text-3xl text-black font-bold">Ricki's Walking Tours</Link>
 				<div>
 				<button onClick={() => setOpen(!open)} id="language-button" dataDropdownToggle="dropdown-states" className="bg-black/10 md:bg-transparent text-white md:text-black flex-shrink-0 border-b border-white md:border-gray-400 z-10 inline-flex items-center py-2.5 px-4 text-sm  text-center text-gray-500 font-sans font-bold" type="button">
@@ -113,15 +113,15 @@ const Layout = ({lang, children, className=''}) => {
 				
 				</div>
 				<div>
-				<MenuButton open={menuOpen} onToggle={() => setMenuOpen(!menuOpen)} className="absolute z-50"/>
+				<MenuButton open={menuOpen} onToggle={() => setMenuOpen(!menuOpen)} className="md:hidden absolute z-50"/>
 				</div>
-				<ul className={`${menuOpen?'block motion-safe:animate-menuIn':'hidden md:!translate-x-0'} text-4xl bg-black/90 md:bg-transparent md:backdrop-blur-none backdrop-blur space-y-4 md:space-y-0 top-0 text-right  fixed md:relative h-screen md:h-auto right-0 w-3/4 md:w-auto md:flex font-calibri py-20 md:py-0 px-10 md:px-0 text-white md:text-teal-900 font-bold list-style-none md:space-x-4 md:text-base items-center`}>
+				<ul className={`${menuOpen?'block motion-safe:animate-menuIn':'hidden md:!translate-x-0'} text-4xl bg-black/90 md:bg-transparent md:backdrop-blur-none backdrop-blur space-y-4 md:space-y-0 top-0 text-right  fixed md:relative h-screen md:h-auto right-0 w-3/4 md:w-auto md:flex font-calibri py-20 md:py-0 px-10 md:px-0 text-white md:text-teal-900 font-bold list-style-none md:space-x-8 md:text-base items-center`}>
 					<li className="md:hidden"><Link to={`${lang=='en'?'/':'/he/'}`}>Home</Link></li>
 					<li><Link to={`${lang=='en'?'/':'/he/'}about`}>About</Link></li>
 					<li><Link to={`${lang=='en'?'/':'/he/'}photography`}>Photography</Link></li>
 					<li><Link to={`${lang=='en'?'/':'/he/'}#tours`}>Tours</Link></li>
 					<li><Link to={`${lang=='en'?'/':'/he/'}#contact`} className="">Contact</Link></li>
-					<li className="pt-2"><div className="items-center justify-end flex space-x-8 w-full ">
+					<li className="pt-2 md:hidden"><div className="items-center justify-end flex space-x-8 w-full ">
 							<a href="#"><Facebook className="hover:fill-white fill-white w-8 h-8"/></a>
 							<a href="#"><Instagram className="hover:fill-white fill-white w-8 h-8"/></a>
 							<a href="#"><YouTube className="hover:fill-white fill-white w-8 h-8"/></a>

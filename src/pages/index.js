@@ -20,35 +20,35 @@ const IndexPage = ({data}) => {
 				<h3 className=" font-goodlife text-white text-center font-bold text-2xl mb-3 uppercase font-bold on-scroll">Your Guide to NYC</h3>
 				<div className="space-y-2 mb-8 px-10">
 				<button className="font-bold font-sans border border-rose-400 bg-rose-400 mr-4 text-white text-center block w-full rounded-full px-10 py-3 inline-block"><FontAwesomeIcon icon={faArrowRight} className="mr-4"/>Book a Tour</button>
-				<button className="font-bold font-sans border border-white bg-white text-black rounded-full px-10 py-3 text-center block w-full"><FontAwesomeIcon icon={faEnvelope} className="mr-4"/>Contact Me</button>
+				<a href="/#contact" className="font-bold font-sans border bg-white border-white bg-white text-black rounded-full px-10 py-3 text-center block w-full"><FontAwesomeIcon icon={faEnvelope} className="mr-4"/>Contact Me</a>
 				</div>
 			</div>
 		</section>
 		<section className="bg-white hidden md:block">
 		<div className=" bg-repeat-x bg-[center_bottom_-5rem] xl:bg-[center_bottom_-12rem]  bg-contain bg-[url(https://res.cloudinary.com/meshed-nyc/image/upload/v1683537115/skyline_adobe_express_ekdtpp.svg)]">
-		<div className="container mx-auto h-[90vh] px-6 py-20 flex items-center space-x-8 xl:space-x-10  ">
+		<div className="container mx-auto h-[90vh] px-4 md:px-0 lg:px-6 py-20 flex items-center space-x-8 xl:space-x-10  ">
 
 			<img src="https://res.cloudinary.com/meshed-nyc/q_auto/IMG_8118_atrpdt.jpg" className="border-8 h-full shadow-xl border-white -rotate-2 motion-safe:animate-fadeIn"/>
 			<div className="">
 				<h1 className="font-epicursive text-black font-bold text-7xl mb-8 mx-auto on-scroll" >Hey<span className="translate-y-4 inline-block">,</span> I'm Ricki!</h1>
 				<h3 className=" font-goodlife text-teal-900 font-bold text-3xl mb-4 uppercase font-bold ">Your Guide to NYC</h3>
 				<h3 className=" text-teal-900  text-lg font-sans mb-4 block xl:max-w-lg">I'm a photographer 📷, licensed NYC tour guide 🗽, part-time stand up comedian 🎤, and full-time adventurer!</h3>
-				<button className="font-bold font-sans border border-rose-400 bg-rose-400 mr-4 text-white rounded-full px-10 py-4 inline-block"><FontAwesomeIcon icon={faArrowRight} className="mr-4"/>Book a Tour</button>
-				<button className="font-bold font-sans border border-black text-black rounded-full px-10 py-4 inline-block"><FontAwesomeIcon icon={faEnvelope} className="mr-4"/>Contact Me</button>
+				<button className="font-bold font-sans border border-rose-400 bg-rose-400 mr-4 mb-2 lg:mb-0 text-white rounded-full px-10 py-4 block w-full lg:w-auto lg:inline-block"><FontAwesomeIcon icon={faArrowRight} className="mr-4"/>Book a Tour</button>
+				<a href="/#contact" className="font-bold font-sans border bg-white border-black text-black rounded-full px-10 py-4 block w-full text-center lg:w-auto lg:inline-block"><FontAwesomeIcon icon={faEnvelope} className="mr-4"/>Contact Me</a>
 			</div>
 		</div>
 		</div>
 		</section>
 		<section className="bg-teal-300 py-20" id="tours">
 			<div className="container mx-auto px-6">
-			<h2 className="mb-20 text-5xl text-black font-bold font-goodlife">My Tours</h2>
+			<h2 className="mb-20 text-5xl text-center md:text-left text-black font-bold font-goodlife">My Tours</h2>
 			<div className="sm:grid xl:grid-cols-6 gap-8">
 				{
 					data.allStrapiTour.nodes.map(tour => {
 
-						return <div key={`tour-${tour.id}`} className="md:flex space-x-4 on-scroll mb-6 sm:mb-0 xl:col-span-5">
+						return <div key={`tour-${tour.id}`} className="md:flex space-x-4 on-scroll mb-6 sm:mb-0  xl:col-span-5">
 							
-							{tour.Photo.formats.medium!=null?<img src={tour.Photo.formats.medium.url} className=" rounded-full mb-4 lg:mb-0 w-full aspect-square lg:w-72 lg:h-72 border-white border-8" />:<img src={tour.Photo.url} className="rounded-full mb-4 lg:mb-0 w-full aspect-square lg:w-72 lg:h-72 border-white border-8" />}
+							{tour.Photo.formats.medium!=null?<img src={tour.Photo.formats.medium.url} className=" rounded-full mb-4 lg:mb-0 w-full md:w-64 md:h-64 aspect-square lg:w-72 lg:h-72 border-white border-8" />:<img src={tour.Photo.url} className=" md:w-64 md:h-64 rounded-full mb-4 lg:mb-0 w-full aspect-square lg:w-72 lg:h-72 border-white border-8" />}
 
 							<div className="">
 								<h3 className=" font-bold text-2xl xl:text-3xl font-goodlife text-black mb-1">{tour.Title}</h3>
@@ -73,8 +73,10 @@ const IndexPage = ({data}) => {
 		</section>
 		<section className="bg-teal-300">
 			<div className="rounded-lg px-6  container mx-auto py-8 md:py-20">
-				<div className="md:grid grid-cols-2">
-					<img src="https://res.cloudinary.com/meshed-nyc/w_800,c_fill/v1683559297/brooklyn_rqodbm.jpg" className="lg:hidden block on-scroll"/>
+				<div className="md:grid grid-cols-2 gap-4">
+					<div className="flex lg:hidden on-scroll items-center">
+					<img src="https://res.cloudinary.com/meshed-nyc/w_800,c_fill/v1683559297/brooklyn_rqodbm.jpg" className="w-full"/>
+					</div>
 					<div className="hidden lg:block bg-fixed bg-[url(https://res.cloudinary.com/meshed-nyc/w_800,c_fill/v1683559297/brooklyn_rqodbm.jpg)]  bg-no-repeat bg-top-left w-full md:h-128 border-8 border-white shadow-xl ">
 						&nbsp;
 					</div>
@@ -91,7 +93,7 @@ const IndexPage = ({data}) => {
 				</div>
 			</div>
 		</section>
-		<section className="bg-teal-400 py-20">
+		<section className="bg-teal-300 py-20"  id="contact">
 			<div className="container mx-auto px-6">
 				<div className="lg:grid grid-cols-2 gap-10 space-y-20 lg:space-y-0">
 					<div className="on-scroll">
@@ -110,7 +112,7 @@ const IndexPage = ({data}) => {
 								</div>
 								<div className="grid grid-cols-2 gap-4">
 									<div>
-										<label className="block text-sm font-bold">Requested Dates for Your Tour</label>
+										<label className="block text-sm font-bold">Requested Tour Date(s)</label>
 										<input type="email" className="bg-white rounded-md px-4 py-2 w-full block" />
 									</div>
 									<div>
@@ -119,28 +121,31 @@ const IndexPage = ({data}) => {
 									</div>
 								</div>
 								<div className="">
-									<label className="block text-sm font-bold">Message</label>
-									<textarea rows={3} className="bg-white rounded-md px-4 py-2 w-full block" placeholder="What tour are you interested in? Do you have a special request?"></textarea>
+									<label className="block text-sm font-bold">Message *</label>
+									<textarea rows={4} className="bg-white rounded-md px-4 py-2 w-full block" placeholder="What tour are you interested in? Do you have a special request?"></textarea>
 								</div>
 								<button className="font-bold font-sans border border-black bg-black mr-4 text-white text-center block w-full sm:w-auto rounded-full px-10 py-4 inline-block"><FontAwesomeIcon icon={faArrowRight} className="mr-4"/>Send Message</button>
 
 							</div>
 						</form>
 					</div>
-					<div className="on-scroll">
-						<h3 className="text-black text-4xl font-bold font-goodlife text-center mb-8">CONNECT WITH ME</h3>
+					<div className="hidden lg:block bg-fixed bg-[url(https://res.cloudinary.com/meshed-nyc/h_1024,c_fill,q_auto/rs_w_1160_h_1449_y7wrsr.jpg)] bg-no-repeat lg:bg-[right_-9rem_top] xl:bg-[right_-5rem_top] w-full border-8 border-white shadow-xl ">
+						&nbsp;
+					</div>
+					
+				</div>
+			</div>
+			<div className="on-scroll py-20">
+						<h3 className="text-black text-4xl font-bold font-goodlife text-center">CONNECT WITH ME</h3>
+						<img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1683420929/squiggle-longer_lciuww.png" className="w-48 block mx-auto my-6"/>
+
 						<div className="items-center justify-center flex space-x-8">
 							<a href="#"><Facebook className="hover:fill-white fill-black w-20 h-20"/></a>
 							<a href="#"><Instagram className="hover:fill-white fill-black w-20 h-20"/></a>
 							<a href="#"><YouTube className="hover:fill-white fill-black w-20 h-20"/></a>
 						</div>
 					</div>
-				</div>
-			</div>
 		</section>
-		<div className=" bg-teal-400">
-			&nbsp;
-		</div>
 	</Layout>
 }
 
