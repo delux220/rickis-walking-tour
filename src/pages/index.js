@@ -52,11 +52,21 @@ const IndexPage = ({data}) => {
 
 							<div className="">
 								<h3 className=" font-bold text-2xl xl:text-3xl font-goodlife text-black mb-1">{tour.Title}</h3>
-								<div className="flex items-center space-x-3 text-teal-900 font-bold">
+								<div className="flex items-center space-x-1 text-teal-900 font-bold">
 									
-									<span className="text-black text-lg rounded-full font-bold">{numeral(tour.Price).format('$0,0.00')}</span>
+									<span className="text-black text-sm sm:text-base md:text-lg rounded-full font-bold">{numeral(tour.Price).format('$0,0.00')}</span>
 									<span>&middot;</span>
-									<span className="text-black text-lg font-bold">{tour.Duration} {tour.Duration==1?'hour':'hours'}</span>
+									<span className="text-black text-sm sm:text-base md:text-lg font-bold">{tour.Duration} {tour.Duration==1?'hr':'hrs'}</span>
+									{
+										tour.Private==true?<>
+											<span>&middot;</span>
+											<span className="text-black text-sm sm:text-base md:text-lg font-bold">Private Tour {tour.MinimumSize>1&&`(min. ${tour.MinimumSize} ppl)`}</span>
+										</>:
+										<>
+											<span>&middot;</span>
+											<span className="text-black text-sm sm:text-base md:text-lg font-bold">Public Tour</span>
+										</>
+									}
 								</div>
 																<img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1683420929/squiggle-longer_lciuww.png" className="w-48 block my-2 inline-block"/>
 								<div className="">
@@ -110,7 +120,7 @@ const IndexPage = ({data}) => {
 									<label className="block text-sm font-bold">Email Address *</label>
 									<input type="email" className="bg-white rounded-md px-4 py-2 w-full block" />
 								</div>
-								<div className="grid grid-cols-2 gap-4">
+								<div className="sm:grid grid-cols-2 gap-4 space-y-3 sm:space-y-0">
 									<div>
 										<label className="block text-sm font-bold">Requested Tour Date(s)</label>
 										<input type="email" className="bg-white rounded-md px-4 py-2 w-full block" />
@@ -155,6 +165,8 @@ export const pageQuery = graphql`query MyQuery {
       id
       Description
       Duration
+      Private
+      MinimumSize
       Link
       locale
       Price

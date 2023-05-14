@@ -28,12 +28,12 @@ const AboutPage = ({data}) => {
 					<div className="md:col-span-2 pt-5">
 						<h1 className="hidden md:block font-epicursive text-white font-bold text-6xl mb-3 mx-auto on-scroll">{data.strapiAboutPage.Title}</h1>
 						<p className="text-xl on-scroll leading-10 md:text-lg on-scroll mb-4">{data.strapiAboutPage.Description.data.Description}</p>
-						<Link to={'/#tours'} className="text-white font-bold hover:underline"><FontAwesomeIcon icon={faArrowRight}/> Book a tour with me!</Link>
+						<Link to={'/#tours'} className="bg-rose-400 block sm:inline-block w-full sm:w-auto sm:inline-block text-center px-8 py-3 rounded-full text-white font-bold hover:bg-rose-500"><FontAwesomeIcon icon={faArrowRight}/> Book a tour with me!</Link>
 						<div className="on-scroll">
-							<div className="items-center justify-center md:justify-start flex space-x-8 mt-6">
-								<a href="#"><Facebook className="hover:fill-white fill-black w-10 h-10"/></a>
-								<a href="#"><Instagram className="hover:fill-white fill-black w-10 h-10"/></a>
-								<a href="#"><YouTube className="hover:fill-white fill-black w-10 h-10"/></a>
+							<div className="items-center justify-between md:justify-start flex space-x-8 mt-6">
+								<a href="#"><Facebook className="hover:fill-white fill-black w-12 h-12 md:w-10 md:h-10"/></a>
+								<a href="#"><Instagram className="hover:fill-white fill-black w-12 h-12 md:w-10 md:h-10"/></a>
+								<a href="#"><YouTube className="hover:fill-white fill-black w-12 h-12 md:w-10 md:h-10"/></a>
 							</div>
 						</div>
 					</div>

@@ -33,6 +33,10 @@ const Layout = ({lang, children, className=''}) => {
 
 	const [menuOpen, setMenuOpen] = useState(false);
 
+	const closeMenu = () => {
+		setMenuOpen(false);
+	}
+
 
 	const changeLanguage = (language) => {
 
@@ -77,11 +81,11 @@ const Layout = ({lang, children, className=''}) => {
 	return <main className={className}>
 		<Script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes" />
 		<header className=" absolute z-20 md:relative text-teal-800 py-4 w-full">
-			<nav className="container mx-auto flex justify-between px-6">
+			<nav className="container mx-auto flex justify-between px-3">
 				<div className="flex items-center space-x-0 md:space-x-4">
-				<Link to={`/`} className="hidden md:block font-epicursive text-3xl text-black font-bold">Ricki's Walking Tours</Link>
+				<Link to={`/`} className="hidden md:block font-epicursive text-2xl lg:text-3xl text-black font-bold">Ricki's Walking Tours</Link>
 				<div>
-				<button onClick={() => setOpen(!open)} id="language-button" dataDropdownToggle="dropdown-states" className="bg-black/10 md:bg-transparent text-white md:text-black flex-shrink-0 border-b border-white md:border-gray-400 z-10 inline-flex items-center py-2.5 px-4 text-sm  text-center text-gray-500 font-sans font-bold" type="button">
+				<button onClick={() => setOpen(!open)} id="language-button" dataDropdownToggle="dropdown-states" className="bg-white rounded-md  text-black  flex-shrink-0  border-white md:border-black z-10 inline-flex items-center py-2.5 px-4 text-sm  text-center  font-sans font-bold" type="button">
 		        {lang=='en'?<>
 		        	<USA/> English (US)</>:<>
 		       	    <Israel/> Hebrew (IL)
@@ -89,7 +93,7 @@ const Layout = ({lang, children, className=''}) => {
 		         <svg aria-hidden="true" className="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
 		        
 				    </button>
-				    <div id="dropdown-states" className={`${open?'block':'hidden'} z-10 absolute bg-white rounded-lg shadow w-44`}>
+				    <div id="dropdown-states" className={`${open?'block':'hidden'} z-10 absolute bg-white rounded-lg shadow w-44 mt-1`}>
 				        <ul className="py-2 text-sm text-black" aria-labelledby="states-button">
 				            <li>
 				                <button onClick={() => changeLanguage('en')} type="button" className="inline-flex w-full px-4 py-2 text-sm text-teal-900 hover:bg-rose-500 hover:text-white">
@@ -113,14 +117,14 @@ const Layout = ({lang, children, className=''}) => {
 				
 				</div>
 				<div>
-				<MenuButton open={menuOpen} onToggle={() => setMenuOpen(!menuOpen)} className="md:hidden absolute z-50"/>
+				<MenuButton open={menuOpen} onToggle={() => setMenuOpen(!menuOpen)} className={` md:hidden z-50`}/>
 				</div>
 				<ul className={`${menuOpen?'block motion-safe:animate-menuIn':'hidden md:!translate-x-0'} text-4xl bg-black/90 md:bg-transparent md:backdrop-blur-none backdrop-blur space-y-4 md:space-y-0 top-0 text-right  fixed md:relative h-screen md:h-auto right-0 w-3/4 md:w-auto md:flex font-calibri py-20 md:py-0 px-10 md:px-0 text-white md:text-teal-900 font-bold list-style-none md:space-x-8 md:text-base items-center`}>
-					<li className="md:hidden"><Link to={`${lang=='en'?'/':'/he/'}`}>Home</Link></li>
-					<li><Link to={`${lang=='en'?'/':'/he/'}about`}>About</Link></li>
-					<li><Link to={`${lang=='en'?'/':'/he/'}photography`}>Photography</Link></li>
-					<li><Link to={`${lang=='en'?'/':'/he/'}#tours`}>Tours</Link></li>
-					<li><Link to={`${lang=='en'?'/':'/he/'}#contact`} className="">Contact</Link></li>
+					<li className="md:hidden"><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}`}>Home</Link></li>
+					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}about`}>About</Link></li>
+					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}photography`}>Photography</Link></li>
+					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}#tours`}>Tours</Link></li>
+					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}#contact`} className="">Contact</Link></li>
 					<li className="pt-2 md:hidden"><div className="items-center justify-end flex space-x-8 w-full ">
 							<a href="#"><Facebook className="hover:fill-white fill-white w-8 h-8"/></a>
 							<a href="#"><Instagram className="hover:fill-white fill-white w-8 h-8"/></a>

@@ -16,7 +16,7 @@ const IndexPage = ({data}) => {
 				<h3 className=" font-goodlife text-white text-center font-bold text-2xl mb-3 uppercase font-bold ">Your Guide to NYC</h3>
 				<div className="space-y-2 mb-8 px-10">
 				<button className="font-bold font-sans border border-rose-400 bg-rose-400 mr-4 text-white text-center block w-full rounded-full px-10 py-3 inline-block"><FontAwesomeIcon icon={faArrowRight} className="mr-4"/>Book a Tour</button>
-				<button className="font-bold font-sans border border-white bg-white text-black rounded-full px-10 py-3 text-center block w-full"><FontAwesomeIcon icon={faEnvelope} className="mr-4"/>Contact Me</button>
+				<button className="font-bold font-sans border border-white bg-white text-black rounded-full px-10 py-3 text-center block w-full"><FontAwesomeIcon icon={faEnvelope} className="mr-4"/>צרו קשר</button>
 				</div>
 			</div>
 		</section>
@@ -37,7 +37,7 @@ const IndexPage = ({data}) => {
 		</section>
 		<section className="bg-teal-300 py-20" id="tours">
 			<div className="container mx-auto px-6">
-			<h2 className="mb-20 text-5xl text-center text-black font-bold font-goodlife">My Tours</h2>
+			<h2 className="mb-20 text-5xl text-center md:text-right text-black font-bold font-goodlife">My Tours</h2>
 			<div className="grid-cols-2 gap-8 space-y-8">
 				{
 					data.allStrapiTour.nodes.map(tour => {
@@ -53,7 +53,7 @@ const IndexPage = ({data}) => {
 							{tour.Photo.formats.medium!=null?<img src={tour.Photo.formats.medium.url} className="md:hidden rounded-full mb-4 lg:mb-0 w-full aspect-square lg:w-72 lg:h-72 border-white border-8" />:<img src={tour.Photo.url} className="md:hidden rounded-full mb-4 lg:mb-0 w-full aspect-square lg:w-64 lg:h-64 border-white border-8" />}
 
 							<div className="text-right">
-								<h3 className="text-center md:text-right font-bold text-2xl font-goodlife text-black">{hebrewVersion.attributes.Title}</h3>
+								<h3 className="text-right font-bold text-2xl font-goodlife text-black">{hebrewVersion.attributes.Title}</h3>
 								<img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1683420929/squiggle-longer_lciuww.png" className="w-48 block my-3 inline-block"/>
 								<p className="text-right text-teal-900 mb-4">{hebrewVersion.attributes.Description}</p>
 								<a href={hebrewVersion.attributes.Link} className="w-full md:w-auto md:inline-block text-xl sm:text-base font-bold font-sans bg-rose-400 mr-4 shadow-lg text-white rounded-full px-6 py-2 block text-center"><FontAwesomeIcon icon={faArrowLeft} className="mr-2"/>אני רוצה להזמין</a>
@@ -104,14 +104,14 @@ const IndexPage = ({data}) => {
 						<form>
 							<div className="space-y-3 text-right">
 								<div>
-									<label className="block text-sm font-bold">שם *</label>
+									<label className="block text-sm font-bold">* שם</label>
 									<input name="name" type="text" dir="rtl" className="bg-white rounded-md px-4 py-2 w-full block" />
 								</div>
 								<div>
-									<label className="block text-sm font-bold">דוא"ל *</label>
+									<label className="block text-sm font-bold">* דוא"ל</label>
 									<input name="email" dir="rtl" type="email" className="bg-white rounded-md px-4 py-2 w-full block" />
 								</div>
-								<div className="grid grid-cols-2 gap-4">
+								<div className="sm:grid grid-cols-2 gap-4 space-y-3 sm:space-y-0">
 									<div>
 										<label className="block text-sm font-bold">Requested Dates for Your Tour</label>
 										<input type="text" dir="rtl" className="bg-white rounded-md px-4 py-2 w-full block" />
@@ -122,7 +122,7 @@ const IndexPage = ({data}) => {
 									</div>
 								</div>
 								<div className="">
-									<label className="block text-sm font-bold">ההודעה שלך</label>
+									<label className="block text-sm font-bold">* ההודעה שלך</label>
 									<textarea rows={3} dir="rtl" className="bg-white rounded-md px-4 py-2 w-full block" placeholder="What tour are you interested in? Do you have a special request?"></textarea>
 								</div>
 								<button className="font-bold font-sans border border-black bg-black mr-4 text-white text-center block w-full sm:w-auto rounded-full px-10 py-4 inline-block"><FontAwesomeIcon icon={faArrowLeft} className="mr-4"/>Send Message</button>
