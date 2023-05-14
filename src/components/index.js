@@ -21,11 +21,11 @@ export function Twitter({className=''}) {
 }
 
 export function MenuButton({open=false, className='', onToggle}) {
-	return <button id="nav-icon3" className={`${className} ${open&&'open'} w-9 h-9 sm:h-14 sm:w-14`} onClick={() => onToggle()}>
+	return <button id="nav-icon3" className={`${className} ${open&&'open'} w-9 h-7 sm:h-14 sm:w-14`} onClick={() => onToggle()}>
             <span className="bg-white h-1"></span>
             <span className="bg-white h-1"></span>
             <span className="bg-white h-1"></span>
-            <span className="bg-white"></span>
+            <span className="bg-white h-1"></span>
           </button>
 }
 

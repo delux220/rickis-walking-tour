@@ -32,6 +32,7 @@ module.exports = {
         loadIn: "loadIn .2s ease-in forwards",
         slowScroll: "scrollDown 5s ease-in forwards",
         menuIn: "menuInRight .2s ease-in forwards",
+        menuOut: "menuOutRight .2s ease-in forwards",
         loader: "scale .33s ease-out forwards",
         hide: "hide .1s ease-in forwards",
         fadeOut: "fadeOut 1s ease-in forwards",
@@ -76,7 +77,11 @@ module.exports = {
         },
         menuInRight: {
           "0%": {transform: 'translate(100%, 0)', opacity:0},
-          "100%": {transform: 'translate(0, 0)', opacity:1},
+          "100%": {transform: 'translate(0, 0)', opacity:1}
+        },
+        menuOutRight: {
+          "0%": {transform: 'translate(0, 0)', opacity:1},
+          "100%": {transform: 'translate(100%, 0)', opacity:1, display:'none'}
         },
         scale: {
           "0%": {transform : 'scale(1)', opacity:1},

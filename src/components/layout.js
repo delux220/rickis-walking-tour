@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react"
 import {Link, Script, navigate} from 'gatsby';
+import {MenuButton, Facebook, Instagram, YouTube} from '../components/index';
 
 const callback = function(entries) {
   entries.forEach(entry => {
@@ -29,6 +30,8 @@ const Israel = () => {
 const Layout = ({lang, children, className=''}) => {
 
 	const [open, setOpen] = useState(false);
+
+	const [menuOpen, setMenuOpen] = useState(false);
 
 
 	const changeLanguage = (language) => {
@@ -73,7 +76,7 @@ const Layout = ({lang, children, className=''}) => {
 	
 	return <main className={className}>
 		<Script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes" />
-		<header className=" absolute z-20 md:relative text-teal-800 py-4">
+		<header className=" absolute z-20 md:relative text-teal-800 py-4 w-full">
 			<nav className="container mx-auto flex justify-between px-6">
 				<div className="flex items-center space-x-4">
 				<Link to={`/`} className="hidden md:block font-epicursive text-3xl text-black font-bold">Ricki's Walking Tours</Link>
@@ -106,15 +109,23 @@ const Layout = ({lang, children, className=''}) => {
 				            </li>
 				        </ul>
 				    </div>
-    		</div>
+    				</div>
 				
 				</div>
-				<ul className="hidden md:flex font-calibri text-teal-900 font-bold list-style-none space-x-4 text-base items-center">
-					
+				<div>
+				<MenuButton open={menuOpen} onToggle={() => setMenuOpen(!menuOpen)} className="absolute z-50"/>
+				</div>
+				<ul className={`${menuOpen?'block motion-safe:animate-menuIn':'hidden md:!translate-x-0'} text-4xl bg-black/90 md:bg-transparent md:backdrop-blur-none backdrop-blur space-y-4 md:space-y-0 top-0 text-right  fixed md:relative h-screen md:h-auto right-0 w-3/4 md:w-auto md:flex font-calibri py-20 md:py-0 px-10 md:px-0 text-white md:text-teal-900 font-bold list-style-none md:space-x-4 md:text-base items-center`}>
+					<li className="md:hidden"><Link to={`${lang=='en'?'/':'/he/'}`}>Home</Link></li>
 					<li><Link to={`${lang=='en'?'/':'/he/'}about`}>About</Link></li>
 					<li><Link to={`${lang=='en'?'/':'/he/'}photography`}>Photography</Link></li>
 					<li><Link to={`${lang=='en'?'/':'/he/'}#tours`}>Tours</Link></li>
 					<li><Link to={`${lang=='en'?'/':'/he/'}#contact`} className="">Contact</Link></li>
+					<li className="pt-2"><div className="items-center justify-end flex space-x-8 w-full ">
+							<a href="#"><Facebook className="hover:fill-white fill-white w-8 h-8"/></a>
+							<a href="#"><Instagram className="hover:fill-white fill-white w-8 h-8"/></a>
+							<a href="#"><YouTube className="hover:fill-white fill-white w-8 h-8"/></a>
+						</div></li>
 				</ul>
 			</nav>
 		</header>

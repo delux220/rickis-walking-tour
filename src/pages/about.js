@@ -13,15 +13,21 @@ import Layout from '../components/layout';
 const AboutPage = ({data}) => {
 	
 	return <Layout lang={'en'} className="bg-teal-300">
-		<div className="bg-teal-300">
+		<div className={`bg-teal-300`}>
+			<div className="border-b-4 border-white md:hidden relative h-[80vh] bg-cover bg-center" style={{backgroundImage: `url('${data.strapiAboutPage.Photo.formats.large.url}')`}}>
+				<div className="absolute bottom-0 left-0 w-full px-6">
+						<h1 className=" font-epicursive text-white font-bold text-6xl mb-3 mx-auto on-scroll">{data.strapiAboutPage.Title}</h1>
+				</div>
+			</div>
+
 			<div className="container mx-auto px-6 xl:px-0 md:h-[90vh] flex items-center ">
 				<div className="sm:grid sm:grid-cols-2 md:grid-cols-3 gap-8">
 					<div>
-						<img src={data.strapiAboutPage.Photo.formats.large.url} className="w-full border-8 border-white shadow-lg -rotate-3"/>
+						<img src={data.strapiAboutPage.Photo.formats.large.url} className="hidden md:block w-full md:border-8 md:border-white md:shadow-lg md:-rotate-3"/>
 					</div>
-					<div className="md:col-span-2">
-						<h1 className=" font-epicursive text-white font-bold text-6xl mb-3 mx-auto on-scroll">{data.strapiAboutPage.Title}</h1>
-						<p className="text-lg on-scroll mb-4">{data.strapiAboutPage.Description.data.Description}</p>
+					<div className="md:col-span-2 pt-5">
+						<h1 className="hidden md:block font-epicursive text-white font-bold text-6xl mb-3 mx-auto on-scroll">{data.strapiAboutPage.Title}</h1>
+						<p className="text-xl on-scroll leading-10 md:text-lg on-scroll mb-4">{data.strapiAboutPage.Description.data.Description}</p>
 						<Link to={'/#tours'} className="text-white font-bold hover:underline"><FontAwesomeIcon icon={faArrowRight}/> Book a tour with me!</Link>
 						<div className="on-scroll">
 							<div className="items-center justify-start flex space-x-8 mt-6">
