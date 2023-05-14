@@ -11,10 +11,9 @@ import Layout from '../components/layout';
 
 
 const AboutPage = ({data}) => {
-	console.log(data);
 	
-	return <Layout lang={'en'}>
-		<div className="bg-teal-400">
+	return <Layout lang={'en'} className="bg-teal-300">
+		<div className="bg-teal-300">
 			<div className="container mx-auto px-6 xl:px-0 md:h-[90vh] flex items-center ">
 				<div className="sm:grid sm:grid-cols-2 md:grid-cols-3 gap-8">
 					<div>

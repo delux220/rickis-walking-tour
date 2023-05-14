@@ -28,14 +28,14 @@ const IndexPage = ({data}) => {
 			<div className="">
 				<h1 className="font-epicursive text-black font-bold text-7xl mb-8 mx-auto on-scroll" >אני ריקי</h1>
 				<h3 className=" font-goodlife text-teal-900 font-bold text-3xl mb-4 uppercase font-bold ">Your Guide to NYC</h3>
-				<h3 className=" text-teal-900  text-lg font-sans mb-4 block xl:max-w-lg">I'm a photographer 📷, licensed NYC tour guide 🗽, part-time stand up comedian 🎤, and full-time adventurer!</h3>
+				<h3 className=" text-teal-900  text-lg font-sans mb-4 block xl:max-w-lg">הצטרפו אלי לסימטאות מלאות ההיסטוריה של ניו יורק, לטעום מהמאכלים הטובים ביותר וליהנות מהעיר ללא הפסקה.</h3>
 				<button className="font-bold font-sans border border-rose-400 bg-rose-400 mr-4 text-white rounded-full px-10 py-4 inline-block"><FontAwesomeIcon icon={faArrowRight} className="mr-4"/>Book a Tour</button>
 				<button className="font-bold font-sans border border-black text-black rounded-full px-10 py-4 inline-block"><FontAwesomeIcon icon={faEnvelope} className="mr-4"/>Contact Me</button>
 			</div>
 		</div>
 		</div>
 		</section>
-		<section className="bg-teal-300 py-20">
+		<section className="bg-teal-300 py-20" id="tours">
 			<div className="container mx-auto px-6">
 			<h2 className="mb-20 text-5xl text-center text-black font-bold font-goodlife">My Tours</h2>
 			<div className="grid-cols-2 gap-8 space-y-8">
@@ -56,7 +56,7 @@ const IndexPage = ({data}) => {
 								<h3 className="text-center md:text-right font-bold text-2xl font-goodlife text-black">{hebrewVersion.attributes.Title}</h3>
 								<img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1683420929/squiggle-longer_lciuww.png" className="w-48 block my-3 inline-block"/>
 								<p className="text-right text-teal-900 mb-4">{hebrewVersion.attributes.Description}</p>
-								<a href={hebrewVersion.attributes.Link} className="w-full md:w-auto md:inline-block text-xl sm:text-base font-bold font-sans bg-rose-400 mr-4 shadow-lg text-white rounded-full px-6 py-2 block text-center"><FontAwesomeIcon icon={faArrowLeft} className="mr-2"/>Book Tour</a>
+								<a href={hebrewVersion.attributes.Link} className="w-full md:w-auto md:inline-block text-xl sm:text-base font-bold font-sans bg-rose-400 mr-4 shadow-lg text-white rounded-full px-6 py-2 block text-center"><FontAwesomeIcon icon={faArrowLeft} className="mr-2"/>אני רוצה להזמין</a>
 							</div>
 							{tour.Photo.formats.medium!=null?<img src={tour.Photo.formats.medium.url} className="hidden md:block rounded-full mb-4 lg:mb-0 w-full aspect-square md:w-64 md:h-64 lg:w-72 lg:h-72 border-white border-8" />:<img src={tour.Photo.url} className="hidden md:block rounded-full mb-4 lg:mb-0 w-full aspect-square lg:w-64 lg:h-64 border-white border-8" />}
 
@@ -85,56 +85,55 @@ const IndexPage = ({data}) => {
 				</div>
 			</div>
 		</section>
-		<section className="bg-teal-400 py-20">
+		<section className="bg-teal-300 py-20">
 			<div className="container mx-auto px-6">
 				<div className="lg:grid grid-cols-2 gap-10 space-y-20 lg:space-y-0">
-					<div className="on-scroll">
-						<h3 className="text-black text-4xl font-bold font-goodlife">Have Questions? Contact me!</h3>
-												<img src="https://res.cloudinary.com/meshed-nyc/squiggle-longer_lciuww.png" className="w-48 block my-3"/>
-
-						<form>
-							<div className="space-y-3">
-								<div>
-									<label className="block text-sm font-bold">Name *</label>
-									<input type="text" className="bg-white rounded-md px-4 py-2 w-full block" />
-								</div>
-								<div>
-									<label className="block text-sm font-bold">Email Address *</label>
-									<input type="email" className="bg-white rounded-md px-4 py-2 w-full block" />
-								</div>
-								<div className="grid grid-cols-2 gap-4">
-									<div>
-										<label className="block text-sm font-bold">Requested Dates for Your Tour</label>
-										<input type="email" className="bg-white rounded-md px-4 py-2 w-full block" />
-									</div>
-									<div>
-										<label className="block text-sm font-bold">Number of Guests</label>
-										<input type="number" className="bg-white rounded-md px-4 py-2 w-full block" />
-									</div>
-								</div>
-								<div className="">
-									<label className="block text-sm font-bold">Message</label>
-									<textarea rows={3} className="bg-white rounded-md px-4 py-2 w-full block" placeholder="What tour are you interested in? Do you have a special request?"></textarea>
-								</div>
-								<button className="font-bold font-sans border border-black bg-black mr-4 text-white text-center block w-full sm:w-auto rounded-full px-10 py-4 inline-block"><FontAwesomeIcon icon={faArrowRight} className="mr-4"/>Send Message</button>
-
-							</div>
-						</form>
-					</div>
-					<div className="on-scroll">
-						<h3 className="text-black text-4xl font-bold font-goodlife text-center mb-8">CONNECT WITH ME</h3>
+				<div className="on-scroll">
+						<h3 className="text-black text-4xl font-bold font-goodlife text-center mb-8 text-righ">CONNECT WITH ME</h3>
 						<div className="items-center justify-center flex space-x-8">
 							<a href="#"><Facebook className="hover:fill-white fill-black w-20 h-20"/></a>
 							<a href="#"><Instagram className="hover:fill-white fill-black w-20 h-20"/></a>
 							<a href="#"><YouTube className="hover:fill-white fill-black w-20 h-20"/></a>
 						</div>
 					</div>
+					<div className="on-scroll">
+						<h3 className="text-black text-right text-4xl font-bold font-goodlife">שלחו הודעה ואחזור אליכם בהקדם</h3>
+						<div className="text-right">
+							<img src="https://res.cloudinary.com/meshed-nyc/squiggle-longer_lciuww.png" className="w-48 inline-block my-3"/>
+						</div>
+						<form>
+							<div className="space-y-3 text-right">
+								<div>
+									<label className="block text-sm font-bold">שם *</label>
+									<input name="name" type="text" dir="rtl" className="bg-white rounded-md px-4 py-2 w-full block" />
+								</div>
+								<div>
+									<label className="block text-sm font-bold">דוא"ל *</label>
+									<input name="email" dir="rtl" type="email" className="bg-white rounded-md px-4 py-2 w-full block" />
+								</div>
+								<div className="grid grid-cols-2 gap-4">
+									<div>
+										<label className="block text-sm font-bold">Requested Dates for Your Tour</label>
+										<input type="text" dir="rtl" className="bg-white rounded-md px-4 py-2 w-full block" />
+									</div>
+									<div>
+										<label className="block text-sm font-bold">Number of Guests</label>
+										<input type="number" dir="rtl" className="bg-white rounded-md px-4 py-2 w-full block" />
+									</div>
+								</div>
+								<div className="">
+									<label className="block text-sm font-bold">ההודעה שלך</label>
+									<textarea rows={3} dir="rtl" className="bg-white rounded-md px-4 py-2 w-full block" placeholder="What tour are you interested in? Do you have a special request?"></textarea>
+								</div>
+								<button className="font-bold font-sans border border-black bg-black mr-4 text-white text-center block w-full sm:w-auto rounded-full px-10 py-4 inline-block"><FontAwesomeIcon icon={faArrowLeft} className="mr-4"/>Send Message</button>
+
+							</div>
+						</form>
+					</div>
+					
 				</div>
 			</div>
 		</section>
-		<div className=" bg-teal-400">
-			&nbsp;
-		</div>
 	</Layout>
 }
 

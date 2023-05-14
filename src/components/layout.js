@@ -26,7 +26,7 @@ const Israel = () => {
 
 }
 
-const Layout = ({lang, children}) => {
+const Layout = ({lang, children, className=''}) => {
 
 	const [open, setOpen] = useState(false);
 
@@ -71,7 +71,7 @@ const Layout = ({lang, children}) => {
 	    });
 	}, [])
 	
-	return <main className="">
+	return <main className={className}>
 		<Script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes" />
 		<header className=" absolute z-20 md:relative text-teal-800 py-4">
 			<nav className="container mx-auto flex justify-between px-6">
@@ -121,7 +121,7 @@ const Layout = ({lang, children}) => {
 		<div>
 		{children}
 		</div>
-		<div className="bg-teal-400">
+		<div className="bg-teal-300">
 			<div className="container mx-auto px-6 py-10 text-center">
 				<p>Copyright &copy; {new Date().getFullYear()}. Ricki's Walking Tours.</p>
 			</div>

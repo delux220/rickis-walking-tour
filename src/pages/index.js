@@ -39,7 +39,7 @@ const IndexPage = ({data}) => {
 		</div>
 		</div>
 		</section>
-		<section className="bg-teal-300 py-20">
+		<section className="bg-teal-300 py-20" id="tours">
 			<div className="container mx-auto px-6">
 			<h2 className="mb-20 text-5xl text-black font-bold font-goodlife">My Tours</h2>
 			<div className="sm:grid xl:grid-cols-6 gap-8">
