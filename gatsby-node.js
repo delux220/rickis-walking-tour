@@ -14,6 +14,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       Price: Float!
       Duration: Float!
       Photo: Node!
+      MinimumSize: Float,
+      Private: Boolean
     }
     
   `

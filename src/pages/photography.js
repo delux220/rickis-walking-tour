@@ -6,11 +6,12 @@ import {YouTube, Instagram, Facebook, TikTok, Twitter, MenuButton} from '../comp
 import {faArrowRight, faEnvelope, faArrowLeft, faX} from '@fortawesome/free-solid-svg-icons';
 import numeral from 'numeral';
 import Layout from '../components/layout';
+import Seo from '../components/seo';
 
 
 
 
-const AboutPage = ({data}) => {
+const PhotographyPage = ({data}) => {
 
   const [photoIndex, setPhotoIndex] = useState(null);
 
@@ -54,13 +55,16 @@ const AboutPage = ({data}) => {
   }*/
 	
 	return <Layout lang={'en'} className="bg-teal-300">
-		<div className="bg-teal-300">
+    <div className="hidden md:block bg-white h-96">
+
+    </div>
+		<div className=" md:-mt-96 ">
 			<div className="container mx-auto px-6">
 				<div className="pt-20">
 					
 					<div className="">
-						<h1 className=" font-epicursive text-black font-bold text-6xl mb-3 mx-auto on-scroll">{data.strapiGallery.Title}</h1>
-						<p className="text-lg on-scroll mb-4">{data.strapiGallery.Description}</p>
+						<h1 className="mt-32 sm:mt-10 md:mt-0 font-epicursive text-black font-bold text-6xl mb-6 mx-auto on-scroll">{data.strapiGallery.Title}</h1>
+						<p className="text-lg on-scroll mb-10">{data.strapiGallery.Description}</p>
 						
 					</div>
 				</div>
@@ -105,4 +109,6 @@ export const pageQuery = graphql`query MyQuery {
   }
 }`;
 
-export default AboutPage;
+export const Head = () => <Seo/>
+
+export default PhotographyPage;

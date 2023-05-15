@@ -6,6 +6,7 @@ import {YouTube, Instagram, Facebook, TikTok, Twitter, MenuButton} from '../comp
 import {faArrowRight, faEnvelope} from '@fortawesome/free-solid-svg-icons';
 import numeral from 'numeral';
 import Layout from '../components/layout';
+import Seo from '../components/seo';
 
 
 
@@ -95,10 +96,24 @@ const IndexPage = ({data}) => {
 						<img src="https://res.cloudinary.com/meshed-nyc/squiggle-longer_lciuww.png" className="w-48 block my-3"/>
 						<h5 className="font-goodlife text-black text-lg font-bold mb-1">Why Take Pictures With Me?</h5>
 						<p className="text-teal-900 mb-4">If you hate taking pictures, if you find yourself frozen infront of the camera, if you need someone cool to pretend you're not about to propose, I'm your gal. In addition to having a top notch photography equipment I'm also a director and a great ice breaker so we can get you to look in your own element as soon as the first photo. Before the session we go over wardrobe options, figure out the best location & get to know each other so we can have fun during the photoshoot. I'm a NYC local, also work as a tour guide & familiar with the best spots around town. You will learn the history as we take your fabulous photos :D</p>
-						<div className="flex items-center space-x-4">
-						<button className="px-6 py-2 bg-rose-400 shadow-lg text-white rounded-full font-bold inline-block"><FontAwesomeIcon icon={faArrowRight} className="mr-2"/>Purchase</button>
-						<span className="font-bold text-black text-xl">$300</span>
-						</div>
+						<form ariaLive="polite" dataUx="Form" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+						<input type="hidden" name="edit_selector" data-aid="EDIT_PANEL_EDIT_PAYMENT_ICON"/>
+						<input type="hidden" name="business" value="thinkpink007@gmail.com"/>
+						<input type="hidden" name="cmd" value="_xclick"/>
+						<input type="hidden" name="item_name" value="PICK YOUR LOCATION"/>
+						<input type="hidden" name="item_number"/>
+						<input type="hidden" name="amount" value="300.00" data-aid="PAYMENT_HIDDEN_AMOUNT"/>
+						<input type="hidden" name="shipping" value="0.00"/>
+						<input type="hidden" name="currency_code" value="USD" dataAid="PAYMENT_HIDDEN_CURRENCY"/>
+						<input type="hidden" name="rm" value="0"/>
+						<input type="hidden" name="return" value="https://rickiswalkingtours.com/"/>
+						<input type="hidden" name="cancel_return" value="https://rickiswalkingtours.com/"/>
+						<input type="hidden" name="cbt" value="Return to Ricki's Walking Tours"/>
+							<div className="flex items-center space-x-4">
+								<button type="submit" className="px-6 py-2 bg-rose-400 shadow-lg text-white rounded-full font-bold inline-block"><FontAwesomeIcon icon={faArrowRight} className="mr-2"/>Purchase</button>
+								<span className="font-bold text-black text-xl">$300</span>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -145,16 +160,7 @@ const IndexPage = ({data}) => {
 					
 				</div>
 			</div>
-			<div className="on-scroll py-20">
-						<h3 className="text-black text-4xl font-bold font-goodlife text-center">CONNECT WITH ME</h3>
-						<img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1683420929/squiggle-longer_lciuww.png" className="w-48 block mx-auto my-6"/>
-
-						<div className="items-center justify-center flex space-x-8">
-							<a href="#"><Facebook className="hover:fill-white fill-black w-20 h-20"/></a>
-							<a href="#"><Instagram className="hover:fill-white fill-black w-20 h-20"/></a>
-							<a href="#"><YouTube className="hover:fill-white fill-black w-20 h-20"/></a>
-						</div>
-					</div>
+			
 		</section>
 	</Layout>
 }
@@ -182,5 +188,7 @@ export const pageQuery = graphql`query MyQuery {
     }
   }
 }`;
+
+export const Head = () => <Seo/>
 
 export default IndexPage;

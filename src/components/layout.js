@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react"
-import {Link, Script, navigate} from 'gatsby';
+import {Link, Script, navigate, useStaticQuery, graphql} from 'gatsby';
 import {MenuButton, Facebook, Instagram, YouTube} from '../components/index';
 
 const callback = function(entries) {
@@ -32,6 +32,16 @@ const Layout = ({lang, children, className=''}) => {
 	const [open, setOpen] = useState(false);
 
 	const [menuOpen, setMenuOpen] = useState(false);
+
+	const data = useStaticQuery(graphql`
+	    query HeaderQuery {
+		  strapiSocialMedia {
+		    Instagram
+		    Facebook
+		    YouTube
+		  }
+		}
+	  `);
 
 	const closeMenu = () => {
 		setMenuOpen(false);
@@ -80,7 +90,7 @@ const Layout = ({lang, children, className=''}) => {
 	
 	return <main className={className}>
 		<Script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes" />
-		<header className=" absolute z-20 md:relative text-teal-800 py-4 w-full">
+		<header className="md:bg-white absolute z-20 md:relative text-teal-800 py-4 w-full">
 			<nav className="container mx-auto flex justify-between px-3">
 				<div className="flex items-center space-x-0 md:space-x-4">
 				<Link to={`/`} className="hidden md:block font-epicursive text-2xl lg:text-3xl text-black font-bold">Ricki's Walking Tours</Link>
@@ -126,9 +136,9 @@ const Layout = ({lang, children, className=''}) => {
 					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}#tours`}>Tours</Link></li>
 					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}#contact`} className="">Contact</Link></li>
 					<li className="pt-2 md:hidden"><div className="items-center justify-end flex space-x-8 w-full ">
-							<a href="#"><Facebook className="hover:fill-white fill-white w-8 h-8"/></a>
-							<a href="#"><Instagram className="hover:fill-white fill-white w-8 h-8"/></a>
-							<a href="#"><YouTube className="hover:fill-white fill-white w-8 h-8"/></a>
+							<a href={data.strapiSocialMedia.Facebook} target="_blank"><Facebook className="hover:fill-white fill-white w-8 h-8"/></a>
+							<a href={data.strapiSocialMedia.Instagram} target="_blank"><Instagram className="hover:fill-white fill-white w-8 h-8"/></a>
+							<a href={data.strapiSocialMedia.YouTube} target="_blank"><YouTube className="hover:fill-white fill-white w-8 h-8"/></a>
 						</div></li>
 				</ul>
 			</nav>
@@ -136,8 +146,16 @@ const Layout = ({lang, children, className=''}) => {
 		<div>
 		{children}
 		</div>
-		<div className="bg-teal-300">
+		<div className="bg-teal-300 border-t border-teal-500">
 			<div className="container mx-auto px-6 py-10 text-center">
+				<h3 className="text-black text-2xl font-bold font-goodlife text-center">CONNECT WITH ME</h3>
+						<img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1683420929/squiggle-longer_lciuww.png" className="w-32 block mx-auto my-6"/>
+
+				<div className="items-center justify-center flex space-x-8 max-w-lg mx-auto mb-8">
+					<a href="#"><Facebook className="hover:fill-white fill-black w-8 h-8"/></a>
+					<a href="#"><Instagram className="hover:fill-white fill-black w-8 h-8"/></a>
+					<a href="#"><YouTube className="hover:fill-white fill-black w-8 h-8"/></a>
+				</div>
 				<p>Copyright &copy; {new Date().getFullYear()}. Ricki's Walking Tours.</p>
 			</div>
 		</div>

@@ -6,6 +6,7 @@ import {YouTube, Instagram, Facebook, TikTok, Twitter, MenuButton} from '../comp
 import {faArrowRight, faArrowLeft, faEnvelope} from '@fortawesome/free-solid-svg-icons';
 import numeral from 'numeral';
 import Layout from '../components/layout';
+import Seo from '../components/seo';
 
 const IndexPage = ({data}) => {
 
@@ -88,14 +89,7 @@ const IndexPage = ({data}) => {
 		<section className="bg-teal-300 py-20">
 			<div className="container mx-auto px-6">
 				<div className="lg:grid grid-cols-2 gap-10 space-y-20 lg:space-y-0">
-				<div className="on-scroll">
-						<h3 className="text-black text-4xl font-bold font-goodlife text-center mb-8 text-righ">CONNECT WITH ME</h3>
-						<div className="items-center justify-center flex space-x-8">
-							<a href="#"><Facebook className="hover:fill-white fill-black w-20 h-20"/></a>
-							<a href="#"><Instagram className="hover:fill-white fill-black w-20 h-20"/></a>
-							<a href="#"><YouTube className="hover:fill-white fill-black w-20 h-20"/></a>
-						</div>
-					</div>
+					
 					<div className="on-scroll">
 						<h3 className="text-black text-right text-4xl font-bold font-goodlife">שלחו הודעה ואחזור אליכם בהקדם</h3>
 						<div className="text-right">
@@ -130,7 +124,9 @@ const IndexPage = ({data}) => {
 							</div>
 						</form>
 					</div>
-					
+					<div className="hidden lg:block bg-fixed bg-[url(https://res.cloudinary.com/meshed-nyc/h_1024,c_fill,q_auto/rs_w_1160_h_1449_y7wrsr.jpg)] bg-no-repeat lg:bg-[right_-9rem_top] xl:bg-[right_-5rem_top] w-full border-8 border-white shadow-xl ">
+						&nbsp;
+					</div>
 				</div>
 			</div>
 		</section>
@@ -170,5 +166,8 @@ export const pageQuery = graphql`query MyQuery {
     }
   }
 }`;
+
+
+export const Head = () => <Seo lang="he"/>
 
 export default IndexPage;

@@ -6,14 +6,17 @@ import {YouTube, Instagram, Facebook, TikTok, Twitter, MenuButton} from '../comp
 import {faArrowRight, faEnvelope} from '@fortawesome/free-solid-svg-icons';
 import numeral from 'numeral';
 import Layout from '../components/layout';
-
+import Seo from '../components/seo';
 
 
 
 const AboutPage = ({data}) => {
 	
 	return <Layout lang={'en'} className="bg-teal-300">
-		<div className={`bg-teal-300`}>
+		<div className="hidden md:block bg-white h-96">
+			&nbsp;
+    	</div>
+		<div className=" md:-mt-96">
 			<div className="border-b-4 border-white md:hidden relative h-[80vh] bg-cover bg-center" style={{backgroundImage: `url('${data.strapiAboutPage.Photo.formats.large.url}')`}}>
 				<div className="absolute bottom-0 left-0 w-full px-6">
 						<h1 className=" font-epicursive text-white text-center font-bold text-6xl mb-3 mx-auto on-scroll">{data.strapiAboutPage.Title}</h1>
@@ -25,17 +28,11 @@ const AboutPage = ({data}) => {
 					<div>
 						<img src={data.strapiAboutPage.Photo.formats.large.url} className="hidden md:block w-full md:border-8 md:border-white md:shadow-lg md:-rotate-3"/>
 					</div>
-					<div className="md:col-span-2 pt-5">
-						<h1 className="hidden md:block font-epicursive text-white font-bold text-6xl mb-3 mx-auto on-scroll">{data.strapiAboutPage.Title}</h1>
-						<p className="text-xl on-scroll leading-10 md:text-lg on-scroll mb-4">{data.strapiAboutPage.Description.data.Description}</p>
+					<div className="md:col-span-2 pt-5 mb-10">
+						<h1 className="md:px-6 xl:px-0 hidden md:block font-epicursive text-black font-bold text-6xl mb-5 mx-auto on-scroll">{data.strapiAboutPage.Title}</h1>
+						<p className="md:bg-white md:p-6 xl:p-0 rounded-md xl:bg-transparent text-xl on-scroll leading-10 md:text-lg on-scroll mb-4">{data.strapiAboutPage.Description.data.Description}</p>
 						<Link to={'/#tours'} className="bg-rose-400 block sm:inline-block w-full sm:w-auto sm:inline-block text-center px-8 py-3 rounded-full text-white font-bold hover:bg-rose-500"><FontAwesomeIcon icon={faArrowRight}/> Book a tour with me!</Link>
-						<div className="on-scroll">
-							<div className="items-center justify-between md:justify-start flex space-x-8 mt-6">
-								<a href="#"><Facebook className="hover:fill-white fill-black w-12 h-12 md:w-10 md:h-10"/></a>
-								<a href="#"><Instagram className="hover:fill-white fill-black w-12 h-12 md:w-10 md:h-10"/></a>
-								<a href="#"><YouTube className="hover:fill-white fill-black w-12 h-12 md:w-10 md:h-10"/></a>
-							</div>
-						</div>
+						
 					</div>
 				</div>
 
@@ -76,5 +73,7 @@ export const pageQuery = graphql`query MyQuery {
     }
   }
 }`;
+
+export const Head = () => <Seo/>
 
 export default AboutPage;
