@@ -130,11 +130,11 @@ const Layout = ({lang, children, className=''}) => {
 				<MenuButton open={menuOpen} onToggle={() => setMenuOpen(!menuOpen)} className={` md:hidden z-50`}/>
 				</div>
 				<ul className={`${menuOpen?'block motion-safe:animate-menuIn':'hidden md:!translate-x-0'} text-4xl bg-black/90 md:bg-transparent md:backdrop-blur-none backdrop-blur space-y-4 md:space-y-0 top-0 text-right  fixed md:relative h-screen md:h-auto right-0 w-3/4 md:w-auto md:flex font-calibri py-20 md:py-0 px-10 md:px-0 text-white md:text-teal-900 font-bold list-style-none md:space-x-8 md:text-base items-center`}>
-					<li className="md:hidden"><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}`}>Home</Link></li>
-					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}about`}>About</Link></li>
-					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}photography`}>Photography</Link></li>
-					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}#tours`}>Tours</Link></li>
-					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}#contact`} className="">Contact</Link></li>
+					<li className="md:hidden"><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}`}>{lang=='en'?'Home':'בית'}</Link></li>
+					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}about`}>{lang=='en'?'About':'מי אני'}</Link></li>
+					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}photography`}>{lang=='en'?'Photography':'צילומים מקצועיים'}</Link></li>
+					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}#tours`}>{lang=='en'?'Tours':'סיורים בעברית'}</Link></li>
+					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}#contact`} className="">{lang=='en'?'Contact':'צרו קשר'}</Link></li>
 					<li className="pt-2 md:hidden"><div className="items-center justify-end flex space-x-8 w-full ">
 							<a href={data.strapiSocialMedia.Facebook} target="_blank"><Facebook className="hover:fill-white fill-white w-8 h-8"/></a>
 							<a href={data.strapiSocialMedia.Instagram} target="_blank"><Instagram className="hover:fill-white fill-white w-8 h-8"/></a>
@@ -148,13 +148,13 @@ const Layout = ({lang, children, className=''}) => {
 		</div>
 		<div className="bg-teal-300 border-t border-teal-500">
 			<div className="container mx-auto px-6 py-10 text-center">
-				<h3 className="text-black text-2xl font-bold font-goodlife text-center">CONNECT WITH ME</h3>
+				<h3 className="text-black text-2xl font-bold font-goodlife text-center">{lang=='en'?'CONNECT WITH ME':'מדיה חברתית'}</h3>
 						<img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1683420929/squiggle-longer_lciuww.png" className="w-32 block mx-auto my-6"/>
 
 				<div className="items-center justify-center flex space-x-8 max-w-lg mx-auto mb-8">
-					<a href="#"><Facebook className="hover:fill-white fill-black w-8 h-8"/></a>
-					<a href="#"><Instagram className="hover:fill-white fill-black w-8 h-8"/></a>
-					<a href="#"><YouTube className="hover:fill-white fill-black w-8 h-8"/></a>
+					<a href={data.strapiSocialMedia.Facebook} target="_blank"><Facebook className="hover:fill-white fill-black w-8 h-8"/></a>
+					<a href={data.strapiSocialMedia.Instagram} target="_blank"><Instagram className="hover:fill-white fill-black w-8 h-8"/></a>
+					<a href={data.strapiSocialMedia.YouTube} target="_blank"><YouTube className="hover:fill-white fill-black w-8 h-8"/></a>
 				</div>
 				<p>Copyright &copy; {new Date().getFullYear()}. Ricki's Walking Tours.</p>
 			</div>

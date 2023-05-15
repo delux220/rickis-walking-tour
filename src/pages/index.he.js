@@ -14,9 +14,9 @@ const IndexPage = ({data}) => {
 		<section className="bg-cover relative bg-center h-[90vh] md:hidden bg-[url(https://res.cloudinary.com/meshed-nyc/q_auto/IMG_8118_atrpdt.jpg)]">
 			<div className="absolute w-full bottom-0  from-teal-300 via-transparent to-transaprent px-0">
 				<h1 className="text-center font-epicursive text-white font-bold text-6xl mb-3 mx-auto on-scroll" >אני ריקי</h1>
-				<h3 className=" font-goodlife text-white text-center font-bold text-2xl mb-3 uppercase font-bold ">Your Guide to NYC</h3>
+				<h3 className=" font-goodlife text-white text-center font-bold text-2xl mb-3 uppercase font-bold ">המדריכה שלכם לניו יורק סיטי</h3>
 				<div className="space-y-2 mb-8 px-10">
-				<button className="font-bold font-sans border border-rose-400 bg-rose-400 mr-4 text-white text-center block w-full rounded-full px-10 py-3 inline-block"><FontAwesomeIcon icon={faArrowRight} className="mr-4"/>Book a Tour</button>
+				<button className="font-bold font-sans border border-rose-400 bg-rose-400 mr-4 text-white text-center block w-full rounded-full px-10 py-3 inline-block"><FontAwesomeIcon icon={faArrowRight} className="mr-4"/>סיורים בעברית</button>
 				<button className="font-bold font-sans border border-white bg-white text-black rounded-full px-10 py-3 text-center block w-full"><FontAwesomeIcon icon={faEnvelope} className="mr-4"/>צרו קשר</button>
 				</div>
 			</div>
@@ -28,17 +28,17 @@ const IndexPage = ({data}) => {
 			<img src="https://res.cloudinary.com/meshed-nyc/q_auto/IMG_8118_atrpdt.jpg" className="border-8 h-full shadow-xl border-white -rotate-2 motion-safe:animate-fadeIn"/>
 			<div className="">
 				<h1 className="font-epicursive text-black font-bold text-7xl mb-8 mx-auto on-scroll" >אני ריקי</h1>
-				<h3 className=" font-goodlife text-teal-900 font-bold text-3xl mb-4 uppercase font-bold ">Your Guide to NYC</h3>
+				<h3 className=" font-goodlife text-teal-900 font-bold text-3xl mb-4 uppercase font-bold ">המדריכה שלכם לניו יורק סיטי</h3>
 				<h3 className=" text-teal-900  text-lg font-sans mb-4 block xl:max-w-lg">הצטרפו אלי לסימטאות מלאות ההיסטוריה של ניו יורק, לטעום מהמאכלים הטובים ביותר וליהנות מהעיר ללא הפסקה.</h3>
-				<button className="font-bold font-sans border border-rose-400 bg-rose-400 mr-4 text-white rounded-full px-10 py-4 inline-block"><FontAwesomeIcon icon={faArrowRight} className="mr-4"/>Book a Tour</button>
-				<button className="font-bold font-sans border border-black text-black rounded-full px-10 py-4 inline-block"><FontAwesomeIcon icon={faEnvelope} className="mr-4"/>Contact Me</button>
+				<button className="font-bold font-sans border border-rose-400 bg-rose-400 mr-4 text-white rounded-full px-10 py-4 inline-block"><FontAwesomeIcon icon={faArrowRight} className="mr-4"/>סיורים בעברית</button>
+				<button className="font-bold font-sans border border-black text-black rounded-full px-10 py-4 inline-block"><FontAwesomeIcon icon={faEnvelope} className="mr-4"/>צור קשר</button>
 			</div>
 		</div>
 		</div>
 		</section>
 		<section className="bg-teal-300 py-20" id="tours">
 			<div className="container mx-auto px-6">
-			<h2 className="mb-20 text-5xl text-center md:text-right text-black font-bold font-goodlife">My Tours</h2>
+			<h2 className="mb-20 text-5xl text-center md:text-right text-black font-bold font-goodlife">סיורים בעברית</h2>
 			<div className="grid-cols-2 gap-8 space-y-8">
 				{
 					data.allStrapiTour.nodes.map(tour => {
