@@ -26,6 +26,12 @@ export default function Seo({lang='en'}) {
 		}
 	  `);
 
+	const test = data.strapiSeo.localizations.data.find(local => (local.attributes.locale==lang));
+
+	console.log(test);
+
+	console.log(data.strapiSeo.localizations);
+
 	const title = lang=='en'?data.strapiSeo.Title:data.strapiSeo.localizations.data.find(local => (local.attributes.locale==lang));
 	const description = lang=='en'?data.strapiSeo.Description:data.strapiSeo.localizations.data.find(local => (local.attributes.locale==lang));
 
