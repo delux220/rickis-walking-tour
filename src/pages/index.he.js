@@ -11,7 +11,6 @@ import Seo from '../components/seo';
 const IndexPage = ({data}) => {
 
 	return <Layout lang={"he"}>
-		<Seo lang="he"/>
 		<section className="bg-cover relative bg-center h-[90vh] md:hidden bg-[url(https://res.cloudinary.com/meshed-nyc/q_auto/IMG_8118_atrpdt.jpg)]">
 			<div className="absolute w-full bottom-0  from-teal-300 via-transparent to-transaprent px-0">
 				<h1 className="text-center font-epicursive text-white font-bold text-6xl mb-3 mx-auto on-scroll" >אני ריקי</h1>

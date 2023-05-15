@@ -26,8 +26,14 @@ export default function Seo({lang='en'}) {
 		}
 	  `);
 
-	const title = lang=='en'?data.strapiSeo.Title:data.strapiSeo.localizations.data.find(local => (local.attributes.locale==lang)).attributes.Title;
-	const description = lang=='en'?data.strapiSeo.Description:data.strapiSeo.localizations.data.find(local => (local.attributes.locale==lang)).attributes.Description;
+
+	
+	const localization = data.strapiSeo.localizations.data.find(local => local.attributes.locale == lang);
+
+
+	const title = localization?localization.attributes.Title:data.strapiSeo.Title;
+	const description = localization?localization.attributes.Description:data.strapiSeo.Description;
+
 
 	return <>
       <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
