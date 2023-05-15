@@ -78,6 +78,6 @@ export const pageQuery = graphql`query MyQuery {
 }`;
 
 
-export const Head = () => <Seo lang="he"/>
+export const Head = () => <Seo lang="he-IL"/>
 
 export default AboutPage;
