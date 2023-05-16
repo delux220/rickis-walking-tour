@@ -54,7 +54,7 @@ const PhotographyPage = ({data}) => {
     chunks[chunks.length-1].push(data.strapiGallery.Photos[i]);
   }*/
 	
-	return <Layout lang={'en'} className="bg-teal-300">
+	return <Layout lang={'en'} className="bg-ricki">
     <div className="hidden md:block bg-white h-96">
 
     </div>

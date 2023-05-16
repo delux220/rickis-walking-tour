@@ -90,12 +90,12 @@ const Layout = ({lang, children, className=''}) => {
 	
 	return <main className={className}>
 		<Script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes" />
-		<header className="md:bg-white absolute z-20 md:relative text-teal-800 py-4 w-full">
+		<header className="md:bg-white absolute z-20 md:relative text-black py-4 w-full">
 			<nav className="container mx-auto flex justify-between px-3">
 				<div className="flex items-center space-x-0 md:space-x-4">
-				<Link to={`/`} className="hidden md:block font-epicursive text-2xl lg:text-3xl text-black font-bold">Ricki's Walking Tours</Link>
+				<Link to={`/`} className="hidden md:block font-epicursive text-2xl lg:text-3xl text-black font-bold"><img src="https://res.cloudinary.com/meshed-nyc/w_600,c_fill,q_auto/ricki-logo-blac_sa6r7u.png" className="h-20" alt="Ricki's Walking Tours"/></Link>
 				<div>
-				<button onClick={() => setOpen(!open)} id="language-button"  className="bg-white rounded-md  text-black  flex-shrink-0  border-white md:border-black z-10 inline-flex items-center py-2.5 px-4 text-sm  text-center  font-sans font-bold" type="button">
+				<button onClick={() => setOpen(!open)} id="language-button"  className="bg-white rounded-md  text-black  flex-shrink-0  border-white md:border-black z-10 inline-flex items-center py-2.5 px-4 text-sm md:text-lg text-center md:font-goodlife font-bold" type="button">
 		        {lang=='en'?<>
 		        	<USA/> English (US)</>:<>
 		       	    <Israel/> Hebrew (IL)
@@ -129,7 +129,7 @@ const Layout = ({lang, children, className=''}) => {
 				<div>
 				<MenuButton open={menuOpen} onToggle={() => setMenuOpen(!menuOpen)} className={` md:hidden z-50`}/>
 				</div>
-				<ul className={`${menuOpen?'block motion-safe:animate-menuIn':'hidden md:!translate-x-0'} text-4xl bg-black/90 md:bg-transparent md:backdrop-blur-none backdrop-blur space-y-4 md:space-y-0 top-0 text-right  fixed md:relative h-screen md:h-auto right-0 w-3/4 md:w-auto md:flex font-calibri py-20 md:py-0 px-10 md:px-0 text-white md:text-teal-900 font-bold list-style-none md:space-x-8 md:text-base items-center`}>
+				<ul className={`${menuOpen?'block motion-safe:animate-menuIn':'hidden md:!translate-x-0'} text-4xl bg-black/90 md:bg-transparent md:backdrop-blur-none backdrop-blur space-y-4 md:space-y-0 top-0 text-right font-calibri md:font-goodlife fixed md:relative h-screen md:h-auto right-0 w-3/4 md:w-auto md:flex  py-20 md:py-0 px-10 md:px-0 text-white md:text-black font-bold list-style-none md:space-x-8 md:text-base md:uppercase md:tracking-wider lg:text-lg lg:tracking-widest md:font-bold items-center`}>
 					<li className="md:hidden"><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}`}>{lang=='en'?'Home':'בית'}</Link></li>
 					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}about`}>{lang=='en'?'About':'מי אני'}</Link></li>
 					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}photography`}>{lang=='en'?'Photography':'צילומים מקצועיים'}</Link></li>
@@ -146,10 +146,10 @@ const Layout = ({lang, children, className=''}) => {
 		<div>
 		{children}
 		</div>
-		<div className="bg-teal-300 border-t border-teal-500">
+		<div className="bg-ricki">
 			<div className="container mx-auto px-6 py-10 text-center">
-				<h3 className="text-black text-2xl font-bold font-goodlife text-center">{lang=='en'?'CONNECT WITH ME':'מדיה חברתית'}</h3>
-						<img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1683420929/squiggle-longer_lciuww.png" className="w-32 block mx-auto my-6"/>
+				<h3 className="text-white text-2xl font-bold font-goodlife text-center">{lang=='en'?'CONNECT WITH ME':'מדיה חברתית'}</h3>
+						<img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1683420929/squiggle-longer-different-pink_oajuo7.png" className="w-48 block mx-auto my-6"/>
 
 				<div className="items-center justify-center flex space-x-8 max-w-lg mx-auto mb-8">
 					<a href={data.strapiSocialMedia.Facebook} target="_blank"><Facebook className="hover:fill-white fill-black w-8 h-8"/></a>

@@ -12,7 +12,7 @@ import Seo from '../components/seo';
 
 const AboutPage = ({data}) => {
 	
-	return <Layout lang={'en'} className="bg-teal-300">
+	return <Layout lang={'en'} className="bg-ricki">
 		<div className="hidden md:block bg-white h-96">
 			&nbsp;
     	</div>
@@ -26,12 +26,12 @@ const AboutPage = ({data}) => {
 			<div className="container mx-auto px-6 xl:px-0 md:h-[90vh] flex items-center ">
 				<div className="sm:grid sm:grid-cols-2 md:grid-cols-3 gap-8">
 					<div>
-						<img src={data.strapiAboutPage.Photo.formats.large.url} className="hidden md:block w-full md:border-8 md:border-white md:shadow-lg md:-rotate-3"/>
+						<img src={data.strapiAboutPage.Photo.formats.large.url} className="hidden md:block w-full md:border-8 md:border-white md:shadow-lg xl:-rotate-3"/>
 					</div>
 					<div className="md:col-span-2 pt-5 mb-10">
 						<h1 className="md:px-6 xl:px-0 hidden md:block font-epicursive text-black font-bold text-6xl mb-5 mx-auto on-scroll">{data.strapiAboutPage.Title}</h1>
-						<p className="md:bg-white md:p-6 xl:p-0 rounded-md xl:bg-transparent text-xl on-scroll leading-10 md:text-lg on-scroll mb-4">{data.strapiAboutPage.Description.data.Description}</p>
-						<Link to={'/#tours'} className="bg-rose-400 block sm:inline-block w-full sm:w-auto sm:inline-block text-center px-8 py-3 rounded-full text-white font-bold hover:bg-rose-500"><FontAwesomeIcon icon={faArrowRight}/> Book a tour with me!</Link>
+						<p className="md:bg-white md:text-black text-white md:p-6 xl:p-0 rounded-md xl:bg-transparent text-xl on-scroll leading-10 md:text-lg on-scroll mb-4">{data.strapiAboutPage.Description.data.Description}</p>
+						<Link to={'/#tours'} className="shadow-lg bg-rose-400 block sm:inline-block w-full sm:w-auto sm:inline-block text-center px-8 py-3 rounded-full text-white font-bold hover:bg-rose-500"><FontAwesomeIcon icon={faArrowRight}/> Book a tour with me!</Link>
 						
 					</div>
 				</div>

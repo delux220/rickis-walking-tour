@@ -6,6 +6,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        'ricki': '#01a8c3',
+        'ricki2': '#8aaefe',
+        'ricki3': '#66e9fe'
+      },
     	fontSize: {
     		'10xl': ['12rem', '11rem'],
     		'9.5xl': ['11rem', '10rem'],

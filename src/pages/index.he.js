@@ -22,7 +22,7 @@ const IndexPage = ({data}) => {
 			</div>
 		</section>
 		<section className="bg-white hidden md:block">
-		<div className=" bg-repeat-x bg-[center_bottom_-5rem] xl:bg-[center_bottom_-12rem]  bg-contain bg-[url(https://res.cloudinary.com/meshed-nyc/image/upload/v1683537115/skyline_adobe_express_ekdtpp.svg)]">
+		<div className=" bg-repeat-x bg-[center_bottom_-5rem] xl:bg-[center_bottom_-12rem]  bg-contain bg-[url(https://res.cloudinary.com/meshed-nyc/image/upload/v1683537115/skyline_adobe_express_veyjus.svg)]">
 		<div className="container mx-auto h-[90vh] px-6 py-20 flex items-center space-x-8 xl:space-x-10  ">
 
 			<img src="https://res.cloudinary.com/meshed-nyc/q_auto/IMG_8118_atrpdt.jpg" className="border-8 h-full shadow-xl border-white -rotate-2 motion-safe:animate-fadeIn"/>
@@ -36,7 +36,7 @@ const IndexPage = ({data}) => {
 		</div>
 		</div>
 		</section>
-		<section className="bg-teal-300 py-20" id="tours">
+		<section className="bg-rose-300 py-20" id="tours">
 			<div className="container mx-auto px-6">
 			<h2 className="mb-20 text-5xl text-center md:text-right text-black font-bold font-goodlife">סיורים בעברית</h2>
 			<div className="grid-cols-2 gap-8 space-y-8">
@@ -66,7 +66,7 @@ const IndexPage = ({data}) => {
 				</div>
 			</div>
 		</section>
-		<section className="bg-teal-300">
+		<section className="bg-ricki">
 			<div className="rounded-lg px-6  container mx-auto py-8 md:py-20">
 				<div className="md:grid grid-cols-2">
 					<img src="https://res.cloudinary.com/meshed-nyc/w_800,c_fill/v1683559297/brooklyn_rqodbm.jpg" className="lg:hidden block on-scroll"/>
@@ -86,7 +86,7 @@ const IndexPage = ({data}) => {
 				</div>
 			</div>
 		</section>
-		<section className="bg-teal-300 py-20">
+		<section className="bg-ricki py-20">
 			<div className="container mx-auto px-6">
 				<div className="lg:grid grid-cols-2 gap-10 space-y-20 lg:space-y-0">
 					
