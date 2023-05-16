@@ -35,13 +35,13 @@ const IndexPage = ({data}) => {
 
 	useEffect(() => {
 		const loader = new Loader({
-		  apiKey: process.env.PLACES_API_KEY,
+		  apiKey: process.env.GATSBY_PLACES_API_KEY,
 		  version: "weekly"
 		});
 
 		loader.load().then(async() => {
 			const {PlacesService} = await window.google.maps.importLibrary("places");
-			console.log(PlacesService);
+			//console.log(PlacesService);
 
 			var request = {
 			  placeId: 'ChIJlaAiaDy8UmoRw_KA3DQqFLs',
