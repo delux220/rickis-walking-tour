@@ -55,19 +55,22 @@ const PhotographyPage = ({data}) => {
   }*/
 	
 	return <Layout lang={'en'} className="bg-ricki">
-    <div className="hidden md:block bg-white h-96">
+    <div className="h-[90vh] relative block bg-white md:h-[60vh] bg-top md:bg-center bg-cover md:bg-fixed bg-[url(https://res.cloudinary.com/meshed-nyc/image/upload/v1684327277/ricki-camera2_sjuyvb.jpg)]">
+      
+      <div className="flex container mx-auto  h-full items-end md:items-center">
+        <div className="py-10 bg-gradient-to-t md:bg-none w-full from-black to-transparent px-6">
+            <h1 className="block mt-32 sm:mt-10 md:mt-0 font-epicursive text-white md:text-black font-bold text-6xl mb-6 mx-auto on-scroll">{data.strapiGallery.Title}</h1>
+            <p className="text-lg text-white md:text-black on-scroll mb-4">{data.strapiGallery.Description}</p>
 
+            <a href="#pricing" className=" bg-rose-400 px-6 py-3 text-white text-center font-bold block w-full md:w-auto md:inline-block rounded-full text-sm">View Photography Rates</a>
+          </div>
+      </div>
     </div>
-		<div className=" md:-mt-96 ">
+		<div className="pt-10 md:pt-0 md:-mt-24 ">
 			<div className="container mx-auto px-6">
-				<div className="pt-20">
-					
-					<div className="">
-						<h1 className="mt-32 sm:mt-10 md:mt-0 font-epicursive text-black font-bold text-6xl mb-6 mx-auto on-scroll">{data.strapiGallery.Title}</h1>
-						<p className="text-lg on-scroll mb-10">{data.strapiGallery.Description}</p>
-						
-					</div>
-				</div>
+				
+        
+
         <div className="md:columns-2 lg:columns-3 xl:columns-4 space-y-4 pb-20">
           {
             data.strapiGallery.Photos.map((photo, i) => <div className="on-scroll" key={`photo-${photo.id}`}>
@@ -78,7 +81,68 @@ const PhotographyPage = ({data}) => {
          
 
         </div>
+        
+          <div className="bg-white px-6 py-4 rounded-xl mb-20">
+          <h3 className="text-black text-3xl font-bold mb-4 font-goodlife text-center md:text-left">Price List</h3>
+          <img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1683420929/squiggle-longer-different-pink_oajuo7.png" className="w-48 block mx-auto md:mx-0 mt-2 mb-3"/>
 
+          <ul className="  mb-8 rounded-xl space-y-3">
+            {
+              data.strapiDestinationPhotography.PriceList.map(price => <li className="block" key={`price-${price.id}`}>
+                  <div className="md:flex md:space-x-4 items-start md:items-center justify-between text-lg"><strong className="block text-base md:text-lg">{price.PackageName}</strong><strong className="text-rose-400">{numeral(price.Price).format('$0,0.00')}</strong></div>
+                  <p className="text-slate-600">{price.Description}</p>
+                </li>)
+            }
+          </ul>
+          </div>
+          </div>
+          <div className="bg-rose-400 py-10">
+            <div className="container px-6 mx-auto">
+          <div className="grid md:grid-cols-3 gap-6 mt-8" id="contact">
+          <div>
+            <img className="rounded-xl w-full" src="https://res.cloudinary.com/meshed-nyc/image/upload/v1684326461/340891683_2480864545405687_8894096958651822475_n_i2yocf.jpg"/>
+          </div>
+          <div className="md:col-span-2">
+
+          <div className=" px-6 py-4 rounded-xl">
+            <h3 className="text-white text-3xl font-bold mb-4 font-goodlife text-center md:text-left">Contact Me</h3>
+            <img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1683420929/squiggle-longer-different-pink_oajuo7.png" className="w-48 block mx-auto md:mx-0 mt-2 mb-3"/>
+            <div className="space-y-2">
+            <div>
+                <label className="text-sm font-bold block">Name</label>
+                <input type="text" name="name" className="text-sm  border-gray-900 bg-white rounded-md px-4 py-2 w-full block" />
+              </div>
+            <div className="grid md:grid-cols-2 space-y-2 md:space-y-0">
+            
+            <div>
+                <label className="text-sm font-bold block">Email Address</label>
+                <input type="email" name="email" placeholder="you@email.com" className="text-sm border border-gray-900 bg-white rounded-md px-4 py-2 w-full block" />
+              </div>
+              <div>
+                <label className="text-sm font-bold block">Phone</label>
+                <input type="text" name="phone" className="text-sm border border-gray-900 bg-white rounded-md px-4 py-2 w-full block" />
+              </div>
+            </div>
+            <div>
+              <label className="text-sm font-bold block">Which package are you interested in?</label>
+              <select className="text-sm border px-3 py-2 rounded-md border-gray-900 w-full block">
+                {
+                data.strapiDestinationPhotography.PriceList.map(price => <option key={`option-${price.id}`} value={price.PackageName}>
+                    {price.PackageName}
+                    </option>)
+                }
+              </select>
+            </div>
+            <div>
+                <label className="text-sm font-bold block">Message</label>
+                <textarea name="message" rows={3} placeholder="Include details here..." className="text-sm border border-gray-900 bg-white rounded-md px-4 py-2 w-full block"></textarea>
+              </div>
+            </div>
+            </div>
+          </div>
+          
+        </div>
+        </div>
 			</div>
 		</div>
     {
@@ -93,6 +157,14 @@ const PhotographyPage = ({data}) => {
 }
 
 export const pageQuery = graphql`query MyQuery {
+  strapiDestinationPhotography {
+    PriceList {
+      Description
+      PackageName
+      Price
+      id
+    }
+  }
   strapiGallery {
     id
     Photos {

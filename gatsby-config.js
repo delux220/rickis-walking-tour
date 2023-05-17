@@ -18,6 +18,7 @@ const strapiConfig = {
   },
 };
 
+console.log(strapiConfig);
 /*, {
       resolve: `gatsby-source-strapi`,
       options: strapiConfig,

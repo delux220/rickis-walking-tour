@@ -3,11 +3,12 @@ import {Link, graphql, Script, navigate} from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import {YouTube, Instagram, Facebook, TikTok, Twitter, MenuButton} from '../components/index';
-import {faArrowRight, faEnvelope, faStar, faStarEmpty} from '@fortawesome/free-solid-svg-icons';
+import {faArrowRight, faEnvelope, faStar, faStarEmpty, faTimes, faCheck} from '@fortawesome/free-solid-svg-icons';
 import numeral from 'numeral';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 import { Loader } from "@googlemaps/js-api-loader"
+import ReCAPTCHA from "react-google-recaptcha";
 
 const callback = function(entries) {
   entries.forEach(entry => {
@@ -31,7 +32,23 @@ const IndexPage = ({data}) => {
 
 	const [reviews, setReviews] = useState([]);
 
+	const [captcha, setCaptcha] = useState(false);
+
+	const [showMessage, setShowMessage] = useState(false);
+
+	const [error, setError] = useState(false);
+
+	const [disabled, setDisabled] = useState(false);
+
+	const nameRef = useRef();
+
+	const emailRef = useRef();
+
+	const messageRef = useRef();
+
 	const mapRef = useRef();
+
+	const formRef = useRef();
 
 	useEffect(() => {
 		const loader = new Loader({
@@ -66,6 +83,52 @@ const IndexPage = ({data}) => {
 
 	}, []);
 
+	const submitForm = (e) => {
+		e.preventDefault();
+
+        setShowMessage(false);
+        setError(false);
+
+
+        const email = emailRef.current.value;
+
+        const name = nameRef.current.value;
+
+        const message = messageRef.current.value;
+
+        if (name.length == 0 || email.length == 0 || message.length == 0) {
+          setError('Please complete the required (*) fields');
+          return false;
+        }else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+          setError('Please enter a valid email');
+          return false;
+        } else if (captcha == false) {
+          setError('Could not send message...');
+          return false;
+        }
+
+        setDisabled(true);
+
+        const myForm = formRef.current;
+        const formData = new FormData(myForm);
+
+
+
+        formData.append('g-recaptcha-response', captcha);
+        
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(formData).toString(),
+        }).then(() => {
+          setShowMessage(true);
+        }).catch((error) => {
+          setDisabled(false);
+        });
+
+        return false
+      };
+
 	const rating = [];
 
 	if (place != null) {
@@ -94,7 +157,6 @@ const IndexPage = ({data}) => {
 	      observer.observe(target);
 	    });
 	}, [place])
-
 	
 	
 	return <Layout lang={'en'}>
@@ -110,7 +172,7 @@ const IndexPage = ({data}) => {
 		</section>
 		<section className="bg-white hidden md:block">
 		<div className=" bg-repeat-x bg-[center_bottom_-5rem] xl:bg-[center_bottom_-12rem]  bg-contain bg-[url(https://res.cloudinary.com/meshed-nyc/image/upload/v1684213143/skyline_adobe_express_vuebrw.svg)]">
-		<div className="container mx-auto h-[90vh] px-4 md:px-0 lg:px-6 py-10 xl:py-6 flex items-center space-x-8 xl:space-x-10  ">
+		<div className="container mx-auto h-[90vh] lg:h-[80vh] px-4 md:px-0 lg:px-6 py-10 xl:py-6 flex items-center space-x-8 xl:space-x-10  ">
 
 			<img src="https://res.cloudinary.com/meshed-nyc/q_auto/IMG_8118_atrpdt.jpg" className="border-8 h-full shadow-xl border-white -rotate-2 motion-safe:animate-fadeIn"/>
 			<div className="">
@@ -175,28 +237,15 @@ const IndexPage = ({data}) => {
 						&nbsp;
 					</div>
 					<div className=" lg:px-8 py-6 on-scroll">
-						<h3 className="text-white text-4xl font-bold font-goodlife">Destination Photography</h3>
+						<h3 className="text-white text-4xl font-bold font-goodlife">{data.strapiDestinationPhotography.Title}</h3>
 						<img src="https://res.cloudinary.com/meshed-nyc/squiggle-longer-different-pink_oajuo7.png" className="w-48 block my-3"/>
 						<h5 className="font-goodlife text-white text-lg font-bold mb-1">Why Take Pictures With Me?</h5>
-						<p className="text-white/80 xl:text-lg mb-4">If you hate taking pictures, if you find yourself frozen infront of the camera, if you need someone cool to pretend you're not about to propose, I'm your gal. In addition to having a top notch photography equipment I'm also a director and a great ice breaker so we can get you to look in your own element as soon as the first photo. Before the session we go over wardrobe options, figure out the best location & get to know each other so we can have fun during the photoshoot. I'm a NYC local, also work as a tour guide & familiar with the best spots around town. You will learn the history as we take your fabulous photos :D</p>
-						<form ariaLive="polite" dataUx="Form" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-						<input type="hidden" name="edit_selector" data-aid="EDIT_PANEL_EDIT_PAYMENT_ICON"/>
-						<input type="hidden" name="business" value="thinkpink007@gmail.com"/>
-						<input type="hidden" name="cmd" value="_xclick"/>
-						<input type="hidden" name="item_name" value="PICK YOUR LOCATION"/>
-						<input type="hidden" name="item_number"/>
-						<input type="hidden" name="amount" value="300.00" data-aid="PAYMENT_HIDDEN_AMOUNT"/>
-						<input type="hidden" name="shipping" value="0.00"/>
-						<input type="hidden" name="currency_code" value="USD" dataAid="PAYMENT_HIDDEN_CURRENCY"/>
-						<input type="hidden" name="rm" value="0"/>
-						<input type="hidden" name="return" value="https://rickiswalkingtours.com/"/>
-						<input type="hidden" name="cancel_return" value="https://rickiswalkingtours.com/"/>
-						<input type="hidden" name="cbt" value="Return to Ricki's Walking Tours"/>
-							<div className="flex items-center space-x-4">
-								<Link to="/photography"  className="px-6 py-2 bg-rose-400 shadow-lg text-white rounded-full font-bold inline-block"><FontAwesomeIcon icon={faArrowRight} className="mr-2"/>Photography Services</Link>
-								
-							</div>
-						</form>
+						<p className="text-white/80 xl:text-lg mb-4" dangerouslySetInnerHTML={{__html: data.strapiDestinationPhotography.Description.data.Description.replaceAll("\n", '<br/>')}}/>
+						
+						<div className="flex items-center space-x-4">
+							<Link to="/photography"  className="px-6 py-2 bg-rose-400 shadow-lg text-white rounded-full font-bold inline-block"><FontAwesomeIcon icon={faArrowRight} className="mr-2"/>Photography Services</Link>
+							
+						</div>
 					</div>
 				</div>
 			</div>
@@ -258,34 +307,49 @@ const IndexPage = ({data}) => {
 				<div className="lg:grid grid-cols-2 gap-10 xl:gap-12 space-y-20 lg:space-y-0">
 					<div className="on-scroll">
 						<h3 className="text-white text-4xl font-bold font-goodlife">Have Questions? Contact me!</h3>
-												<img src="https://res.cloudinary.com/meshed-nyc/squiggle-longer-different-pink_oajuo7.png" className="w-48 block my-3"/>
+												<img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1684323019/squiggle-black_desmmw.png" className="w-48 block my-3"/>
 
-						<form>
+						<form netlify="true" name="contact" ref={formRef} onSubmit={submitForm}>
+							<input type="hidden" name="form-name" value="contact"/>
 							<div className="space-y-3">
 								<div>
 									<label className="block text-white text-sm font-bold">Name *</label>
-									<input type="text" className="bg-white rounded-md px-4 py-2 w-full block" />
+									<input type="text" className="bg-white rounded-md px-4 py-2 w-full block" ref={nameRef} name="name" />
 								</div>
 								<div>
 									<label className="block text-white text-sm font-bold">Email Address *</label>
-									<input type="email" className="bg-white rounded-md px-4 py-2 w-full block" />
+									<input type="email" className="bg-white rounded-md px-4 py-2 w-full block" name="email" ref={emailRef}/>
 								</div>
 								<div className="sm:grid grid-cols-2 gap-4 space-y-3 sm:space-y-0">
 									<div>
 										<label className="block text-white text-sm font-bold">Requested Tour Date(s)</label>
-										<input type="email" className="bg-white rounded-md px-4 py-2 w-full block" />
+										<input name="requested_tour_dates" type="text" className="bg-white rounded-md px-4 py-2 w-full block" />
 									</div>
 									<div>
 										<label className="block text-white text-sm font-bold">Number of Guests</label>
-										<input type="number" className="bg-white rounded-md px-4 py-2 w-full block" />
+										<input name="number_of_guests" type="number" className="bg-white rounded-md px-4 py-2 w-full block" />
 									</div>
 								</div>
 								<div className="">
 									<label className="block text-white text-sm font-bold">Message *</label>
-									<textarea rows={4} className="bg-white rounded-md px-4 py-2 w-full block" placeholder="What tour are you interested in? Do you have a special request?"></textarea>
+									<textarea name="message" ref={messageRef} rows={4} className="bg-white rounded-md px-4 py-2 w-full block" placeholder="What tour are you interested in? Do you have a special request?"></textarea>
 								</div>
-								<button className="on-scroll font-bold font-sans border border-black bg-black mr-4 text-white text-center block w-full sm:w-auto rounded-full px-10 py-4 inline-block"><FontAwesomeIcon icon={faArrowRight} className="mr-4"/>Send Message</button>
-
+								<div>
+									<ReCAPTCHA
+							            sitekey={process.env.GATSBY_RECAPTCHA_KEY}
+							            onChange={setCaptcha}
+							          />
+								</div>
+								{
+									error!=false&&<span className="text-red-600 bg-red-50 motion-safe:animate-fadeIn font-bold shadow px-5 py-2 w-full text-center rounded-full flex items-center space-x-1 justify-center"><FontAwesomeIcon icon={faTimes} className=""/><span>{error}</span></span>
+								}
+								{
+									showMessage!=false&&<span className="text-lime-600 motion-safe:animate-fadeIn  font-bold shadow px-5 py-2 inline-block w-full text-center rounded-full bg-lime-50 flex items-center space-x-1 justify-center"><FontAwesomeIcon icon={faCheck} className=""/><span>Thank you for your message! I'll be in touch.</span></span>
+								}
+								<div className="">
+									<button type="submit" disabled={disabled||captcha==false} className="disabled:bg-black/30 on-scroll font-bold font-sans  bg-black mr-4 text-white text-center block w-full sm:w-auto rounded-full px-10 py-4 inline-block"><FontAwesomeIcon icon={faArrowRight} className="mr-4"/>Send Message</button>
+									
+								</div>
 							</div>
 						</form>
 					</div>
@@ -301,6 +365,14 @@ const IndexPage = ({data}) => {
 }
 
 export const pageQuery = graphql`query MyQuery {
+	strapiDestinationPhotography {
+		Title
+		Description {
+			data {
+				Description
+			}
+		}
+	}
   allStrapiTour {
     nodes {
       id
