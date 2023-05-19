@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react"
 import {Link, Script, navigate, useStaticQuery, graphql} from 'gatsby';
-import {MenuButton, Facebook, Instagram, YouTube} from '../components/index';
+import {MenuButton, Facebook, Instagram, YouTube, WhatsApp} from '../components/index';
 
 const callback = function(entries) {
   entries.forEach(entry => {
@@ -27,7 +27,7 @@ const Israel = () => {
 
 }
 
-const Layout = ({lang, children, className=''}) => {
+const Layout = ({lang, children, className='', headerClass='', footerClass='bg-ricki', current=''}) => {
 
 	const [open, setOpen] = useState(false);
 
@@ -90,12 +90,12 @@ const Layout = ({lang, children, className=''}) => {
 	
 	return <main className={className}>
 		<Script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes" />
-		<header className="md:bg-white absolute z-20 md:relative text-black py-4 w-full">
-			<nav className="container mx-auto flex justify-between px-3">
+		<header className={`${headerClass==''?'absolute z-20 md:relative text-white md:text-black md:bg-white':headerClass} py-4 w-full`}>
+			<nav className="container mx-auto flex justify-between lg:px-3">
 				<div className="flex items-center space-x-0 md:space-x-4">
 				<Link to={`/`} className="hidden md:block font-epicursive text-2xl lg:text-3xl text-black font-bold"><img src="https://res.cloudinary.com/meshed-nyc/w_600,c_fill,q_auto/ricki-logo-blac_sa6r7u.png" className="h-20" alt="Ricki's Walking Tours"/></Link>
 				<div>
-				<button onClick={() => setOpen(!open)} id="language-button"  className="bg-white rounded-md  text-black  flex-shrink-0  border-white md:border-black z-10 inline-flex items-center py-2.5 px-4 text-sm md:text-lg text-center md:font-goodlife font-bold" type="button">
+				<button onClick={() => setOpen(!open)} id="language-button"  className="ml-3 md:ml-0 bg-white rounded-md  text-black  flex-shrink-0  border-white md:border-black z-10 inline-flex items-center py-2.5 px-4 text-sm lg:text-lg text-center md:font-goodlife font-bold" type="button">
 		        {lang=='en'?<>
 		        	<USA/> English (US)</>:<>
 		       	    <Israel/> Hebrew (IL)
@@ -129,16 +129,17 @@ const Layout = ({lang, children, className=''}) => {
 				<div>
 				<MenuButton open={menuOpen} onToggle={() => setMenuOpen(!menuOpen)} className={` md:hidden z-50`}/>
 				</div>
-				<ul className={`${menuOpen?'block motion-safe:animate-menuIn':'hidden md:!translate-x-0'} text-4xl bg-black/90 md:bg-transparent md:backdrop-blur-none backdrop-blur space-y-4 md:space-y-0 top-0 text-right font-calibri md:font-goodlife fixed md:relative h-screen md:h-auto right-0 w-3/4 md:w-auto md:flex  py-20 md:py-0 px-10 md:px-0 text-white md:text-black font-bold list-style-none md:space-x-8 md:text-base md:uppercase md:tracking-wider lg:text-lg lg:tracking-widest md:font-bold items-center`}>
+				<ul className={`${menuOpen?'block motion-safe:animate-menuIn':'hidden md:!translate-x-0'} text-4xl bg-black/90 md:bg-transparent md:backdrop-blur-none backdrop-blur space-y-4 md:space-y-0 top-0 text-right font-calibri md:font-goodlife fixed md:relative h-screen md:h-auto right-0 w-3/4 md:w-auto md:flex  py-20 md:py-0 px-10 md:px-0  font-bold list-style-none md:space-x-8 md:text-base md:uppercase md:tracking-wider lg:text-lg lg:tracking-widest md:font-bold items-center`}>
 					<li className="md:hidden"><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}`}>{lang=='en'?'Home':'בית'}</Link></li>
-					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}about`}>{lang=='en'?'About':'מי אני'}</Link></li>
-					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}photography`}>{lang=='en'?'Photography':'צילומים מקצועיים'}</Link></li>
+					<li><Link className={`md:border-b-4 ${current=='about'?'md:border-ricki':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}about`}>{lang=='en'?'About':'מי אני'}</Link></li>
+					<li><Link className={`md:border-b-4 ${current=='photography'?'md:border-ricki':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}photography`}>{lang=='en'?'Photography':'צילומים מקצועיים'}</Link></li>
 					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}#tours`}>{lang=='en'?'Tours':'סיורים בעברית'}</Link></li>
 					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}#contact`} className="">{lang=='en'?'Contact':'צרו קשר'}</Link></li>
 					<li className="pt-2 md:hidden"><div className="items-center justify-end flex space-x-8 w-full ">
 							<a href={data.strapiSocialMedia.Facebook} target="_blank"><Facebook className="hover:fill-white fill-white w-8 h-8"/></a>
 							<a href={data.strapiSocialMedia.Instagram} target="_blank"><Instagram className="hover:fill-white fill-white w-8 h-8"/></a>
 							<a href={data.strapiSocialMedia.YouTube} target="_blank"><YouTube className="hover:fill-white fill-white w-8 h-8"/></a>
+							<a href="https://wa.me/13107755756" target="_blank"><WhatsApp className="hover:fill-white fill-white w-8 h-8"/></a>
 						</div></li>
 				</ul>
 			</nav>
@@ -146,7 +147,7 @@ const Layout = ({lang, children, className=''}) => {
 		<div>
 		{children}
 		</div>
-		<div className="bg-ricki">
+		<div className={footerClass}>
 			<div className="container mx-auto px-6 py-10 text-center">
 				<h3 className="text-white text-2xl font-bold font-goodlife text-center">{lang=='en'?'CONNECT WITH ME':'מדיה חברתית'}</h3>
 						<img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1683420929/squiggle-longer-different-pink_oajuo7.png" className="w-48 block mx-auto my-6"/>
@@ -155,6 +156,7 @@ const Layout = ({lang, children, className=''}) => {
 					<a href={data.strapiSocialMedia.Facebook} target="_blank"><Facebook className="hover:fill-white fill-black w-8 h-8"/></a>
 					<a href={data.strapiSocialMedia.Instagram} target="_blank"><Instagram className="hover:fill-white fill-black w-8 h-8"/></a>
 					<a href={data.strapiSocialMedia.YouTube} target="_blank"><YouTube className="hover:fill-white fill-black w-8 h-8"/></a>
+					<a href="https://wa.me/13107755756" target="_blank"><WhatsApp className="hover:fill-white fill-black w-8 h-8"/></a>
 				</div>
 				<p>Copyright &copy; {new Date().getFullYear()}. Ricki's Walking Tours.</p>
 			</div>

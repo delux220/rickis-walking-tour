@@ -12,12 +12,12 @@ import Seo from '../components/seo';
 
 const AboutPage = ({data}) => {
 	
-	return <Layout lang={'en'} className="bg-ricki">
+	return <Layout lang={'en'} className="bg-ricki" current="about">
 		<div className="hidden md:block bg-white h-96">
 			&nbsp;
     	</div>
 		<div className=" md:-mt-96">
-			<div className="border-b-4 border-white md:hidden relative h-[80vh] bg-cover bg-center" style={{backgroundImage: `url('${data.strapiAboutPage.Photo.formats.large.url}')`}}>
+			<div className=" border-white md:hidden relative h-[90vh] bg-cover bg-center" style={{backgroundImage: `url('${data.strapiAboutPage.Photo.formats.large.url}')`}}>
 				<div className="absolute bottom-0 left-0 w-full px-6">
 						<h1 className=" font-epicursive text-white text-center font-bold text-6xl mb-3 mx-auto on-scroll">{data.strapiAboutPage.Title}</h1>
 				</div>

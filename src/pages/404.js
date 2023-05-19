@@ -12,7 +12,7 @@ import Seo from '../components/seo';
 
 const FourOFourPage = () => {
 	
-	return <Layout lang={'en'} className="bg-teal-300">
+	return <Layout lang={'en'} className="bg-white">
 		<div className="container mx-auto min-h-[70vh] justify-center flex items-center">
       <div className="text-center">
       <h1 className="md:px-6 xl:px-0 hidden md:block text-black font-bold text-6xl mb-5 mx-auto on-scroll">Page Not Found</h1>

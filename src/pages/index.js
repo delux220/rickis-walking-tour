@@ -159,22 +159,22 @@ const IndexPage = ({data}) => {
 	}, [place])
 	
 	
-	return <Layout lang={'en'}>
+	return <Layout lang={'en'} footerClass="bg-rose-400">
 		<section className="bg-cover relative bg-center h-[90vh] md:hidden bg-[url(https://res.cloudinary.com/meshed-nyc/q_auto/IMG_8118_atrpdt.jpg)]">
-			<div className="absolute w-full bottom-0  from-teal-300 via-transparent to-transaprent px-0">
+			<div className="absolute w-full bottom-0  px-0">
 				<h1 className="text-center font-epicursive text-white font-bold text-6xl mb-3 mx-auto on-scroll" >Hey<span className="translate-y-4 inline-block">,</span> I'm Ricki!</h1>
 				<h3 className=" font-goodlife text-white text-center font-bold text-2xl mb-3 uppercase font-bold on-scroll">Your Guide to NYC</h3>
-				<div className="space-y-2 mb-8 px-10">
+				<div className="space-y-2 mb-8 px-6">
 				<button className="font-bold font-sans border border-rose-400 bg-rose-400 mr-4 text-white text-center block w-full rounded-full px-10 py-3 inline-block"><FontAwesomeIcon icon={faArrowRight} className="mr-4"/>Book a Tour</button>
 				<a href="/#contact" className="font-bold font-sans border bg-white border-white bg-white text-black rounded-full px-10 py-3 text-center block w-full"><FontAwesomeIcon icon={faEnvelope} className="mr-4"/>Contact Me</a>
 				</div>
 			</div>
 		</section>
 		<section className="bg-white hidden md:block">
-		<div className=" bg-repeat-x bg-[center_bottom_-5rem] xl:bg-[center_bottom_-12rem]  bg-contain bg-[url(https://res.cloudinary.com/meshed-nyc/image/upload/v1684213143/skyline_adobe_express_vuebrw.svg)]">
+		<div className=" bg-repeat-x bg-[center_bottom_-5rem] xl:bg-[center_bottom_-12rem]  bg-contain bg-[url(https://res.cloudinary.com/meshed-nyc/image/upload/v1684490282/skyline-new_jxaw7j.png)]">
 		<div className="container mx-auto h-[90vh] lg:h-[80vh] px-4 md:px-0 lg:px-6 py-10 xl:py-6 flex items-center space-x-8 xl:space-x-10  ">
 
-			<img src="https://res.cloudinary.com/meshed-nyc/q_auto/IMG_8118_atrpdt.jpg" className="border-8 h-full shadow-xl border-white -rotate-2 motion-safe:animate-fadeIn"/>
+			<img src="https://res.cloudinary.com/meshed-nyc/q_auto/IMG_8118_atrpdt.jpg" className="border-8  rounded-xl h-full shadow-xl border-white -rotate-2 motion-safe:animate-fadeIn"/>
 			<div className="">
 				<h1 className="font-epicursive text-black font-bold text-7xl mb-8 mx-auto on-scroll" >Hey<span className="translate-y-4 inline-block">,</span> I'm Ricki!</h1>
 				<h3 className=" font-goodlife text-teal-900 font-bold text-3xl mb-4 uppercase font-bold ">Your Guide to NYC</h3>
@@ -233,7 +233,7 @@ const IndexPage = ({data}) => {
 					<div className="flex lg:hidden on-scroll items-center">
 					<img src="https://res.cloudinary.com/meshed-nyc/w_800,c_fill/v1683559297/brooklyn_rqodbm.jpg" className="w-full"/>
 					</div>
-					<div className="hidden lg:block bg-fixed bg-[url(https://res.cloudinary.com/meshed-nyc/w_800,c_fill/v1683559297/brooklyn_rqodbm.jpg)]  bg-no-repeat bg-top-left w-full md:h-128 border-8 border-white shadow-xl ">
+					<div className="hidden lg:block bg-fixed bg-[url(https://res.cloudinary.com/meshed-nyc/w_800,c_fill/v1683559297/brooklyn_rqodbm.jpg)] rounded-xl bg-no-repeat bg-top-left w-full md:h-128 border-8 border-white shadow-xl ">
 						&nbsp;
 					</div>
 					<div className=" lg:px-8 py-6 on-scroll">
@@ -341,10 +341,10 @@ const IndexPage = ({data}) => {
 							          />
 								</div>
 								{
-									error!=false&&<span className="text-red-600 bg-red-50 motion-safe:animate-fadeIn font-bold shadow px-5 py-2 w-full text-center rounded-full flex items-center space-x-1 justify-center"><FontAwesomeIcon icon={faTimes} className=""/><span>{error}</span></span>
+									error!=false&&<div><span className="text-white motion-safe:animate-fadeIn font-bold">{error}</span></div>
 								}
 								{
-									showMessage!=false&&<span className="text-lime-600 motion-safe:animate-fadeIn  font-bold shadow px-5 py-2 inline-block w-full text-center rounded-full bg-lime-50 flex items-center space-x-1 justify-center"><FontAwesomeIcon icon={faCheck} className=""/><span>Thank you for your message! I'll be in touch.</span></span>
+									showMessage!=false&&<div><span className="text-white motion-safe:animate-fadeIn font-bold">Thank you for your message! I'll be in touch.</span></div>
 								}
 								<div className="">
 									<button type="submit" disabled={disabled||captcha==false} className="disabled:bg-black/30 on-scroll font-bold font-sans  bg-black mr-4 text-white text-center block w-full sm:w-auto rounded-full px-10 py-4 inline-block"><FontAwesomeIcon icon={faArrowRight} className="mr-4"/>Send Message</button>
@@ -353,7 +353,7 @@ const IndexPage = ({data}) => {
 							</div>
 						</form>
 					</div>
-					<div className="hidden lg:block bg-fixed bg-[url(https://res.cloudinary.com/meshed-nyc/h_1024,c_fill,q_auto/rs_w_1160_h_1449_y7wrsr.jpg)] bg-no-repeat lg:bg-[right_-9rem_top] xl:bg-[right_-5rem_top] w-full border-8 border-white shadow-xl ">
+					<div className="hidden lg:block bg-fixed rounded-xl bg-[url(https://res.cloudinary.com/meshed-nyc/h_1024,c_fill,q_auto/rs_w_1160_h_1449_y7wrsr.jpg)] bg-no-repeat lg:bg-[right_-9rem_top] xl:bg-[right_-5rem_top] w-full border-8 border-white shadow-xl ">
 						&nbsp;
 					</div>
 					
