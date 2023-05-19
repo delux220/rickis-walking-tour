@@ -165,7 +165,7 @@ const IndexPage = ({data}) => {
 				<h1 className="text-center font-epicursive text-white font-bold text-6xl mb-3 mx-auto on-scroll" >Hey<span className="translate-y-4 inline-block">,</span> I'm Ricki!</h1>
 				<h3 className=" font-goodlife text-white text-center font-bold text-2xl mb-3 uppercase font-bold on-scroll">Your Guide to NYC</h3>
 				<div className="space-y-2 mb-8 px-6">
-				<button className="font-bold font-sans border border-rose-400 bg-rose-400 mr-4 text-white text-center block w-full rounded-full px-10 py-3 inline-block"><FontAwesomeIcon icon={faArrowRight} className="mr-4"/>Book a Tour</button>
+				<a href="https://fareharbor.com/embeds/book/guidedtoursnyc/?full-items=yes&language=en-us&u=f47e9dfd-04ed-4ca1-960c-04da78951fce&from-ssl=yes&ga4t=G-XDVQTYZ0FJ,974959174.1683229789__1684492288%3B&g4=yes&a=yes&back=https://rickiswalkingtours.com/" className="font-bold font-sans border border-rose-400 bg-rose-400 mr-4 text-white text-center block w-full rounded-full px-10 py-3 inline-block"><FontAwesomeIcon icon={faArrowRight} className="mr-4"/>Book a Tour</a>
 				<a href="/#contact" className="font-bold font-sans border bg-white border-white bg-white text-black rounded-full px-10 py-3 text-center block w-full"><FontAwesomeIcon icon={faEnvelope} className="mr-4"/>Contact Me</a>
 				</div>
 			</div>
@@ -309,7 +309,7 @@ const IndexPage = ({data}) => {
 						<h3 className="text-white text-4xl font-bold font-goodlife">Have Questions? Contact me!</h3>
 												<img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1684323019/squiggle-black_desmmw.png" className="w-48 block my-3"/>
 
-						<form netlify="true" name="contact" ref={formRef} onSubmit={submitForm}>
+						<form name="contact" ref={formRef} netlify="true" onSubmit={submitForm}>
 							<input type="hidden" name="form-name" value="contact"/>
 							<div className="space-y-3">
 								<div>
