@@ -102,7 +102,7 @@ const PhotographyPage = ({data}) => {
             <h1 className="block text-right mt-32 sm:mt-10 md:mt-0 font-epicursive text-white md:text-black font-bold text-6xl mb-8 mx-auto on-scroll">{data.strapiGallery.Title}</h1>
             <p className="text-lg text-right text-white md:text-black md:font-medium on-scroll mb-8">{data.strapiGallery.Description}</p>
             <div className="space-y-2 md:space-y-0 md:space-x-2 text-right">
-            <a href="#contact" className=" bg-rose-400 px-6 py-3 border-2 border-rose-400 hover:border-rose-500 hover:bg-rose-500 ml-4 text-white text-center font-bold block w-full md:w-auto md:inline-block rounded-full"><FontAwesomeIcon icon={faEnvelope}/> Contact me</a>
+            <a href="#contact" className=" bg-rose-400 px-6 py-3 border-2 border-rose-400 hover:border-rose-500 hover:bg-rose-500 ml-4 text-white text-center font-bold block w-full md:w-auto md:inline-block rounded-full"><FontAwesomeIcon icon={faEnvelope}/> צור קשר</a>
             <a href="#pricing" className="  bg-white hover:border-white border-2 border-white md:border-black px-6 py-3 text-black text-center font-bold block w-full md:w-auto md:inline-block rounded-full">View Pricing List</a>
             </div>
         </div>
@@ -149,7 +149,7 @@ const PhotographyPage = ({data}) => {
           <div className="md:col-span-2">
 
           <div className=" sm:px-6 py-4 rounded-xl">
-            <h3 className="text-white text-3xl font-bold mb-4 font-goodlife text-center md:text-right">Contact Me</h3>
+            <h3 className="text-white text-3xl font-bold mb-4 font-goodlife text-center md:text-right">צור קשר</h3>
             
             <img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1683420929/squiggle-longer-different-pink_oajuo7.png" className="w-48 block mx-auto md:mx-0 mt-2 mb-3"/>
             <form ref={formRef}  action="/" name="photography" netlify="true" onSubmit={submitForm}>
@@ -166,7 +166,7 @@ const PhotographyPage = ({data}) => {
                 <input id="email" type="email" ref={emailRef} name="email" placeholder="you@email.com" className="text-sm border border-white bg-white rounded-md px-4 py-2 w-full block" />
               </div>
               <div>
-                <label htmlFor="phone" className="text-sm font-bold block text-white">Phone</label>
+                <label htmlFor="phone" className="text-sm font-bold block text-white">מספר טלפון</label>
                 <input id="phone" type="text" name="phone" className="text-sm border border-white bg-white rounded-md px-4 py-2 w-full block" />
               </div>
             </div>
