@@ -198,9 +198,9 @@ const IndexPage = ({data}) => {
 
 							<div className="">
 								<h3 className=" font-bold text-2xl xl:text-3xl font-goodlife text-white mb-1">{tour.Title}</h3>
-								<div className="flex items-center space-x-1 text-teal-900 font-bold">
+								<div className="flex items-center space-x-1 text-teal-400 font-bold">
 									
-									<span className="text-white text-sm sm:text-base md:text-lg rounded-full font-bold">{numeral(tour.Price).format('$0,0.00')}</span>
+									<span className="text-white text-sm sm:text-base md:text-lg rounded-full font-bold">{numeral(tour.Price).format('$0,0.00')} per person</span>
 									<span>&middot;</span>
 									<span className="text-white text-sm sm:text-base md:text-lg font-bold">{tour.Duration} {tour.Duration==1?'hr':'hrs'}</span>
 									{
