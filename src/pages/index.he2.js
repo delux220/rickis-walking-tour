@@ -179,7 +179,7 @@ const IndexPage = ({data}) => {
 				<h1 className="font-epicursive text-black font-bold text-7xl mb-8 mx-auto on-scroll" >Hey<span className="translate-y-4 inline-block">,</span> I'm Ricki!</h1>
 				<h3 className=" font-goodlife text-teal-900 font-bold text-3xl mb-4 uppercase font-bold ">Your Guide to NYC</h3>
 				<h3 className=" text-teal-900  text-lg font-sans mb-4 block xl:max-w-lg">I'm a photographer 📷, licensed NYC tour guide 🗽, part-time stand up comedian 🎤, and full-time adventurer!</h3>
-				<a href="https://fareharbor.com/embeds/book/guidedtoursnyc/?full-items=yes&language=en-us&u=f47e9dfd-04ed-4ca1-960c-04da78951fce&from-ssl=yes&ga4t=G-XDVQTYZ0FJ,974959174.1683229789__1684492288%3B&g4=yes&a=yes&back=https://rickiswalkingtours.com/" className="font-bold font-sans border border-rose-400 bg-rose-400 mr-4 mb-2 lg:mb-0 text-white rounded-full px-10 py-4 block w-full lg:w-auto lg:inline-block"><FontAwesomeIcon icon={faArrowRight} className="mr-4"/>Book a Tour</a>
+				<button className="font-bold font-sans border border-rose-400 bg-rose-400 mr-4 mb-2 lg:mb-0 text-white rounded-full px-10 py-4 block w-full lg:w-auto lg:inline-block"><FontAwesomeIcon icon={faArrowRight} className="mr-4"/>Book a Tour</button>
 				<a href="/#contact" className="font-bold font-sans border bg-white border-black text-black rounded-full px-10 py-4 block w-full text-center lg:w-auto lg:inline-block"><FontAwesomeIcon icon={faEnvelope} className="mr-4"/>Contact Me</a>
 			</div>
 		</div>
@@ -365,7 +365,7 @@ const IndexPage = ({data}) => {
 }
 
 export const pageQuery = graphql`query MyQuery {
-	strapiDestinationPhotography(locale: {eq: "en"}) {
+	strapiDestinationPhotography(locale: {eq: "he-IL"}) {
 		Title
 		Description {
 			data {
@@ -373,7 +373,7 @@ export const pageQuery = graphql`query MyQuery {
 			}
 		}
 	}
-  allStrapiTour(filter: {locale: {eq: "en"}}) {
+  allStrapiTour(filter: {locale: {eq: "he-IL"}}) {
     nodes {
       id
       Description

@@ -42,7 +42,7 @@ const AboutPage = ({data}) => {
 }
 
 export const pageQuery = graphql`query MyQuery {
-  strapiAboutPage {
+  strapiAboutPage(locale: {eq: "en"}) {
     id
     Title
     Description {
@@ -51,15 +51,7 @@ export const pageQuery = graphql`query MyQuery {
       }
     }
     locale
-    localizations {
-      data {
-        attributes {
-          Description
-          Title
-          locale
-        }
-      }
-    }
+    
     Photo {
       formats {
         medium {

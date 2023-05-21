@@ -5,8 +5,42 @@ require("dotenv").config({
 const strapiConfig = {
   apiURL: process.env.STRAPI_API_URL,
   accessToken: process.env.STRAPI_TOKEN,
-  collectionTypes: ['tour'],
-  singleTypes: ['social-media', 'about-page', 'gallery', 'destination-photography', 'seo'],
+  collectionTypes: [{
+    singularName: 'tour',
+    pluginOptions: {
+      i18n: {
+        locale: "all", // Fetch all localizations
+      },
+    }
+  }],
+  singleTypes: ['social-media', {
+    singularName:'about-page',
+    pluginOptions: {
+      i18n: {
+        locale: "all", // Fetch all localizations
+      },
+    }
+  },
+    {
+    singularName:'gallery',
+    pluginOptions: {
+      i18n: {
+        locale: "all", // Fetch all localizations
+      },
+    }
+  }, {
+    singularName: 'destination-photography',
+    pluginOptions: {
+        i18n: {
+          locale: "all", // Fetch all localizations
+        },
+      },
+    queryParams: {
+      'populate': {
+        'PriceList': '*'
+      }
+    }
+  }, 'seo'],
   remoteFileHeaders: {
     /**
      * Customized request headers

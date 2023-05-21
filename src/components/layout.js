@@ -93,7 +93,7 @@ const Layout = ({lang, children, className='', headerClass='', footerClass='bg-r
 		<header className={`${headerClass==''?'absolute z-20 md:relative text-white md:text-black md:bg-white':headerClass} py-4 w-full`}>
 			<nav className="container mx-auto flex justify-between lg:px-3">
 				<div className="flex items-center space-x-0 md:space-x-4">
-				<Link to={`/`} className="hidden md:block font-epicursive text-2xl lg:text-3xl text-black font-bold"><img src="https://res.cloudinary.com/meshed-nyc/w_600,c_fill,q_auto/ricki-logo-blac_sa6r7u.png" className="h-20" alt="Ricki's Walking Tours"/></Link>
+				<Link to={lang=='en'?`/`:`/he`} className="hidden md:block font-epicursive text-2xl lg:text-3xl text-black font-bold"><img src="https://res.cloudinary.com/meshed-nyc/w_600,c_fill,q_auto/ricki-logo-blac_sa6r7u.png" className="h-20" alt="Ricki's Walking Tours"/></Link>
 				<div>
 				<button onClick={() => setOpen(!open)} id="language-button"  className="ml-3 md:ml-0 bg-white rounded-md  text-black  flex-shrink-0  border-white md:border-black z-10 inline-flex items-center py-2.5 px-4 text-sm lg:text-lg text-center md:font-goodlife font-bold" type="button">
 		        {lang=='en'?<>
@@ -129,13 +129,13 @@ const Layout = ({lang, children, className='', headerClass='', footerClass='bg-r
 				<div>
 				<MenuButton open={menuOpen} onToggle={() => setMenuOpen(!menuOpen)} className={` md:hidden z-50`}/>
 				</div>
-				<ul className={`${menuOpen?'block motion-safe:animate-menuIn':'hidden md:!translate-x-0'} text-4xl bg-black/90 md:bg-transparent md:backdrop-blur-none backdrop-blur space-y-4 md:space-y-0 top-0 text-right font-calibri md:font-goodlife fixed md:relative h-screen md:h-auto right-0 w-3/4 md:w-auto md:flex  py-20 md:py-0 px-10 md:px-0  font-bold list-style-none md:space-x-8 md:text-base md:uppercase md:tracking-wider lg:text-lg lg:tracking-widest md:font-bold items-center`}>
+				<ul dir={lang=='he'?'rtl':'ltr'} className={`${menuOpen?'block motion-safe:animate-menuIn':'hidden md:!translate-x-0'} text-4xl bg-black/90 md:bg-transparent md:backdrop-blur-none backdrop-blur space-y-4 md:space-y-0 top-0 text-right font-calibri md:font-goodlife fixed md:relative h-screen md:h-auto right-0 w-3/4 md:w-auto md:flex  py-20 md:py-0 px-10 md:px-0  font-bold list-style-none md:space-x-8 md:text-base md:uppercase md:tracking-wider lg:text-lg lg:tracking-widest md:font-bold items-center`}>
 					<li className="md:hidden"><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}`}>{lang=='en'?'Home':'בית'}</Link></li>
 					<li><Link className={`md:border-b-4 ${current=='about'?'md:border-ricki':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}about`}>{lang=='en'?'About':'מי אני'}</Link></li>
 					<li><Link className={`md:border-b-4 ${current=='photography'?'md:border-ricki':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}photography`}>{lang=='en'?'Photography':'צילומים מקצועיים'}</Link></li>
 					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}#tours`}>{lang=='en'?'Tours':'סיורים בעברית'}</Link></li>
 					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}#contact`} className="">{lang=='en'?'Contact':'צרו קשר'}</Link></li>
-					<li className="pt-2 md:hidden"><div className="items-center justify-end flex space-x-8 w-full ">
+					<li className="pt-2 md:hidden"><div className="items-center justify-between flex  w-full ">
 							<a href={data.strapiSocialMedia.Facebook} target="_blank"><Facebook className="hover:fill-white fill-white w-8 h-8"/></a>
 							<a href={data.strapiSocialMedia.Instagram} target="_blank"><Instagram className="hover:fill-white fill-white w-8 h-8"/></a>
 							<a href={data.strapiSocialMedia.YouTube} target="_blank"><YouTube className="hover:fill-white fill-white w-8 h-8"/></a>

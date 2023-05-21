@@ -14,8 +14,15 @@ exports.createSchemaCustomization = ({ actions }) => {
       Price: Float!
       Duration: Float!
       Photo: Node!
-      MinimumSize: Float,
+      MinimumSize: Float
       Private: Boolean
+    }
+
+    type strapiDestinationPhotography implements Node {
+      Title: String
+      Description: String
+      Price: Float
+      PriceList: [Node]
     }
     
   `
