@@ -243,7 +243,6 @@ const IndexPage = ({data}) => {
 					<div className=" lg:px-8 py-6 on-scroll" dir="rtl">
 						<h3 className="text-white text-4xl font-bold font-goodlife">{data.strapiDestinationPhotography.Title}</h3>
 						<img src="https://res.cloudinary.com/meshed-nyc/squiggle-longer-different-pink_oajuo7.png" className="w-48 block my-3"/>
-						<h5 className="font-goodlife text-white text-lg font-bold mb-1">Why Take Pictures With Me?</h5>
 						<p className="text-white/80 xl:text-lg mb-4" dangerouslySetInnerHTML={{__html: data.strapiDestinationPhotography.Description.data.Description.replaceAll("\n", '<br/>')}}/>
 						
 						<div className="flex items-center space-x-4">
