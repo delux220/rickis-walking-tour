@@ -198,7 +198,7 @@ const IndexPage = ({data}) => {
 
 						return <div key={`tour-${tour.id}`} className="md:flex on-scroll mb-6 sm:mb-0  xl:col-span-5">
 							
-							{tour.Photo.formats.medium!=null?<img src={tour.Photo.formats.medium.url} className="md:ml-8 rounded-full mb-4 lg:mb-0 w-full md:w-64 md:h-64 aspect-square lg:w-72 lg:h-72 border-white border-8" />:<img src={tour.Photo.url} className="md:ml-8  md:w-64 md:h-64 rounded-full mb-4 lg:mb-0 w-full aspect-square lg:w-72 lg:h-72 border-white border-8" />}
+							{tour.Photo.formats.medium!=null?<img src={tour.Photo.formats.medium.url} className="md:ml-8 object-cover rounded-full mb-4 lg:mb-0 w-full md:w-64 md:h-64 aspect-square lg:w-72 lg:h-72 border-white border-8" />:<img src={tour.Photo.url} className="md:ml-8 object-cover  md:w-64 md:h-64 rounded-full mb-4 lg:mb-0 w-full aspect-square lg:w-72 lg:h-72 border-white border-8" />}
 
 							<div className="">
 								<h3 className=" font-bold text-2xl xl:text-3xl font-goodlife text-white mb-1">{tour.Title}</h3>
