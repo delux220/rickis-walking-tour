@@ -265,6 +265,6 @@ export const pageQuery = graphql`query MyQuery {
   }
 }`;
 
-export const Head = () => <Seo/>
+export const Head = () => <Seo lang="he"/>
 
 export default PhotographyPage;
