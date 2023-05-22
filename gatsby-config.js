@@ -73,5 +73,30 @@ module.exports = {
   },{
       resolve: `gatsby-source-strapi`,
       options: strapiConfig,
-    }]
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Ricki's Walking Tours`,
+        short_name: `Ricki's Tours`,
+        start_url: `/`,
+        background_color: `#01a8c3`,
+        theme_color: `#01a8c3`,
+        display: `standalone`,
+        icon: `src/images/icon.png`, // This path is relative to the root of the site.
+        icons: [
+          {
+            src: `/src/images/android-chrome-192x192.png`,
+            sizes: `192x192`,
+            type: `image/png`,
+          },
+          {
+            src: `/src/images/android-chrome-512x512.png`,
+            sizes: `512x512`,
+            type: `image/png`,
+          }
+        ]
+      },
+    }
+    ]
 };
