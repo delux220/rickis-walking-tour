@@ -157,11 +157,12 @@ const Layout = ({lang, children, className='', headerClass='', footerClass='bg-r
 					<a href={data.strapiSocialMedia.Facebook} target="_blank"><Facebook className="hover:fill-white fill-black w-8 h-8"/></a>
 					<a href={data.strapiSocialMedia.Instagram} target="_blank"><Instagram className="hover:fill-white fill-black w-8 h-8"/></a>
 					<a href={data.strapiSocialMedia.YouTube} target="_blank"><YouTube className="hover:fill-white fill-black w-8 h-8"/></a>
-					<a href="https://wa.me/13107755756" target="_blank"><WhatsApp className="hover:fill-white fill-black w-8 h-8"/></a>
+					<a href="https://wa.link/w5o5ik" target="_blank"><WhatsApp className="hover:fill-white fill-black w-8 h-8"/></a>
 				</div>
 				<p>Copyright &copy; {new Date().getFullYear()}. Ricki's Walking Tours.</p>
 			</div>
 		</div>
+		<a href="https://wa.link/w5o5ik" target="_blank" className="fixed z-40 bottom-5 right-5 xl:bottom-10 xl:right-10 w-14 h-14 flex bg-lime-500 shadow-lg items-center justify-center rounded-full"><WhatsApp className="fill-white w-8 h-8"/></a>
 		</main>
 }
 
