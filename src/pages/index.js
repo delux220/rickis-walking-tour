@@ -485,10 +485,10 @@ const IndexPage = ({data}) => {
 							          />
 								</div>
 								{
-									error2!=false&&<div><span className="text-white motion-safe:animate-fadeIn font-bold">{error2}</span></div>
+									error2!=false&&<div><span className="text-rose-500 motion-safe:animate-fadeIn font-bold">{error2}</span></div>
 								}
 								{
-									showMessage2!=false&&<div><span className="text-white motion-safe:animate-fadeIn font-bold">Thank you for your message! I'll be in touch.</span></div>
+									showMessage2!=false&&<div><span className="text-lime-500 motion-safe:animate-fadeIn font-bold">Thank you for your message! I'll be in touch.</span></div>
 								}
 								<div className="mt-3 sm:mt-0 md:pb-4">
 									<button type="submit" disabled={disabled2||captcha2==false} className="disabled:bg-black/30 block w-full on-scroll font-bold font-sans  bg-black  text-white text-center  rounded-full px-10 py-4 "><FontAwesomeIcon icon={faArrowRight} className="mr-2"/>Send Message</button>
