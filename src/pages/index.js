@@ -267,6 +267,12 @@ const IndexPage = ({data}) => {
 								<div className="flex flex-wrap sm:flex-no-wrap items-center space-x-1 text-teal-400 font-bold">
 									
 									<span className="text-white text-sm sm:text-base md:text-lg rounded-full font-bold">{numeral(tour.Price).format('$0,0.00')} / person</span>
+									{
+										tour.PriceUnder18!=null&&tour.PriceUnder18!=''&&<>
+											<span className="">&middot;</span>
+											<span className="text-white text-sm sm:text-base md:text-lg rounded-full font-bold">{numeral(tour.PriceUnder18).format('$0,0.00')} / Under 18</span>
+										</>
+									}
 									<span className="">&middot;</span>
 									<span className="text-white text-sm sm:text-base md:text-lg font-bold">{tour.Duration} {tour.Duration==1?'hr':'hrs'}</span>
 									{
@@ -518,6 +524,7 @@ export const pageQuery = graphql`query MyQuery {
       Description
       Duration
       Private
+      PriceUnder18
       MinimumSize
       Link
       locale
