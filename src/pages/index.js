@@ -433,8 +433,8 @@ const IndexPage = ({data}) => {
 				<button onClick={() => setSelectedTour(null)} className="absolute top-0 right-0 w-10 h-10 sm:block sm:w-auto sm:h-auto sm:bg-transparent flex items-center justify-center bg-black text-white sm:top-5 sm:right-10 sm:text-white text-3xl"><FontAwesomeIcon icon={faTimes}/></button>
 				<div className="bg-white px-4 sm:px-6 py-4 rounded-xl">
 					<div className="max-w-[520px] w-full pt-4">
-						<h3 className="font-bold text-lg sm:text-2xl mb-2 block">Ask me about a private tour!</h3>
-						<div className="border-b pb-2 mb-2 sm:mb-3 sm:border-0 sm:pb-0 text-lg text-sm xl:text-base mb-3 flex justify-start items-center sm:space-x-2"><span className="hidden sm:block">Hey! Complete out this form, or contact me via</span><span className="block sm:hidden font-bold mr-2">You can also contact me on</span><a href="https://wa.link/w5o5ik" className="text-sm sm:text-sm px-3 sm:px-3 py-1 rounded-full font-bold bg-lime-400 text-lime-900 flex items-center hover:bg-lime-300" target="_blank"><WhatsApp className="w-4 h-4 mr-1"/> WhatsApp</a></div>
+						<h3 className="font-bold text-lg sm:text-2xl mb-2 block">Book a private tour!</h3>
+						<div className="border-b pb-2 mb-2 sm:mb-3 sm:border-0 sm:pb-0 text-lg text-sm xl:text-base mb-3 flex justify-start items-center sm:space-x-2"><span className="hidden sm:block">Complete this form, or contact me via</span><span className="block sm:hidden font-bold mr-2">You can also contact me on</span><a href="https://wa.link/w5o5ik" className="text-sm sm:text-sm px-3 sm:px-3 py-1 rounded-full font-bold bg-lime-400 text-lime-900 flex items-center hover:bg-lime-300" target="_blank"><WhatsApp className="w-4 h-4 mr-1"/> WhatsApp</a></div>
 						<form name="tour-request" ref={formRef2} netlify="true" onSubmit={submitTourRequest}>
 							<input type="hidden" name="form-name" value="tour-request"/>
 							<input type="hidden" name="tour" value={selectedTour!=null?selectedTour.Title:''}/>
