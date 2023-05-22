@@ -252,30 +252,30 @@ const IndexPage = ({data}) => {
 		</div>
 		</section>
 		<section className="bg-ricki py-20" id="tours">
-			<div className="container mx-auto px-6 ">
+			<div className="container mx-auto px-5 sm:px-6 ">
 			<h2 className="mb-20 text-5xl text-center md:text-left text-white font-bold font-goodlife">My Tours</h2>
 			<div className="sm:grid xl:grid-cols-6 gap-8 xl:gap-10">
 				{
 					data.allStrapiTour.nodes.map(tour => {
 
-						return <div key={`tour-${tour.id}`} className="md:flex space-x-4 on-scroll mb-6 sm:mb-0  xl:col-span-5">
+						return <div key={`tour-${tour.id}`} className="md:flex md:space-x-4 on-scroll mb-6 sm:mb-0  xl:col-span-5">
 							
 							{tour.Photo.formats.medium!=null?<img src={tour.Photo.formats.medium.url} className="object-cover  rounded-full mb-4 lg:mb-0 w-full md:w-64 md:h-64 aspect-square lg:w-72 lg:h-72 border-white border-8" />:<img src={tour.Photo.url} className="object-cover  md:w-64 md:h-64 rounded-full mb-4 lg:mb-0 w-full aspect-square lg:w-72 lg:h-72 border-white border-8" />}
 
 							<div className="">
 								<h3 className=" font-bold text-2xl xl:text-3xl font-goodlife text-white mb-1">{tour.Title}</h3>
-								<div className="flex items-center space-x-1 text-teal-400 font-bold">
+								<div className="flex flex-wrap sm:flex-no-wrap items-center space-x-1 text-teal-400 font-bold">
 									
-									<span className="text-white text-sm sm:text-base md:text-lg rounded-full font-bold">{numeral(tour.Price).format('$0,0.00')} per person</span>
-									<span>&middot;</span>
+									<span className="text-white text-sm sm:text-base md:text-lg rounded-full font-bold">{numeral(tour.Price).format('$0,0.00')} / person</span>
+									<span className="">&middot;</span>
 									<span className="text-white text-sm sm:text-base md:text-lg font-bold">{tour.Duration} {tour.Duration==1?'hr':'hrs'}</span>
 									{
 										tour.Private==true?<>
-											<span>&middot;</span>
+											<span className="">&middot;</span>
 											<span className="text-white text-sm sm:text-base md:text-lg font-bold">Private Tour {tour.MinimumSize>1&&`(min. ${tour.MinimumSize} ppl)`}</span>
 										</>:
 										<>
-											<span>&middot;</span>
+											<span className="">&middot;</span>
 											<span className="text-white text-sm sm:text-base md:text-lg font-bold">Public Tour</span>
 										</>
 									}
@@ -285,7 +285,7 @@ const IndexPage = ({data}) => {
 								<p className="text-white/80 mb-4 xl:text-lg" dangerouslySetInnerHTML={{__html: tour.Description.replaceAll("\n", '<br/>')}}/>
 								</div>
 									{tour.Private==false?<a href={tour.Link} className="w-full md:w-auto md:inline-block text-xl sm:text-base font-bold font-sans bg-rose-400 shadow-lg text-white rounded-full px-6 py-2 block text-center"><FontAwesomeIcon icon={faArrowRight} className="mr-2"/>Book Tour</a>:
-									<button onClick={() => setSelectedTour(tour)} className="w-full md:w-auto md:inline-block text-xl sm:text-base font-bold font-sans bg-rose-400 shadow-lg text-white rounded-full px-6 py-2 block text-center"><FontAwesomeIcon icon={faArrowRight} className="mr-2"/>Ask About a Private Tour</button>}
+									<button onClick={() => setSelectedTour(tour)} className="w-full md:w-auto md:inline-block text-xl sm:text-base font-bold font-sans bg-rose-400 shadow-lg text-white rounded-full px-4 sm:px-6 py-2 block text-center"><FontAwesomeIcon icon={faArrowRight} className="mr-2"/>Book Private Tour</button>}
 
 							</div>
 							

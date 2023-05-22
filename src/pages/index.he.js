@@ -204,9 +204,8 @@ const IndexPage = ({data}) => {
 								<h3 className=" font-bold text-2xl xl:text-3xl font-goodlife text-white mb-1">{tour.Title}</h3>
 								<div className="flex items-center text-teal-400 font-bold">
 									
-									<span className="text-white text-sm sm:text-base md:text-lg rounded-full font-bold">{numeral(tour.Price).format('$0,0.00')} לאדם</span>
-									<span className="mx-2">&middot;</span>
-									<span className="text-white text-sm sm:text-base md:text-lg font-bold">{tour.Duration} שָׁעָה</span>
+								<span className="text-white text-sm sm:text-base md:text-lg rounded-full font-bold">{numeral(tour.Price).format('$0,0.00')} לאדם</span>
+									
 									
 								</div>
 								<img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1683420929/squiggle-longer-different-pink_oajuo7.png" className="w-48 block my-2 inline-block"/>
