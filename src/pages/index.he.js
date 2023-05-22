@@ -208,7 +208,7 @@ const IndexPage = ({data}) => {
 								{
 									tour.PriceUnder18!=null&&tour.PriceUnder18!=''&&<>
 										<span className="mx-2">&middot;</span>
-										<span className="text-white text-sm sm:text-base md:text-lg rounded-full font-bold">{numeral(tour.PriceUnder18).format('$0,0.00')} לאדם</span>
+										<span className="text-white text-sm sm:text-base md:text-lg rounded-full font-bold">{numeral(tour.PriceUnder18).format('$0,0.00')} ילדים מתחת לגיל 18</span>
 									</>
 								}
 									
