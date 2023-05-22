@@ -132,8 +132,9 @@ const Layout = ({lang, children, className='', headerClass='', footerClass='bg-r
 				<ul dir={lang=='he'?'rtl':'ltr'} className={`${menuOpen?'block motion-safe:animate-menuIn':'hidden md:!translate-x-0'} text-4xl bg-black/90 md:bg-transparent md:backdrop-blur-none backdrop-blur space-y-4 md:space-y-0 top-0 text-right font-calibri md:font-goodlife fixed md:relative h-screen md:h-auto right-0 w-3/4 md:w-auto md:flex  py-20 md:py-0 px-10 md:px-0  font-bold list-style-none md:space-x-8 md:text-base md:uppercase md:tracking-wider lg:text-lg lg:tracking-widest md:font-bold items-center`}>
 					<li className="md:hidden"><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}`}>{lang=='en'?'Home':'בית'}</Link></li>
 					<li><Link className={`md:border-b-4 ${current=='about'?'md:border-ricki':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}about`}>{lang=='en'?'About':'מי אני'}</Link></li>
-					<li><Link className={`md:border-b-4 ${current=='photography'?'md:border-ricki':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}photography`}>{lang=='en'?'Photography':'צילומים מקצועיים'}</Link></li>
 					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}#tours`}>{lang=='en'?'Tours':'סיורים בעברית'}</Link></li>
+					<li><Link className={`md:border-b-4 ${current=='photography'?'md:border-ricki':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}photography`}>{lang=='en'?'Photography':'צילומים מקצועיים'}</Link></li>
+					
 					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}#contact`} className="">{lang=='en'?'Contact':'צרו קשר'}</Link></li>
 					<li className="pt-2 md:hidden"><div className="items-center justify-between flex  w-full ">
 							<a href={data.strapiSocialMedia.Facebook} target="_blank"><Facebook className="hover:fill-white fill-white w-8 h-8"/></a>

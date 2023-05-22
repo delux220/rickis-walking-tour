@@ -207,16 +207,7 @@ const IndexPage = ({data}) => {
 									<span className="text-white text-sm sm:text-base md:text-lg rounded-full font-bold">{numeral(tour.Price).format('$0,0.00')} לאדם</span>
 									<span className="mx-2">&middot;</span>
 									<span className="text-white text-sm sm:text-base md:text-lg font-bold">{tour.Duration} שָׁעָה</span>
-									{
-										tour.Private==true?<>
-											<span className="mx-2">&middot;</span>
-											<span className="text-white text-sm sm:text-base md:text-lg font-bold">סיור פרטי {tour.MinimumSize>1&&`(מינימום ${tour.MinimumSize} אנשים)`}</span>
-										</>:
-										<>
-											<span className="mx-2">&middot;</span>
-											<span className="text-white text-sm sm:text-base md:text-lg font-bold">סיור ציבורי</span>
-										</>
-									}
+									
 								</div>
 								<img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1683420929/squiggle-longer-different-pink_oajuo7.png" className="w-48 block my-2 inline-block"/>
 								<div className="">

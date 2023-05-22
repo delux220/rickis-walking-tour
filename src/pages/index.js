@@ -187,9 +187,9 @@ const IndexPage = ({data}) => {
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: new URLSearchParams(formData).toString(),
         }).then(() => {
-          setShowMessage(true);
+          setShowMessage2(true);
         }).catch((error) => {
-          setDisabled(false);
+          setDisabled2(false);
         });
 
         return false
