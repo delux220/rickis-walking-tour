@@ -272,7 +272,7 @@ const IndexPage = ({data}) => {
 									{
 										tour.Private==true?<>
 											<span className="">&middot;</span>
-											<span className="text-white text-sm sm:text-base md:text-lg font-bold">Private Tour {tour.MinimumSize>1&&`(min. ${tour.MinimumSize} ppl)`}</span>
+											<span className="text-white text-sm sm:text-base md:text-lg font-bold">Private {tour.MinimumSize>1&&`(min. ${tour.MinimumSize} ppl)`}</span>
 										</>:
 										<>
 											<span className="">&middot;</span>
@@ -280,7 +280,7 @@ const IndexPage = ({data}) => {
 										</>
 									}
 								</div>
-								<img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1683420929/squiggle-longer-different-pink_oajuo7.png" className="w-48 block my-2 inline-block"/>
+								<img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1683420929/squiggle-longer-different-pink_oajuo7.png" className="w-48 block my-2"/>
 								<div className="">
 								<p className="text-white/80 mb-4 xl:text-lg" dangerouslySetInnerHTML={{__html: tour.Description.replaceAll("\n", '<br/>')}}/>
 								</div>
@@ -448,8 +448,9 @@ const IndexPage = ({data}) => {
 											<span className=" text-xs sm:text-sm">&middot;</span>
 											<span className="text-gray-900 text-xs sm:text-sm">{selectedTour.Duration} {selectedTour.Duration==1?'hr':'hrs'}</span>
 											
-											<span className=" text-xs sm:text-sm">&middot;</span>
-											<span className="text-gray-900 text-xs sm:text-sm">Private Tour {selectedTour.MinimumSize>1&&`(min. ${selectedTour.MinimumSize} ppl)`}</span>
+											{selectedTour.MinimumSize>1&&<><span className=" text-xs sm:text-sm">&middot;</span>
+											<span className="text-gray-900 text-xs sm:text-sm">Min. {selectedTour.MinimumSize} ppl</span>
+											</>}
 										
 										</div>
 									</div>
@@ -475,7 +476,7 @@ const IndexPage = ({data}) => {
 								</div>
 								<div className="">
 									<label className="hidden sm:block text-black text-sm font-bold">Message *</label>
-									<textarea name="message" ref={messageRef2} rows={3} className="bg-white border-b sm:border-b-2 text-sm sm:text-base border-black px-1 sm:px-3 py-3 sm:py-2 w-full block" placeholder="What tour are you interested in? Do you have a special request?"></textarea>
+									<textarea name="message" ref={messageRef2} rows={3} className="bg-white border-b sm:border-b-2 text-sm sm:text-base border-black px-1 sm:px-3 py-3 sm:py-2 w-full block" placeholder="Include any details. Do you have a special request?"></textarea>
 								</div>
 								<div className="mt-3 sm:mt-0">
 									<ReCAPTCHA
