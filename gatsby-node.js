@@ -16,6 +16,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       Photo: Node!
       MinimumSize: Float
       Private: Boolean
+      PriceUnder18: Float
     }
 
     type strapiDestinationPhotography implements Node {

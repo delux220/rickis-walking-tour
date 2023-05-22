@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        '3xl': '1800px',
+      },
       colors: {
         'ricki': '#01a8c3',
         'ricki2': '#8aaefe',

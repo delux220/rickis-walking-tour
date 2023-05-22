@@ -205,6 +205,12 @@ const IndexPage = ({data}) => {
 								<div className="flex items-center text-teal-400 font-bold">
 									
 								<span className="text-white text-sm sm:text-base md:text-lg rounded-full font-bold">{numeral(tour.Price).format('$0,0.00')} לאדם</span>
+								{
+									tour.PriceUnder18!=null&&tour.PriceUnder18!=''&&<>
+										<span className="mx-2">&middot;</span>
+										<span className="text-white text-sm sm:text-base md:text-lg rounded-full font-bold">{numeral(tour.PriceUnder18).format('$0,0.00')} לאדם</span>
+									</>
+								}
 									
 									
 								</div>
@@ -223,11 +229,11 @@ const IndexPage = ({data}) => {
 		</section>
 		<section className="bg-ricki">
 			<div className="rounded-lg px-6  container mx-auto py-8 md:py-20">
-				<div className="md:grid grid-cols-2 gap-4">
-					<div className="flex lg:hidden on-scroll items-center">
+				<div className="md:grid grid-cols-2 gap-4 3xl:gap-12">
+					<div className="flex lg:hidden on-scroll items-center 3xl:gap-12 2xl:flex">
 					<img src="https://res.cloudinary.com/meshed-nyc/w_800,c_fill/v1683559297/brooklyn_rqodbm.jpg" className="w-full"/>
 					</div>
-					<div className="hidden lg:block bg-fixed bg-[url(https://res.cloudinary.com/meshed-nyc/w_800,c_fill/v1683559297/brooklyn_rqodbm.jpg)] rounded-xl bg-no-repeat bg-top-left w-full md:min-h-[520px] border-8 border-white shadow-xl ">
+					<div className="hidden lg:block bg-fixed bg-[url(https://res.cloudinary.com/meshed-nyc/w_800,c_fill/v1683559297/brooklyn_rqodbm.jpg)] rounded-xl bg-no-repeat bg-top-left w-full md:min-h-[520px]  bg-white 2xl:hidden border-8 border-white shadow-xl ">
 						&nbsp;
 					</div>
 					<div className=" lg:px-8 py-6 on-scroll" dir="rtl">
@@ -347,7 +353,7 @@ const IndexPage = ({data}) => {
 							</div>
 						</form>
 					</div>
-					<div className="hidden lg:block bg-fixed rounded-xl bg-[url(https://res.cloudinary.com/meshed-nyc/h_1024,c_fill,q_auto/rs_w_1160_h_1449_y7wrsr.jpg)] bg-no-repeat lg:bg-[right_-9rem_top] xl:bg-[right_-5rem_top] w-full border-8 border-white shadow-xl ">
+					<div className="hidden lg:block bg-fixed rounded-xl bg-[url(https://res.cloudinary.com/meshed-nyc/h_1440,c_fill,q_auto/IMG_1616_2_acdcec483e.jpg)] bg-no-repeat lg:bg-[right_-20rem_top] xl:bg-[right_-20rem_top_-10rem] 2xl:bg-[right_-30rem_top_-15rem] bg-cover w-full border-8 border-white shadow-xl ">
 						&nbsp;
 					</div>
 					
@@ -377,6 +383,7 @@ export const pageQuery = graphql`query MyQuery {
       Link
       locale
       Price
+      PriceUnder18
       Title
       Photo {
       	url
