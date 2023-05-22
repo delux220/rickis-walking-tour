@@ -92,11 +92,11 @@ const PhotographyPage = ({data}) => {
   };
 	
 	return <Layout lang={'en'} className="bg-ricki" current="photography">
-    <div className="h-[90vh] relative block md:bg-white md:h-[85vh] bg-top  bg-no-repeat bg-cover md:bg-none bg-[url(https://res.cloudinary.com/meshed-nyc/image/upload/v1684327277/ricki-camera2_sjuyvb.jpg)]">
+    <div className="h-[90vh] relative block md:bg-white lg:min-h-[640px] md:h-[85vh] bg-top  bg-no-repeat bg-cover md:bg-none bg-[url(https://res.cloudinary.com/meshed-nyc/image/upload/v1684327277/ricki-camera2_sjuyvb.jpg)]">
       <div className="w-full h-full  bg-repeat-x bg-[center_bottom_-5rem] xl:bg-[center_bottom_-12rem]  bg-contain bg-[url(https://res.cloudinary.com/meshed-nyc/image/upload/v1684490282/skyline-new_jxaw7j.png)]">
       <div className="flex md:container mx-auto  h-full items-end md:items-start md:pt-20 ">
         
-        <img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1684327277/ricki-camera2_sjuyvb.jpg" className="rounded-2xl hidden md:block w-1/3 border-white border-8 shadow-xl -rotate-3" alt="Ricki with camera"/>
+        <img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1684327277/ricki-camera2_sjuyvb.jpg" className="rounded-2xl hidden md:block max-h-[60vh] border-white border-8 shadow-xl -rotate-3" alt="Ricki with camera"/>
         
         <div className="py-10 bg-gradient-to-t md:bg-none w-full from-black to-transparent px-6">
             <h1 className="block mt-32 sm:mt-10 md:mt-0 font-epicursive text-white md:text-black font-bold text-6xl mb-8 mx-auto on-scroll">{data.strapiGallery.Title}</h1>
