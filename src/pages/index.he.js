@@ -257,7 +257,7 @@ const IndexPage = ({data}) => {
 		{place!=null&&<section id="reviews" className="bg-rose-400 ">
 			<div className="container mx-auto pt-20 xl:pt-32 px-6">
 
-				<h3 className="text-white on-scroll text-center text-4xl sm:text-5xl font-bold font-goodlife mb-1">Reviews for Ricki</h3>
+				<h3 className="text-white on-scroll text-center text-4xl sm:text-5xl font-bold font-goodlife mb-1">אז איך היה</h3>
 
 				<div className="text-center on-scroll mb-8">
 					<div className="text-2xl">
