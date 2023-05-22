@@ -103,7 +103,7 @@ const PhotographyPage = ({data}) => {
             <p className="text-lg text-right text-white md:text-black md:font-medium on-scroll mb-8">{data.strapiGallery.Description}</p>
             <div className="space-y-2 md:space-y-0 md:space-x-2 text-right">
             <a href="#contact" className=" bg-rose-400 px-6 py-3 border-2 border-rose-400 hover:border-rose-500 hover:bg-rose-500 ml-4 text-white text-center font-bold block w-full md:w-auto md:inline-block rounded-full"><FontAwesomeIcon icon={faEnvelope}/> צור קשר</a>
-            <a href="#pricing" className="  bg-white hover:border-white border-2 border-white md:border-black px-6 py-3 text-black text-center font-bold block w-full md:w-auto md:inline-block rounded-full">View Pricing List</a>
+            <a href="#pricing" className="  bg-white hover:border-white border-2 border-white md:border-black px-6 py-3 text-black text-center font-bold block w-full md:w-auto md:inline-block rounded-full">מחירים לסשן צילומים</a>
             </div>
         </div>
         

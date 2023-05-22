@@ -98,10 +98,10 @@ const IndexPage = ({data}) => {
         const message = messageRef.current.value;
 
         if (name.length == 0 || email.length == 0 || message.length == 0) {
-          setError('Please complete the required (*) fields');
+          setError('אנא מלאו את השדות המסומנים');
           return false;
         }else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-          setError('Please enter a valid email');
+          setError('האי מייל שכתבתם הוא לא תקין');
           return false;
         } else if (captcha == false) {
           setError('Could not send message...');
@@ -236,7 +236,7 @@ const IndexPage = ({data}) => {
 						<p className="text-white/80 xl:text-lg mb-4" dangerouslySetInnerHTML={{__html: data.strapiDestinationPhotography.Description.data.Description.replaceAll("\n", '<br/>')}}/>
 						
 						<div className="flex items-center space-x-4">
-							<Link to="/he/photography"  className="px-6 py-2 bg-rose-400 shadow-lg text-white rounded-full font-bold inline-block">Photography Services<FontAwesomeIcon icon={faArrowLeft} className="mr-2"/></Link>
+							<Link to="/he/photography"  className="px-6 py-2 bg-rose-400 shadow-lg text-white rounded-full font-bold inline-block">צילומים מקצועיים<FontAwesomeIcon icon={faArrowLeft} className="mr-2"/></Link>
 							
 						</div>
 					</div>
@@ -315,17 +315,17 @@ const IndexPage = ({data}) => {
 								</div>
 								<div className="sm:grid grid-cols-2 gap-4 space-y-3 sm:space-y-0">
 									<div>
-										<label className="block text-white text-sm font-bold">Requested Tour Date(s)</label>
+										<label className="block text-white text-sm font-bold">תאריכים מבוקשים</label>
 										<input name="requested_tour_dates" type="text" className="bg-white rounded-md px-4 py-2 w-full block" />
 									</div>
 									<div>
-										<label className="block text-white text-sm font-bold">Number of Guests</label>
+										<label className="block text-white text-sm font-bold">מספר אנשים</label>
 										<input name="number_of_guests" type="number" className="bg-white rounded-md px-4 py-2 w-full block" />
 									</div>
 								</div>
 								<div className="">
 									<label className="block text-white text-sm font-bold">* ההודעה שלך</label>
-									<textarea name="message" ref={messageRef} rows={4} className="bg-white rounded-md px-4 py-2 w-full block" placeholder="What tour are you interested in? Do you have a special request?"></textarea>
+									<textarea name="message" ref={messageRef} rows={4} className="bg-white rounded-md px-4 py-2 w-full block" placeholder="איזה טיול מעניין אותך? יש בקשה מיוחדת ?"></textarea>
 								</div>
 								<div>
 									<ReCAPTCHA
@@ -338,7 +338,7 @@ const IndexPage = ({data}) => {
 									error!=false&&<div><span className="text-white motion-safe:animate-fadeIn font-bold">{error}</span></div>
 								}
 								{
-									showMessage!=false&&<div><span className="text-white motion-safe:animate-fadeIn font-bold">Thank you for your message! I'll be in touch.</span></div>
+									showMessage!=false&&<div><span className="text-white motion-safe:animate-fadeIn font-bold">‏תודה שיצרתם קשר עם ריקי סיורים בניו-יורק אחזור אליכם ‎-תוך 24 שעות אם זה דחוף יש בתחתית העמוד קישור לוואטס אפ מוזמנים ליצור קשר .</span></div>
 								}
 								<div className="">
 									<button type="submit" disabled={disabled||captcha==false} className="disabled:bg-black/30 on-scroll font-bold font-sans  bg-black ml-4 text-white text-center block w-full sm:w-auto rounded-full px-10 py-4 inline-block">שליחה<FontAwesomeIcon icon={faArrowLeft} className="mr-4"/></button>
