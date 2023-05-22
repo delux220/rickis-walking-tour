@@ -236,7 +236,7 @@ const IndexPage = ({data}) => {
 						<p className="text-white/80 xl:text-lg mb-4" dangerouslySetInnerHTML={{__html: data.strapiDestinationPhotography.Description.data.Description.replaceAll("\n", '<br/>')}}/>
 						
 						<div className="flex items-center space-x-4">
-							<Link to="/photography"  className="px-6 py-2 bg-rose-400 shadow-lg text-white rounded-full font-bold inline-block">Photography Services<FontAwesomeIcon icon={faArrowLeft} className="mr-2"/></Link>
+							<Link to="/he/photography"  className="px-6 py-2 bg-rose-400 shadow-lg text-white rounded-full font-bold inline-block">Photography Services<FontAwesomeIcon icon={faArrowLeft} className="mr-2"/></Link>
 							
 						</div>
 					</div>
