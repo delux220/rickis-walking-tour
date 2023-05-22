@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef} from "react"
 import {Link, graphql, Script, navigate} from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '@fortawesome/fontawesome-svg-core/styles.css'
-import {YouTube, Instagram, Facebook, TikTok, Twitter, MenuButton} from '../components/index';
+import {YouTube, Instagram, Facebook, TikTok, Twitter, MenuButton, WhatsApp} from '../components/index';
 import {faArrowRight, faEnvelope, faStar, faStarEmpty, faTimes, faCheck} from '@fortawesome/free-solid-svg-icons';
 import numeral from 'numeral';
 import Layout from '../components/layout';
@@ -34,11 +34,24 @@ const IndexPage = ({data}) => {
 
 	const [captcha, setCaptcha] = useState(false);
 
+	const [captcha2, setCaptcha2] = useState(false);
+
 	const [showMessage, setShowMessage] = useState(false);
+
+	const [showMessage2, setShowMessage2] = useState(false);
+
+	const [selectedTour, setSelectedTour] = useState(null);
+
+	const numGuestsRef2 = useRef();
+
+	const tourDateRef2 = useRef();
 
 	const [error, setError] = useState(false);
 
+	const [error2, setError2] = useState(false);
+
 	const [disabled, setDisabled] = useState(false);
+	const [disabled2, setDisabled2] = useState(false);
 
 	const nameRef = useRef();
 
@@ -46,9 +59,16 @@ const IndexPage = ({data}) => {
 
 	const messageRef = useRef();
 
+	const nameRef2 = useRef();
+
+	const emailRef2 = useRef();
+
+	const messageRef2 = useRef();
+
 	const mapRef = useRef();
 
 	const formRef = useRef();
+	const formRef2 = useRef();
 
 	useEffect(() => {
 		const loader = new Loader({
@@ -115,6 +135,52 @@ const IndexPage = ({data}) => {
 
 
         formData.append('g-recaptcha-response', captcha);
+        
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(formData).toString(),
+        }).then(() => {
+          setShowMessage(true);
+        }).catch((error) => {
+          setDisabled(false);
+        });
+
+        return false
+      };
+
+      const submitTourRequest = (e) => {
+		e.preventDefault();
+
+        setShowMessage2(false);
+        setError2(false);
+
+
+        const email = emailRef2.current.value;
+
+        const name = nameRef2.current.value;
+
+        const message = messageRef2.current.value;
+
+        if (name.length == 0 || email.length == 0 || message.length == 0) {
+          setError('Please complete the required (*) fields');
+          return false;
+        }else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+          setError('Please enter a valid email');
+          return false;
+        } else if (captcha2 == false) {
+          setError('Could not send message...');
+          return false;
+        }
+
+        setDisabled(true);
+
+        const myForm = formRef2.current;
+        const formData = new FormData(myForm);
+
+
+
+        formData.append('g-recaptcha-response', captcha2);
         
         fetch("/", {
           method: "POST",
@@ -218,7 +284,8 @@ const IndexPage = ({data}) => {
 								<div className="">
 								<p className="text-white/80 mb-4 xl:text-lg" dangerouslySetInnerHTML={{__html: tour.Description.replaceAll("\n", '<br/>')}}/>
 								</div>
-									<a href={tour.Link} className="w-full md:w-auto md:inline-block text-xl sm:text-base font-bold font-sans bg-rose-400 shadow-lg text-white rounded-full px-6 py-2 block text-center"><FontAwesomeIcon icon={faArrowRight} className="mr-2"/>Book Tour</a>
+									{tour.Private==false?<a href={tour.Link} className="w-full md:w-auto md:inline-block text-xl sm:text-base font-bold font-sans bg-rose-400 shadow-lg text-white rounded-full px-6 py-2 block text-center"><FontAwesomeIcon icon={faArrowRight} className="mr-2"/>Book Tour</a>:
+									<button onClick={() => setSelectedTour(tour)} className="w-full md:w-auto md:inline-block text-xl sm:text-base font-bold font-sans bg-rose-400 shadow-lg text-white rounded-full px-6 py-2 block text-center"><FontAwesomeIcon icon={faArrowRight} className="mr-2"/>Ask About a Private Tour</button>}
 
 							</div>
 							
@@ -361,6 +428,77 @@ const IndexPage = ({data}) => {
 			</div>
 			
 		</section>
+		{
+			<div className={`${selectedTour!=null?'flex':'hidden'} fixed bg-white sm:bg-ricki/90 top-0 z-50 left-0 w-full h-screen items-center justify-center`}>
+				<button onClick={() => setSelectedTour(null)} className="absolute top-0 right-0 w-10 h-10 sm:block sm:w-auto sm:h-auto sm:bg-transparent flex items-center justify-center bg-black text-white sm:top-5 sm:right-10 sm:text-white text-3xl"><FontAwesomeIcon icon={faTimes}/></button>
+				<div className="bg-white px-4 sm:px-6 py-4 rounded-xl">
+					<div className="max-w-[520px] w-full pt-4">
+						<h3 className="font-bold text-lg sm:text-2xl mb-2 block">Ask me about a private tour!</h3>
+						<p className="border-b pb-2 mb-2 sm:mb-3 sm:border-0 sm:pb-0 text-lg text-sm xl:text-base mb-3 flex justify-start items-center sm:space-x-2"><span className="hidden sm:block">Hey! Complete out this form, or contact me via</span><span className="block sm:hidden font-bold mr-2">You can also contact me on</span><a target="_blank" href="‏https://wa.link/w5o5ik" className="text-sm sm:text-sm px-3 sm:px-3 py-1 rounded-full font-bold bg-lime-400 text-lime-900 flex items-center hover:bg-lime-300"><WhatsApp className="w-4 h-4 mr-1"/> WhatsApp</a></p>
+						<form name="tour-request" ref={formRef2} netlify="true" onSubmit={submitTourRequest}>
+							<input type="hidden" name="form-name" value="tour-request"/>
+							<input type="hidden" name="tour" value={selectedTour!=null?selectedTour.Title:''}/>
+							<div className="sm:space-y-3">
+								{selectedTour!=null&&<div className="flex items-center sm:space-x-3">
+									<img src={selectedTour.Photo.formats.small.url} className="hidden sm:block w-20 h-20 rounded-full object-cover"/>
+									<div className="">
+										<h3 className="font-bold sm:text-lg">{selectedTour.Title}</h3>
+										<div className="space-x-2">
+											<span className="text-gray-900 text-xs sm:text-sm rounded-full font-bold">{numeral(selectedTour.Price).format('$0,0.00')} / person</span>
+											<span className=" text-xs sm:text-sm">&middot;</span>
+											<span className="text-gray-900 text-xs sm:text-sm">{selectedTour.Duration} {selectedTour.Duration==1?'hr':'hrs'}</span>
+											
+											<span className=" text-xs sm:text-sm">&middot;</span>
+											<span className="text-gray-900 text-xs sm:text-sm">Private Tour {selectedTour.MinimumSize>1&&`(min. ${selectedTour.MinimumSize} ppl)`}</span>
+										
+										</div>
+									</div>
+								</div>}
+								<div>
+									<label className="hidden sm:block text-black text-sm font-bold">Name *</label>
+									<input type="text" className="bg-white text-sm sm:text-base border-b sm:border-b-2 border-black px-1 sm:px-3 py-3 sm:py-2 w-full block" ref={nameRef2} name="name" placeholder="Your Name"/>
+								</div>
+								<div>
+									<label className="hidden sm:block text-black text-sm font-bold">Email Address *</label>
+									<input type="email" className="bg-white border-b sm:border-b-2 border-black text-sm sm:text-base px-1 sm:px-3 py-3 sm:py-2 w-full block" name="email" ref={emailRef2} placeholder="you@email.com"/>
+								</div>
+
+								<div className="md:grid grid-cols-2 gap-4 sm:space-y-3 md:space-y-0">
+									<div>
+										<label className="hidden sm:block text-black text-sm font-bold">Interested Tour Date(s)</label>
+										<input name="interested_tour_dates" type="text" className="bg-white border-b sm:border-b-2 text-sm sm:text-base border-black px-1 sm:px-3 py-3 sm:py-2 w-full block" ref={tourDateRef2} placeholder="Interested Tour Date(s)"/>
+									</div>
+									<div>
+										<label className="hidden sm:block text-black text-sm font-bold">Number of Guests</label>
+										<input name="number_of_guests" type="number" className="bg-white border-b sm:border-b-2 text-sm sm:text-base border-black px-1 sm:px-3 py-3 sm:py-2 w-full block"ref={numGuestsRef2} placeholder="Number of Guests" />
+									</div>
+								</div>
+								<div className="">
+									<label className="hidden sm:block text-black text-sm font-bold">Message *</label>
+									<textarea name="message" ref={messageRef2} rows={3} className="bg-white border-b sm:border-b-2 text-sm sm:text-base border-black px-1 sm:px-3 py-3 sm:py-2 w-full block" placeholder="What tour are you interested in? Do you have a special request?"></textarea>
+								</div>
+								<div className="mt-3 sm:mt-0">
+									<ReCAPTCHA
+							            sitekey={process.env.GATSBY_RECAPTCHA_KEY}
+							            onChange={setCaptcha2}
+							          />
+								</div>
+								{
+									error2!=false&&<div><span className="text-white motion-safe:animate-fadeIn font-bold">{error2}</span></div>
+								}
+								{
+									showMessage2!=false&&<div><span className="text-white motion-safe:animate-fadeIn font-bold">Thank you for your message! I'll be in touch.</span></div>
+								}
+								<div className="mt-3 sm:mt-0 md:pb-4">
+									<button type="submit" disabled={disabled2||captcha2==false} className="disabled:bg-black/30 block w-full on-scroll font-bold font-sans  bg-black  text-white text-center  rounded-full px-10 py-4 "><FontAwesomeIcon icon={faArrowRight} className="mr-2"/>Send Message</button>
+									
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		}
 	</Layout>
 }
 
@@ -387,6 +525,9 @@ export const pageQuery = graphql`query MyQuery {
       Photo {
       	url
         formats {
+          small {
+            url
+          }
           medium {
             url
           }
