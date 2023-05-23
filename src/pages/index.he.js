@@ -166,7 +166,7 @@ const IndexPage = ({data}) => {
 				<h1 className="text-center font-epicursive text-white font-bold text-6xl mb-3 mx-auto on-scroll" >אני ריקי</h1>
 				<h3 className=" font-goodlife text-white text-center font-bold text-2xl mb-3 uppercase font-bold on-scroll">המדריכה שלכם לניו יורק סיטי</h3>
 				<div className="space-y-2 mb-8 px-6">
-				<a href="https://fareharbor.com/embeds/book/guidedtoursnyc/?full-items=yes&language=en-us&u=f47e9dfd-04ed-4ca1-960c-04da78951fce&from-ssl=yes&ga4t=G-XDVQTYZ0FJ,974959174.1683229789__1684492288%3B&g4=yes&a=yes&back=https://rickiswalkingtours.com/" className="font-bold font-sans border border-rose-400 bg-rose-400 text-white text-center block w-full rounded-full px-10 py-3 inline-block"><FontAwesomeIcon icon={faArrowLeft} className="ml-4"/>סיורים בעברית</a>
+				<a href="https://fareharbor.com/embeds/book/guidedtoursnyc/?full-items=yes&language=en-us&u=f47e9dfd-04ed-4ca1-960c-04da78951fce&from-ssl=yes&ga4t=G-XDVQTYZ0FJ,974959174.1683229789__1684492288%3B&g4=yes&a=yes&back=https://rickiswalkingtours.com/" className="font-bold font-sans border border-rose-400 bg-rose-400 text-white text-center block w-full rounded-full px-10 py-3 inline-block"><FontAwesomeIcon icon={faArrowLeft} className="ml-4"/>לביצוע הזמנה</a>
 				<a href="/#contact" className="font-bold font-sans border bg-white border-white bg-white text-black rounded-full px-10 py-3 text-center block w-full"><FontAwesomeIcon icon={faEnvelope} className="ml-4"/>צור קשר</a>
 				</div>
 			</div>
