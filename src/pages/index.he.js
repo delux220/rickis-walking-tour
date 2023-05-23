@@ -183,7 +183,7 @@ const IndexPage = ({data}) => {
 				
 				<div className="text-right">
 				<a href="/#contact" className="font-bold font-sans border bg-white border-black text-black rounded-full px-10 py-4 block w-full text-center lg:w-auto lg:inline-block"><FontAwesomeIcon icon={faEnvelope} className="ml-4"/>צור קשר</a>
-				<a href="https://fareharbor.com/embeds/book/guidedtoursnyc/?full-items=yes&language=en-us&u=f47e9dfd-04ed-4ca1-960c-04da78951fce&from-ssl=yes&ga4t=G-XDVQTYZ0FJ,974959174.1683229789__1684492288%3B&g4=yes&a=yes&back=https://rickiswalkingtours.com/" className="font-bold font-sans border border-rose-400 bg-rose-400 mr-4 mb-2 lg:mb-0 text-white rounded-full px-10 py-4 block w-full lg:w-auto lg:inline-block"><FontAwesomeIcon icon={faArrowLeft} className="ml-4"/>סיורים בעברית</a>
+				<a href="https://fareharbor.com/embeds/book/guidedtoursnyc/?full-items=yes&language=en-us&u=f47e9dfd-04ed-4ca1-960c-04da78951fce&from-ssl=yes&ga4t=G-XDVQTYZ0FJ,974959174.1683229789__1684492288%3B&g4=yes&a=yes&back=https://rickiswalkingtours.com/" className="font-bold font-sans border border-rose-400 bg-rose-400 mr-4 mb-2 lg:mb-0 text-white rounded-full px-10 py-4 block w-full lg:w-auto lg:inline-block"><FontAwesomeIcon icon={faArrowLeft} className="ml-4"/>לביצוע הזמנה</a>
 				</div>
 			</div>
 		</div>
