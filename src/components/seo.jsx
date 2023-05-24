@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from "react"
 import {Link, Script, navigate, useStaticQuery, graphql} from 'gatsby';
 
-export default function Seo({lang, location}) {
+export default function Seo({lang='en', pathname}) {
+
+
 
 	const data = useStaticQuery(graphql`
 	   query seoQuery {
@@ -32,7 +34,10 @@ export default function Seo({lang, location}) {
 	const title = localization?localization.attributes.Title:data.strapiSeo.Title;
 	const description = localization?localization.attributes.Description:data.strapiSeo.Description;
 
-	const _pathName = location.pathname.replace('/he', '');
+	console.log(pathname);
+
+	const _pathName = pathname.replace('/he', '');
+
 
 	return <>
       <link rel="icon" type="image/x-icon" href="/favicon.ico"/>

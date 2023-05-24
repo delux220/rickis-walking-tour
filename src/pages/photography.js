@@ -264,6 +264,7 @@ export const pageQuery = graphql`query MyQuery {
   }
 }`;
 
-export const Head = () => <Seo/>
+
+export const Head = ({location}) => (<Seo location={location}/>)
 
 export default PhotographyPage;

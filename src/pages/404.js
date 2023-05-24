@@ -24,6 +24,6 @@ const FourOFourPage = () => {
 	</Layout>
 }
 
-export const Head = () => <Seo/>
+export const Head = ({location}) => <Seo location={location}/>
 
 export default FourOFourPage;

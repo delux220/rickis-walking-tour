@@ -24,6 +24,6 @@ const FourOFourPage = () => {
 	</Layout>
 }
 
-export const Head = () => <Seo lang="he-IL"/>
+export const Head = ({location}) => <Seo location={location} lang="he-IL"/>
 
 export default FourOFourPage;
