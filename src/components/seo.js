@@ -34,12 +34,14 @@ export default function Seo({lang='en', pathname}) {
 	const title = localization?localization.attributes.Title:data.strapiSeo.Title;
 	const description = localization?localization.attributes.Description:data.strapiSeo.Description;
 
+	const _pathName = pathname.replace('/he', '');
+
 
 	return <>
       <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
-      {
-      	lang=='he-IL'&<link rel="alternate" hreflang="he-IL" href={`https://rickiswalkingtours.com${pathname}`} />
-      }
+      <link rel="alternate" hreflang="he-IL" href={`https://rickiswalkingtours.com/he${_pathName}`} />
+      <link rel="alternate" hreflang="en-US" href={`https://rickiswalkingtours.com/${_pathName}`} />
+      	
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta property="og:title" content={title} />
