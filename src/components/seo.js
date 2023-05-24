@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react"
 import {Link, Script, navigate, useStaticQuery, graphql} from 'gatsby';
 
-export default function Seo({lang='en'}) {
+export default function Seo({lang='en', pathname}) {
 
 
 
@@ -37,6 +37,9 @@ export default function Seo({lang='en'}) {
 
 	return <>
       <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+      {
+      	lang=='he-IL'&<link rel="alternate" hreflang="he-IL" href={`https://rickiswalkingtours.com${pathname}`} />
+      }
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta property="og:title" content={title} />
