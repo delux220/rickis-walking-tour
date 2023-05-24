@@ -37,7 +37,7 @@ export default function Seo({lang, location}) {
 	return <>
       <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
       <link rel="alternate" hreflang="he-IL" href={`https://rickiswalkingtours.com/he${_pathName}`} />
-      <link rel="alternate" hreflang="en-US" href={`https://rickiswalkingtours.com/${_pathName}`} />
+      <link rel="alternate" hreflang="en-US" href={`https://rickiswalkingtours.com${_pathName}`} />
       	
       <title>{title}</title>
       <meta name="description" content={description} />
