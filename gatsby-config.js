@@ -12,6 +12,18 @@ const strapiConfig = {
         locale: "all", // Fetch all localizations
       },
     }
+  },{
+    singularName: 'post',
+    pluginOptions: {
+      i18n: {
+        locale: "all", // Fetch all localizations
+      },
+    },
+    queryParams: {
+      'populate': {
+        'Image': '*'
+      }
+    }
   }],
   singleTypes: ['social-media', {
     singularName:'about-page',
@@ -19,6 +31,21 @@ const strapiConfig = {
       i18n: {
         locale: "all", // Fetch all localizations
       },
+    }
+  },
+  {
+    singularName:'blog',
+    pluginOptions: {
+      i18n: {
+        locale: "all", // Fetch all localizations
+      },
+    },
+    queryParams: {
+      'populate': {
+        'AboutAuthor': {
+          'populate' : '*'
+        }
+      }
     }
   },
     {
@@ -63,7 +90,12 @@ module.exports = {
     title: `Ricki's Walking Tours`,
     siteUrl: `https://rickiswalkingtours.com`
   },
-  plugins: ["gatsby-plugin-postcss", "gatsby-plugin-sitemap",{
+  plugins: ["gatsby-plugin-postcss", {
+    resolve: "gatsby-plugin-sitemap",
+    options: {
+      excludes: ['/blog', '/posts/**']
+    }
+  },{
     resolve: 'gatsby-plugin-i18n',
     options: {        
       langKeyDefault: 'en',
@@ -97,6 +129,16 @@ module.exports = {
           }
         ]
       },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        // The unique name for each instance
+        name: `pages`,
+        // Path to the directory
+        path: `${__dirname}/src/pages/`,
+      },
     }
+    
     ]
 };

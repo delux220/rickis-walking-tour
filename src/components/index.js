@@ -26,10 +26,10 @@ export function Twitter({className=''}) {
 
 export function MenuButton({open=false, className='', onToggle}) {
 	return <button id="nav-icon3" className={`${className} ${open?' open fixed ':' absolute '} top-5 right-5 w-9 h-7 sm:h-14 sm:w-14`} onClick={() => onToggle()}>
-            <span className="bg-white h-1"></span>
-            <span className="bg-white h-1"></span>
-            <span className="bg-white h-1"></span>
-            <span className="bg-white h-1"></span>
+            <span className="h-1"></span>
+            <span className="h-1"></span>
+            <span className="h-1"></span>
+            <span className="h-1"></span>
           </button>
 }
 
