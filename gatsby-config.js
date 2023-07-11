@@ -42,6 +42,9 @@ const strapiConfig = {
     },
     queryParams: {
       'populate': {
+        'Image': {
+          'populate': '*'
+        },
         'AboutAuthor': {
           'populate' : '*'
         }

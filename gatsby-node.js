@@ -26,11 +26,25 @@ exports.createSchemaCustomization = ({ actions }) => {
       PriceList: [Node]
     }
 
+    type strapiSocialMedia implements Node {
+      Facebook: String,
+      Instagram: String,
+      YouTube: String
+    }
+
     type strapiPost implements Node {
       Title: String!
+      Description: String
       Content: String!
       Image: Node
       Slug: String!
+    }
+
+    type strapiBlog implements Node {
+      Title: String!
+      Description: String
+      Image: Node
+      AboutAuthor: Node
     }
     
   `
@@ -56,18 +70,40 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   // Define a template for blog post
   const blogPost = path.resolve(`./src/templates/post.js`);
+  const heBlogPost = path.resolve(`./src/templates/post.he.js`);
   const blog = path.resolve(`./src/templates/blog.js`);
+  const heBlogTemplate = path.resolve(`./src/templates/blog.he.js`);
 
   // Get all markdown blog posts sorted by date
   const result = await graphql(`
   query MyQuery {
-    strapiBlog {
-      Title
-      AboutAuthor {
-        Title
+    strapiSocialMedia {
+      Instagram
+      Facebook
+      YouTube
+    }
+    allStrapiBlog {
+      nodes {
+        id
+        locale
         Description
-        Photo {
+        Title
+        Image {
+          alternativeText
           url
+        }
+        AboutAuthor {
+          Title
+          Description
+          Photo {
+            alternativeText
+            url
+            formats {
+              medium {
+                url
+              }
+            }
+          }
         }
       }
     }
@@ -80,8 +116,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               Content
             }
           }
+          locale
           Image {
             url
+            alternativeText
             formats {
               medium {
                 url
@@ -92,8 +130,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             }
           }
           Slug
+          Description
           Title
           publishedAt
+          updatedAt
         }
       }
     }
@@ -111,10 +151,17 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return
   }
 
-  console.log('title: '+result.data.strapiBlog.Title);
-  console.log(result.data.strapiBlog.AboutAuthor);
+  const enPosts = result.data.allStrapiPost.edges.filter(edge => edge.node.locale=='en');
+  const hePosts = result.data.allStrapiPost.edges.filter(edge => edge.node.locale=='he-IL');
 
-  result.data.allStrapiPost.edges.forEach((edge, i) => {
+  const enBlog = result.data.allStrapiBlog.nodes.find(node => node.locale=='en');
+  const heBlog = result.data.allStrapiBlog.nodes.find(node => node.locale=='he-IL');
+
+  console.log(heBlog);
+
+  //console.log(enPosts);
+
+  enPosts.forEach((edge, i) => {
     console.log(`/posts/${edge.node.Slug}`);
     var nextPost = result.data.allStrapiPost.edges[i+1]?result.data.allStrapiPost.edges[i+1]:null;
     createPage({
@@ -123,25 +170,75 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       context: {
         data: edge.node,
         nextPost,
-        author: result.data.strapiBlog.AboutAuthor
+        author: enBlog.AboutAuthor,
+        social: result.data.strapiSocialMedia
       }
     });
   });
 
-  const chunks = chunk(result.data.allStrapiPost.edges, 4);
+  const enChunks = chunk(enPosts, 4);
+  const heChunks = chunk(hePosts, 4);
 
-  chunks.forEach((chunk, i) => {
-    let uri = i==0?'/blog':`/blog/${(i+1)}`;
+  if (enChunks.length == 0) {
     createPage({
-      path: uri,
+      path: '/blog',
       component: blog,
       context: {
-        data: chunk,
-        page: (i+1),
-        hasMore: (i<(chunks.length-1)),
-        title: result.data.strapiBlog.Title
+        data: [],
+        blog: enBlog,
+        page: 1,
+        hasMore: false,
+        title: enBlog.Title,
+        uri: '/blog'
       }
     });
-  });
+  } else {
+    enChunks.forEach((chunk, i) => {
+      let uri = i==0?'/blog':`/blog/${(i+1)}`;
+      createPage({
+        path: uri,
+        component: blog,
+        context: {
+          data: chunk,
+          page: (i+1),
+          blog: enBlog,
+          hasMore: (i<(enChunks.length-1)),
+          title: enBlog.Title,
+          uri: uri
+        }
+      });
+    });
+  }
+
+  if (heChunks.length == 0) {
+    createPage({
+      path: '/he/blog',
+      component: heBlogTemplate,
+      context: {
+        data: [],
+        page: 1,
+        blog: heBlog,
+        hasMore: false,
+        title: heBlog.Title,
+        uri: '/blog'
+      }
+    });
+  } else {
+    heChunks.forEach((chunk, i) => {
+      let uri = i==0?'/he/blog':`/he/blog/${(i+1)}`;
+      createPage({
+        path: uri,
+        component: heBlogTemplate,
+        context: {
+          data: chunk,
+          blog: heBlog,
+          page: (i+1),
+          hasMore: (i<(heChunks.length-1)),
+          title: heBlog.Title,
+          uri: uri
+        }
+      });
+    });
+  }
 
 }

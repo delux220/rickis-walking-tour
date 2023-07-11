@@ -118,7 +118,7 @@ const PhotographyPage = ({data}) => {
         <div className="sm:columns-2 md:columns-3 xl:columns-4 space-y-4 pb-20">
           {
             data.strapiGallery.Photos.map((photo, i) => <div className="on-scroll" key={`photo-${photo.id}`}>
-                      <button className="px-0 py-0 my-0 block " onClick={() => setPhotoIndex(i)}><img src={photo.formats.medium.url} className=" h-auto max-w-full rounded-lg" alt="Photography by Ricki Sofer"/></button>
+                      <button className="px-0 py-0 my-0 block " onClick={() => setPhotoIndex(i)}><img src={photo.formats.medium.url} className=" h-auto max-w-full rounded-lg" alt={photo.alternativeText}/></button>
 
                     </div>)
           }
@@ -242,6 +242,7 @@ export const pageQuery = graphql`query MyQuery {
   
   strapiGallery {
     Photos {
+      alternativeText
       url
       formats {
         medium {
