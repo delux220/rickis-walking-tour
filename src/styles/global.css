@@ -35,7 +35,12 @@
 }
 
 #post p {
-  @apply mb-3;
+  @apply mb-2;
+}
+
+#post a {
+  @apply text-ricki;
+  @apply hover:text-rose-400;
 }
 
 #nav-icon3 span {
