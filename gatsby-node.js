@@ -163,7 +163,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   enPosts.forEach((edge, i) => {
     console.log(`/posts/${edge.node.Slug}`);
-    var nextPost = result.data.allStrapiPost.edges[i+1]?result.data.allStrapiPost.edges[i+1]:null;
+    var nextPost = enPosts[i+1]?enPosts[i+1]:null;
     createPage({
       path: `/posts/${edge.node.Slug}`,
       component: blogPost,
@@ -171,6 +171,21 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         data: edge.node,
         nextPost,
         author: enBlog.AboutAuthor,
+        social: result.data.strapiSocialMedia
+      }
+    });
+  });
+
+  hePosts.forEach((edge, i) => {
+    console.log(`/he/posts/${edge.node.Slug}`);
+    var nextPost = hePosts[i+1]?hePosts[i+1]:null;
+    createPage({
+      path: `/he/posts/${edge.node.Slug}`,
+      component: heBlogPost,
+      context: {
+        data: edge.node,
+        nextPost,
+        author: heBlog.AboutAuthor,
         social: result.data.strapiSocialMedia
       }
     });

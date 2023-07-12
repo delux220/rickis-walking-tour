@@ -6,37 +6,44 @@ import {YouTube, Instagram, Facebook, TikTok, Twitter, WhatsApp} from '../compon
 import {faArrowRight, faEnvelope, faShareNodes} from '@fortawesome/free-solid-svg-icons';
 import numeral from 'numeral';
 import moment from 'moment';
+import 'moment/locale/he'; 
+import 'moment/locale/es'; // without this line it didn't work
+
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 
 const HebrewPost = ({pageContext}) => {
 
-	const url = `https://rickiswalkingtours.com/blog/${pageContext.data.Slug}`;
+	const url = `https://rickiswalkingtours.com/he/posts/${pageContext.data.Slug}`;
 
-	console.log(pageContext);
+	const doShare = async() => {
+		await navigator.share({url, title: pageContext.data.Title});
+	}
+
+	//console.log(pageContext);
 	
-	return <Layout lang={'en'} className="bg-ricki" current="blog">
-		<div className="h-[80vh] bg-cover bg-center relative" style={{backgroundImage: `url('${pageContext.data.Image.url}')`}}>
+	return <Layout lang={'he-IL'} className="bg-ricki" current="blog">
+		<div dir="rtl" className="h-[80vh] bg-cover bg-center relative" style={{backgroundImage: `url('${pageContext.data.Image.url}')`}}>
 			<div className="absolute bottom-0 left-0 w-full bg-gradient-to-b from-transparent to-black/60">
 				<div className="max-w-5xl mx-auto px-4 py-20">
 					<div className="mb-3">
-					<Link to={`/blog`} className="text-rose-400 text-xl font-bold ">Blog</Link>
+					<Link to={`/blog`} className="text-rose-400 text-xl font-bold ">בלוג</Link>
 					</div>
 					<h1 className="text-white font-goodlife text-5xl font-bold mb-3">{pageContext.data.Title}</h1>
-					<h3 className="text-white mb-4">By Ricki Sofer &middot; {moment(pageContext.data.publishedAt).fromNow()}</h3>
+					<h3 className="text-white mb-4">By Ricki Sofer &middot; {moment(pageContext.data.publishedAt).locale('he').fromNow()}</h3>
 					<div className="flex items-center space-x-4">
 						<a href={`https://www.facebook.com/sharer/sharer.php?u=${url}`} className="fill-white hover:fill-rose-400"><Facebook className="w-5 h-5"/></a>
 						<a href={`https://www.facebook.com/sharer/sharer.php?u=${url}`} className="fill-white hover:fill-rose-400"><Twitter className="w-5 h-5"/></a>
 						<a href={`mailto:?body=${url}`} className="text-white text-lg hover:text-rose-400"><FontAwesomeIcon icon={faEnvelope}/></a>
-						<button className="text-white text-lg hover:text-rose-400"><FontAwesomeIcon icon={faShareNodes}/></button>
+						<button onClick={() => doShare()} className="block md:hidden text-white text-lg hover:text-rose-400"><FontAwesomeIcon icon={faShareNodes}/></button>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div className="bg-white py-10">
-			<div className="max-w-5xl px-4 mx-auto">
-				<div className="mb-3">
-					<span className="font-bold text-gray-600 italic block mb-3">Published on <span className="italic text-ricki">{moment(pageContext.data.publishedAt).format('MMMM DD, YYYY')}</span></span>
+			<div className="max-w-5xl px-4 mx-auto" dir="rtl">
+				<div className="mb-3" dir="rtl">
+					<span className="font-bold text-gray-600 italic block mb-3" >יצא לאור <span className="italic text-ricki">{moment(pageContext.data.publishedAt).locale('he').format('LL')}</span></span>
 					<img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1683420929/squiggle-longer-different-pink_oajuo7.png" className="w-32 block"/>
 
 				</div>
@@ -51,11 +58,10 @@ const HebrewPost = ({pageContext}) => {
 				<div>
 
 				<div className="flex items-center space-x-4 mb-8">
-					<span className="font-goodlife font-bold text-black text-xl">Share with Friends:</span>
-					<a href={`https://www.facebook.com/sharer/sharer.php?u=${url}`} className="fill-ricki hover:fill-rose-400"><Facebook className="w-5 h-5"/></a>
+					<a href={`https://www.facebook.com/sharer/sharer.php?u=${url}`} className="fill-ricki hover:fill-rose-400 ml-3"><Facebook className="w-5 h-5"/></a>
 					<a href={`https://www.facebook.com/sharer/sharer.php?u=${url}`} className="fill-ricki hover:fill-rose-400"><Twitter className="w-5 h-5"/></a>
 					<a href={`mailto:?body=${url}`} className="text-ricki text-lg hover:text-rose-400"><FontAwesomeIcon icon={faEnvelope}/></a>
-					<button className="text-ricki text-lg hover:text-rose-400"><FontAwesomeIcon icon={faShareNodes}/></button>
+					<button onClick={() => doShare()} className="block md:hidden text-ricki text-lg hover:text-rose-400"><FontAwesomeIcon icon={faShareNodes}/></button>
 				</div>
 				</div>
 				{pageContext.author&&<div className="border rounded-xl px-4 py-4 on-scroll mb-8">
