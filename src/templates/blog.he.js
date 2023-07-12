@@ -6,12 +6,11 @@ import {YouTube, Instagram, Facebook, TikTok, Twitter, WhatsApp} from '../compon
 import {faArrowRight, faEnvelope, faArrowLeft, faShareNodes} from '@fortawesome/free-solid-svg-icons';
 import numeral from 'numeral';
 import moment from 'moment';
+import 'moment/locale/he';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 
 const HebrewBlog = ({pageContext}) => {
-
-	console.log(pageContext);
 	
 	return <Layout lang={'he-IL'} className="bg-ricki dark" current="blog">
 		<div className="bg-white min-h-[70vh]">
@@ -37,12 +36,12 @@ const HebrewBlog = ({pageContext}) => {
 						</div>
 						<div className="col-span-3">
 							<Link className="hover:text-ricki font-goodlife text-3xl font-bold" to={`/he/posts/${edge.node.Slug}`}>{edge.node.Title}</Link>
-							<p className="text-sm text-gray-600 mb-2">Published {moment(edge.node.publishedAt).fromNow()}</p>
+							<p className="text-sm text-gray-600 mb-2">יצא לאור  {moment(edge.node.publishedAt).locale('he').format('LL')}</p>
 							<div className="mb-2">
 							<p>{text}...</p>
 							</div>
 							<div className="mb-2">
-								<Link className="block w-full md:w-auto md:inline-block text-center shadow-lg bg-rose-400 px-6 py-2 font-bold text-white rounded-full inline-block" to={`/he/posts/${edge.node.Slug}`} ><FontAwesomeIcon icon={faArrowLeft} className="ml-2"/>Read Post</Link>
+								<Link className="block w-full md:w-auto md:inline-block text-center shadow-lg bg-rose-400 px-6 py-2 font-bold text-white rounded-full inline-block" to={`/he/posts/${edge.node.Slug}`} ><FontAwesomeIcon icon={faArrowLeft} className="ml-2"/>קרא עוד</Link>
 							</div>
 							
 						</div>
@@ -52,13 +51,13 @@ const HebrewBlog = ({pageContext}) => {
 			<div className="block py-10">
 			<div className="flex justify-between items-center">
 				{
-					pageContext.page==2&&<Link className="block" to={`/blog`}><FontAwesomeIcon icon={faArrowLeft}/> Newer Posts</Link>
+					pageContext.page==2&&<Link className="block" to={`/blog`}><FontAwesomeIcon icon={faArrowRight}/> Newer Posts</Link>
 				}
 				{
-					pageContext.page>2&&<Link className="block" to={`/blog/${pageContext.page-1}`}><FontAwesomeIcon icon={faArrowLeft}/> Newer Posts</Link>
+					pageContext.page>2&&<Link className="block" to={`/blog/${pageContext.page-1}`}><FontAwesomeIcon icon={faArrowRight}/> Newer Posts</Link>
 				}
 				{
-					pageContext.hasMore&&<Link className="block" to={`/blog/${pageContext.page+1}`}><FontAwesomeIcon icon={faArrowRight}/> Older Posts</Link>
+					pageContext.hasMore&&<Link className="block" to={`/blog/${pageContext.page+1}`}><FontAwesomeIcon icon={faArrowLeft}/> Older Posts</Link>
 				}
 			</div>
 			</div>

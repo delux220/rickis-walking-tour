@@ -28,9 +28,15 @@
   @apply pl-8;
   @apply mb-3;
 }
-#post ol {
+#post.post-en ol {
   @apply list-decimal;
   @apply pl-8;
+  @apply mb-3;
+}
+
+#post.post-he ol {
+  list-style:hebrew;
+  @apply pr-8;
   @apply mb-3;
 }
 
