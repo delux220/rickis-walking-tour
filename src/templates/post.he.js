@@ -104,6 +104,34 @@ const HebrewPost = ({pageContext}) => {
 }
 
 
-export const Head = ({location}) => (<Seo location={location}/>)
+export const Head = ({location, pageContext}) => {
+
+	const description = pageContext.data.Description;
+
+	return <>
+		 <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+	      	
+	      <title>{pageContext.data.Title}</title>
+	      <meta name="description" content={description} />
+	      <meta property="og:title" content={pageContext.data.Title} />
+	      <meta property="og:description" content={description} />
+	      <meta property="og:type" content="website" />
+	      <meta name="twitter:card" content="summary" />
+	      
+	        <meta property="og:image" content={pageContext.data.Image.url}/>
+	      
+	      
+	      <meta name="twitter:title" content={pageContext.data.Title} />
+	      <meta name="twitter:description" content={description} />
+		<script type="application/ld+json">
+	    {'{'}
+	      "@context": "https://schema.org",
+	      "@type": "BlogPosting",
+	      "headline": "{pageContext.data.Title}",
+	      "datePublished": "{pageContext.data.publishedAt}",
+	      "dateModified": "{pageContext.data.updatedAt}"
+	    {'}'}
+	    </script>
+	</>};
 
 export default HebrewPost;

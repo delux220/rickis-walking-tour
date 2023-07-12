@@ -106,17 +106,15 @@ const Post = ({pageContext}) => {
 
 export const Head = ({location, pageContext}) => {
 
-	const description = pageContext.data.Content.data.Content.replace(/(<([^>]+)>)/gi, "");
-
-	const words = (description.split(' ').splice(0, 30).join(' ')).trim()+'...';
+	const description = pageContext.data.Description;
 
 	return <>
 		 <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
 	      	
 	      <title>{pageContext.data.Title}</title>
-	      <meta name="description" content={words} />
+	      <meta name="description" content={description} />
 	      <meta property="og:title" content={pageContext.data.Title} />
-	      <meta property="og:description" content={words} />
+	      <meta property="og:description" content={description} />
 	      <meta property="og:type" content="website" />
 	      <meta name="twitter:card" content="summary" />
 	      
@@ -124,7 +122,7 @@ export const Head = ({location, pageContext}) => {
 	      
 	      
 	      <meta name="twitter:title" content={pageContext.data.Title} />
-	      <meta name="twitter:description" content={words} />
+	      <meta name="twitter:description" content={description} />
 		<script type="application/ld+json">
 	    {'{'}
 	      "@context": "https://schema.org",
