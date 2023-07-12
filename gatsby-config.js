@@ -94,10 +94,7 @@ module.exports = {
     siteUrl: `https://rickiswalkingtours.com`
   },
   plugins: ["gatsby-plugin-postcss", {
-    resolve: "gatsby-plugin-sitemap",
-    options: {
-      excludes: ['/blog', '/posts/**']
-    }
+    resolve: "gatsby-plugin-sitemap"
   },{
     resolve: 'gatsby-plugin-i18n',
     options: {        
