@@ -81,7 +81,7 @@ const HebrewPost = ({pageContext}) => {
 					</div>
 				</div>}
 				{pageContext.nextPost!=null&&<div>
-					<h3 className="text-lg mb-3 font-bold">What to Read Next...</h3>
+					<h3 className="text-lg mb-3 font-bold">לפוסט הבא</h3>
 					<div className="sm:grid grid-cols-3 gap-5 mb-8">
 					<div className="mb-4 sm:mb-0">
 						<Link to={`/posts/${pageContext.nextPost.node.Slug}`} className="block"><img src={pageContext.nextPost.node.Image.formats.large.url} className="rounded-xl object-cover aspect-[5/4]"/></Link>
