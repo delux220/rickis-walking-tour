@@ -7,6 +7,8 @@ import moment from 'moment';
 import Layout from '../components/layout';
 
 const Blog = ({pageContext}) => {
+
+	moment.locale('en');
 	
 	return <Layout lang={'en'} className="bg-ricki dark" current="blog">
 		<div className="bg-white min-h-[70vh]">

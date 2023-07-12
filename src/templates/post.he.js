@@ -76,7 +76,7 @@ const HebrewPost = ({pageContext}) => {
 								<a href="https://wa.link/w5o5ik" target="_blank"><WhatsApp className="hover:fill-black fill-slate-600 w-5 h-5"/></a>
 							</div>
 							<p className="mb-3">{pageContext.author.Description}</p>
-							<Link to={'/#tours'} className="w-full md:w-auto md:inline-block text-xl sm:text-base font-bold font-sans bg-rose-400 shadow-lg text-white rounded-full px-6 py-2 block text-center">לסיורים בעברית עם ריקי</Link>
+							<Link to={'/he/#tours'} className="w-full md:w-auto md:inline-block text-xl sm:text-base font-bold font-sans bg-rose-400 shadow-lg text-white rounded-full px-6 py-2 block text-center">לסיורים בעברית עם ריקי</Link>
 						</div>
 					</div>
 				</div>}
@@ -91,7 +91,7 @@ const HebrewPost = ({pageContext}) => {
 						<p className="text-sm mb-2 text-gray-600">{moment(pageContext.nextPost.node.publishedAt).locale('he').format('LL')}</p>
 						<p className="mb-3">{pageContext.nextPost.node.Content.data.Content.replace(/(<([^>]+)>)/gi, "").substr(0, 250)}...</p>
 						<div className="">
-								<Link className="block w-full md:w-auto md:inline-block text-center shadow-lg bg-rose-400 px-6 py-2 font-bold text-white rounded-full inline-block" to={`/posts/${pageContext.nextPost.node.Slug}`}><FontAwesomeIcon icon={faArrowLeft} className="ml-2"/>קרא עוד</Link>
+								<Link className="block w-full md:w-auto md:inline-block text-center shadow-lg bg-rose-400 px-6 py-2 font-bold text-white rounded-full inline-block" to={`/he/posts/${pageContext.nextPost.node.Slug}`}><FontAwesomeIcon icon={faArrowLeft} className="ml-2"/>קרא עוד</Link>
 						</div>
 					</div>
 				</div>

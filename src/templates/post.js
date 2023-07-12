@@ -16,6 +16,7 @@ const Post = ({pageContext}) => {
 		await navigator.share({url, title: pageContext.data.Title});
 	}
 
+	moment.locale('en');
 	
 
 	return <Layout lang={'en'} className="bg-ricki" current="blog">
@@ -26,7 +27,7 @@ const Post = ({pageContext}) => {
 					<Link to={`/blog`} className="text-rose-400 text-xl font-bold ">Blog</Link>
 					</div>
 					<h1 className="text-white font-goodlife text-5xl font-bold mb-3">{pageContext.data.Title}</h1>
-					<h3 className="text-white mb-4">By Ricki Sofer &middot; {moment(pageContext.data.publishedAt).fromNow()}</h3>
+					<h3 className="text-white mb-4">By Ricki Sofer &middot; {moment(pageContext.data.publishedAt).locale('en').fromNow()}</h3>
 					<div className="flex items-center space-x-4">
 						<a href={`https://www.facebook.com/sharer/sharer.php?u=${url}`} className="fill-white hover:fill-rose-400"><Facebook className="w-5 h-5"/></a>
 						<a href={`https://twitter.com/intent/tweet?url=${url}`} className="fill-white hover:fill-rose-400"><Twitter className="w-5 h-5"/></a>
