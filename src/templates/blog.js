@@ -32,7 +32,8 @@ const Blog = ({pageContext}) => {
 						<div className="col-span-2 mb-4 md:mb-0">
 							<Link className="block" to={`/he/posts/${edge.node.Slug}`}>
 								{edge.nodeImage.formats.large!=null?<img src={edge.node.Image.formats.large.url} className="aspect-square sm:aspect-[4/3] w-full object-cover rounded-xl" alt={edge.node.Image.alternativeText}/>:<img src={edge.node.Image.url} className="aspect-square sm:aspect-[4/3] w-full object-cover rounded-xl" alt={edge.node.Image.alternativeText}/>}
-							</Link>						</div>
+							</Link>						
+						</div>
 						<div className="col-span-3">
 							<Link className="hover:text-ricki font-goodlife text-3xl font-bold" to={`/posts/${edge.node.Slug}`}>{edge.node.Title}</Link>
 							<p className="text-sm text-gray-600 mb-2">Published {moment(edge.node.publishedAt).fromNow()}</p>
