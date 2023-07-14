@@ -84,7 +84,7 @@ const Post = ({pageContext}) => {
 					<h3 className="text-lg mb-3 font-bold">What to Read Next...</h3>
 					<div className="sm:grid grid-cols-3 gap-5 mb-8">
 					<div className="mb-4 sm:mb-0">
-						<Link to={`/posts/${pageContext.nextPost.node.Slug}`} className="block"><img src={pageContext.nextPost.node.Image.formats.large.url} className="rounded-xl object-cover aspect-[5/4]" alt={pageContext.nextPost.node.Image.alternativeText}/></Link>
+						<Link to={`/posts/${pageContext.nextPost.node.Slug}`} className="block">{pageContext.nextPost.node.Image.formats.large!=null?<img src={pageContext.nextPost.node.Image.formats.large.url} className="rounded-xl object-cover aspect-[5/4]"/>:<img src={pageContext.nextPost.node.Image.url} className="rounded-xl object-cover aspect-[5/4]"/>}</Link>
 					</div>
 					<div className="col-span-2">
 						<Link className="block text-2xl font-bold font-goodlife" to={`/posts/${pageContext.nextPost.node.Slug}`}>{pageContext.nextPost.node.Title}</Link>
