@@ -30,8 +30,9 @@ const Blog = ({pageContext}) => {
 						const text = edge.node.Content.data.Content.replace(/(<([^>]+)>)/gi, "").substr(0, 250);
 						return <div key={edge.node.id} className="md:grid md:grid-cols-5 lg:grid-cols-6 gap-4">
 						<div className="col-span-2 mb-4 md:mb-0">
-							<Link className="block" to={`/posts/${edge.node.Slug}`}><img src={edge.node.Image.formats.large.url} className="aspect-square sm:aspect-[4/3] w-full object-cover rounded-xl" alt={edge.node.Image.alternativeText}/></Link>
-						</div>
+							<Link className="block" to={`/he/posts/${edge.node.Slug}`}>
+								{edge.nodeImage.formats.large!=null?<img src={edge.node.Image.formats.large.url} className="aspect-square sm:aspect-[4/3] w-full object-cover rounded-xl" alt={edge.node.Image.alternativeText}/>:<img src={edge.node.Image.url} className="aspect-square sm:aspect-[4/3] w-full object-cover rounded-xl" alt={edge.node.Image.alternativeText}/>}
+							</Link>						</div>
 						<div className="col-span-3">
 							<Link className="hover:text-ricki font-goodlife text-3xl font-bold" to={`/posts/${edge.node.Slug}`}>{edge.node.Title}</Link>
 							<p className="text-sm text-gray-600 mb-2">Published {moment(edge.node.publishedAt).fromNow()}</p>
