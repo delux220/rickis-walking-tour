@@ -16,7 +16,7 @@ const HebrewBlog = ({pageContext}) => {
 		<div className="bg-white min-h-[70vh]">
 		<div className="container mx-auto px-4">
 			<div className="pt-20 md:pt-10 mb-10">
-				<h1 className="text-5xl font-goodlife font-bold text-right">{pageContext.title}</h1>
+				<h1 className="text-2xl md:text-5xl font-goodlife font-bold text-right">{pageContext.title}</h1>
 			</div>
 			<div className="space-y-8">
 				{
@@ -29,7 +29,8 @@ const HebrewBlog = ({pageContext}) => {
 				}
 				{
 					pageContext.data.map(edge => {
-						const text = edge.node.Content.data.Content.replace(/(<([^>]+)>)/gi, "").substr(0, 250);
+						const text = edge.node.Content.data.Content.replace('&nbsp;', ' ').replace(/(<([^>]+)>)/gi, "").replace(/&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-fA-F]{1,6});/ig, '').substr(0, 250);
+						
 						return <div dir="rtl" key={edge.node.id} className="md:grid md:grid-cols-5 lg:grid-cols-6 gap-4">
 						<div className="col-span-2 mb-4 md:mb-0">
 							<Link className="block" to={`/he/posts/${edge.node.Slug}`}>
