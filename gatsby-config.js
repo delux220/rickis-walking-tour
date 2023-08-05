@@ -142,6 +142,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
+        gtagConfig: {
+          storage: 'none'
+        },
         trackingIds: [
           "G-8523ZZG1KV"
         ],
