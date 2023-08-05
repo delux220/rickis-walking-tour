@@ -141,7 +141,7 @@ const Layout = ({lang, children, className='', headerClass='', footerClass='bg-r
 					<li><Link className={`md:border-b-4 ${current=='about'?'md:border-ricki':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}about`}>{lang=='en'?'About':'מי אני'}</Link></li>
 					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}#tours`}>{lang=='en'?'Tours':'סיורים בעברית'}</Link></li>
 					<li><Link className={`md:border-b-4 ${current=='photography'?'md:border-ricki':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}photography`}>{lang=='en'?'Photography':'צילומים מקצועיים'}</Link></li>
-					<li><Link className={`md:border-b-4 ${current=='blog'?'md:border-ricki':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}blog`}>{lang=='en'?'Blog':'בלוג המלצות בניו יורק'}</Link></li>
+					<li><Link className={`md:border-b-4 ${current=='blog'?'md:border-ricki':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}blog`}>{lang=='en'?'Blog':'המדריך לניו יורק'}</Link></li>
 					
 					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}#contact`} className="">{lang=='en'?'Contact':'צרו קשר'}</Link></li>
 					<li className="pt-2 md:hidden"><div className="items-center justify-between flex  w-full ">

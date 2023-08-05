@@ -54,13 +54,13 @@ const HebrewBlog = ({pageContext}) => {
 			<div className="block py-10">
 			<div className="flex justify-between items-center">
 				{
-					pageContext.page==2&&<Link className="block" to={`/blog`}><FontAwesomeIcon icon={faArrowRight}/> Newer Posts</Link>
+					pageContext.hasMore&&<Link className="block" to={`/blog/${pageContext.page+1}`}><FontAwesomeIcon icon={faArrowRight}/> מה עוד יש</Link>
 				}
 				{
-					pageContext.page>2&&<Link className="block" to={`/blog/${pageContext.page-1}`}><FontAwesomeIcon icon={faArrowRight}/> Newer Posts</Link>
+					pageContext.page==2&&<Link className="block" to={`/blog`}><FontAwesomeIcon icon={faArrowLeft}/> חדש דנדש</Link>
 				}
 				{
-					pageContext.hasMore&&<Link className="block" to={`/blog/${pageContext.page+1}`}><FontAwesomeIcon icon={faArrowLeft}/> Older Posts</Link>
+					pageContext.page>2&&<Link className="block" to={`/blog/${pageContext.page-1}`}><FontAwesomeIcon icon={faArrowLeft}/> חדש דנדש</Link>
 				}
 			</div>
 			</div>

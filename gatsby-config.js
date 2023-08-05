@@ -138,7 +138,15 @@ module.exports = {
         // Path to the directory
         path: `${__dirname}/src/pages/`,
       },
-    }
+    },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          "G-8523ZZG1KV"
+        ],
+      },
+    },
     
     ]
 };
