@@ -5,6 +5,19 @@ export default function Seo({lang, location}) {
 
 	const data = useStaticQuery(graphql`
 	   query seoQuery {
+	   	  strapiConcierge{
+	        Title
+	        Description
+	        localizations {
+	          data {
+	            attributes {
+	              Title
+	              Description
+	              locale
+	            }
+	          }
+	        }
+	      }
 		  strapiSeo {
 		    Title
 		    Image {
@@ -29,8 +42,16 @@ export default function Seo({lang, location}) {
 	const localization = data.strapiSeo.localizations.data.find(local => local.attributes.locale == lang);
 
 
-	const title = localization?localization.attributes.Title:data.strapiSeo.Title;
-	const description = localization?localization.attributes.Description:data.strapiSeo.Description;
+	var title = localization?localization.attributes.Title:data.strapiSeo.Title;
+	var description = localization?localization.attributes.Description:data.strapiSeo.Description;
+
+	if (location.pathname == '/concierge') {
+		title = data.strapiConcierge.Title;
+		description = data.strapiConcierge.Description;
+	} else if (location.pathname == '/he/concierge') {
+		title = data.strapiConcierge.localization.data.attributes.Title;
+		description = data.strapiConcierge.localization.data.attributes.Description;
+	}
 
 	const _pathName = location.pathname.replace('/he', '');
 
