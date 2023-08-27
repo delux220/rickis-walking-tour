@@ -68,6 +68,6 @@ export const pageQuery = graphql`query MyQuery {
   }
 }`;
 
-export const Head = ({location}) => <Seo location={location} lang="en"/>
+export const Head = ({location, data}) => <Seo location={location} lang="en" title={data.strapiConcierge.Title} description={data.strapiConcierge.Description}/>
 
 export default ConciergePage;
