@@ -136,7 +136,7 @@ const Layout = ({lang, children, className='', headerClass='', footerClass='bg-r
 				<div>
 				<MenuButton open={menuOpen} onToggle={() => setMenuOpen(!menuOpen)} className={` md:hidden z-50`}/>
 				</div>
-				<ul dir={lang=='he'?'rtl':'ltr'} className={`${menuOpen?'block motion-safe:animate-menuIn':'hidden md:!translate-x-0'} text-3xl bg-black/90 md:bg-transparent md:backdrop-blur-none backdrop-blur space-y-4 md:space-y-0 top-0 text-right font-calibri md:font-goodlife fixed md:relative h-screen md:h-auto right-0 w-10/12 md:w-auto md:flex  py-20 md:py-0 px-8 md:px-0  font-bold list-style-none md:space-x-8 md:text-base md:uppercase md:tracking-wider lg:text-lg lg:tracking-widest md:font-bold items-center`}>
+				<ul dir={lang=='he'?'rtl':'ltr'} className={`${menuOpen?'block motion-safe:animate-menuIn':'hidden md:!translate-x-0'} text-3xl bg-black/90 md:bg-transparent md:backdrop-blur-none backdrop-blur space-y-4 md:space-y-0 top-0 text-right font-calibri md:font-goodlife fixed md:relative h-screen md:h-auto right-0 w-10/12 md:w-auto md:flex  py-20 md:py-0 px-6 md:px-0  font-bold list-style-none md:space-x-8 md:text-base md:uppercase md:tracking-wider lg:text-lg lg:tracking-widest md:font-bold items-center`}>
 					<li className="md:hidden"><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}`}>{lang=='en'?'Home':'בית'}</Link></li>
 					<li><Link className={`md:border-b-4 ${current=='about'?'md:border-ricki':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}about`}>{lang=='en'?'About':'מי אני'}</Link></li>
 					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}#tours`}>{lang=='en'?'Tours':'סיורים בעברית'}</Link></li>
