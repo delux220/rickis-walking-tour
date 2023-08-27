@@ -46,6 +46,13 @@ exports.createSchemaCustomization = ({ actions }) => {
       Image: Node
       AboutAuthor: Node
     }
+
+    type strapiConcierge implements Node {
+      Title: String!
+      Content: String!
+      Description: String
+      Image: Node!
+    }
     
   `
   createTypes(typeDefs);

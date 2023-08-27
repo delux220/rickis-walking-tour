@@ -34,6 +34,14 @@ const strapiConfig = {
     }
   },
   {
+    singularName:'concierge',
+    pluginOptions: {
+      i18n: {
+        locale: "all", // Fetch all localizations
+      },
+    }
+  },
+  {
     singularName:'blog',
     pluginOptions: {
       i18n: {
