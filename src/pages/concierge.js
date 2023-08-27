@@ -14,11 +14,11 @@ const ConciergePage = ({data}) => {
   
   return <Layout lang={'en'} className="bg-ricki" current="about">
       <div className="bg-white pb-10">
-        <div className="container mx-auto xl:px-0">
+        <div className="md:container mx-auto xl:px-0">
           <div className="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-4 xl:gap-8">
-            <div className="bg-cover bg-center h-[80vh] md:hidden px-4 py-10 flex items-end justify-center" style={{backgroundImage: "url('"+data.strapiConcierge.Image.formats.large.url+"')"}}>
+            <div className="bg-cover bg-center h-[80vh] md:hidden px-3 py-10 flex items-end justify-center" style={{backgroundImage: "url('"+data.strapiConcierge.Image.formats.large.url+"')"}}>
               <div>
-                <h1 className=" block w-full text-center text-white font-bold text-6xl font-epicursive mb-4">{data.strapiConcierge.Title}</h1>
+                <h1 className=" block w-full text-center text-white font-bold text-5xl font-epicursive mb-4">{data.strapiConcierge.Title}</h1>
                 <img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1683420929/squiggle-longer-different-pink_oajuo7.png" className="mx-auto block w-48 my-6"/>
 
               </div>
