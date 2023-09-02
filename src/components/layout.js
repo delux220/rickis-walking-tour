@@ -140,6 +140,7 @@ const Layout = ({lang, children, className='', headerClass='', footerClass='bg-r
 					<li className="md:hidden"><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}`}>{lang=='en'?'Home':'בית'}</Link></li>
 					<li><Link className={`md:border-b-4 ${current=='about'?'md:border-ricki':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}about`}>{lang=='en'?'About':'מי אני'}</Link></li>
 					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}#tours`}>{lang=='en'?'Tours':'סיורים בעברית'}</Link></li>
+					<li><Link className={`md:border-b-4 ${current=='concierge'?'md:border-ricki':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}concierge`}>{lang=='en'?'Concierge':'תיכנון טיול'}</Link></li>
 					<li><Link className={`md:border-b-4 ${current=='photography'?'md:border-ricki':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}photography`}>{lang=='en'?'Photography':'צילומים מקצועיים'}</Link></li>
 					<li><Link className={`md:border-b-4 ${current=='blog'?'md:border-ricki':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}blog`}>{lang=='en'?'Blog':'המדריך לNY'}</Link></li>
 					

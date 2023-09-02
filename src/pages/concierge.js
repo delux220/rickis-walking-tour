@@ -12,7 +12,7 @@ import Seo from '../components/seo';
 
 const ConciergePage = ({data}) => {
   
-  return <Layout lang={'en'} className="bg-ricki" current="about">
+  return <Layout lang={'en'} className="bg-ricki" current="concierge">
       <div className="bg-white pb-10">
         <div className="md:container mx-auto xl:px-0">
           <div className="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-4 xl:gap-8">
