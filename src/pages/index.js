@@ -266,7 +266,7 @@ const IndexPage = ({data}) => {
 								<h3 className=" font-bold text-2xl xl:text-3xl font-goodlife text-white mb-1">{tour.Title}</h3>
 								<div className="flex flex-wrap sm:flex-no-wrap items-center space-x-1 text-teal-400 font-bold">
 									
-									<span className="text-white text-sm sm:text-base md:text-lg rounded-full font-bold">{numeral(tour.Price).format('$0,0.00')} / person</span>
+									<span className="text-white text-sm sm:text-base md:text-lg rounded-full font-bold">{numeral(tour.Price).format('$0,0.00')} / {tour.id==3?'couple':'person'}</span>
 									{
 										tour.PriceUnder18!=null&&tour.PriceUnder18!=''&&<>
 											<span className="">&middot;</span>
