@@ -131,7 +131,7 @@ const Layout = ({lang, children, className='', headerClass='', footerClass='bg-r
 				        </ul>
 				    </div>
     				</div>
-				
+				<span className="hidden md:block"><img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1702996815/icons8-phone-30_bobcvq.png" className="w-5 inline-block mr-2"/><a href="tel:+13107755756" className="font-goodlife font-bold">(310) 775-5756</a></span>
 				</div>
 				<div>
 				<MenuButton open={menuOpen} onToggle={() => setMenuOpen(!menuOpen)} className={` md:hidden z-50`}/>
@@ -167,6 +167,7 @@ const Layout = ({lang, children, className='', headerClass='', footerClass='bg-r
 					<a href={data.strapiSocialMedia.Instagram} target="_blank"><Instagram className="hover:fill-white fill-black w-8 h-8"/></a>
 					<a href={data.strapiSocialMedia.YouTube} target="_blank"><YouTube className="hover:fill-white fill-black w-8 h-8"/></a>
 					<a href="https://wa.link/w5o5ik" target="_blank"><WhatsApp className="hover:fill-white fill-black w-8 h-8"/></a>
+					<a href="tel:+13107755756"><img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1702996815/icons8-phone-30_bobcvq.png" className="w-8"/></a>
 				</div>
 				<p>Copyright &copy; {new Date().getFullYear()}. Ricki's Walking Tours.</p>
 			</div>
