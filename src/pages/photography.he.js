@@ -239,8 +239,6 @@ export const pageQuery = graphql`query MyQuery {
     Title
     locale
   }
-    
-  
   strapiGallery(locale: {eq: "he-IL"}) {
     Photos {
       url
