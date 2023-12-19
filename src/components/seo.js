@@ -156,7 +156,7 @@ export default function Seo({lang, location, title=null, description=null, page=
       <link rel="alternate" hreflang="he-IL" href={`https://rickiswalkingtours.com/he${_pathName}`} />
       <link rel="alternate" hreflang="en-US" href={`https://rickiswalkingtours.com${_pathName}`} />
       	
-      <title>{title}</title>
+      <title>{_title}</title>
       <meta name="description" content={description} />
       <meta property="og:title" content={_title} />
       <meta property="og:description" content={_description} />
