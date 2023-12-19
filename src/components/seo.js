@@ -86,11 +86,11 @@ export default function Seo({lang, location, title=null, description=null, page=
 		switch(page) {
 			case 'blog':
 				if (lang == 'he-IL') {
-					_title = data.blogHebrew.strapiBlog.Title;
-					_description = data.blogHebrew.strapiBlog.Description;
+					_title = data.blogHebrew.Title;
+					_description = data.blogHebrew.Description;
 				} else {
-					_title = data.strapiBlog.strapiBlog.Title;
-					_description = data.strapiBlog.strapiBlog.Description;
+					_title = data.strapiBlog.Title;
+					_description = data.strapiBlog.Description;
 				}
 
 				break;
@@ -110,8 +110,8 @@ export default function Seo({lang, location, title=null, description=null, page=
 				break;
 			case 'photography':
 				if (lang == 'he-IL') {
-					_title = data.photographyHebrew.strapiDestinationPhotography.SeoTitle;
-					_description = data.photographyHebrew.strapiDestinationPhotography.SeoDescription;
+					_title = data.photographyHebrew.SeoTitle;
+					_description = data.photographyHebrew.SeoDescription;
 				} else {
 					_title = data.strapiDestinationPhotography.SeoTitle;
 					_description = data.strapiDestinationPhotography.SeoDescription;
