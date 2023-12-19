@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react"
 import {Link, Script, navigate, useStaticQuery, graphql} from 'gatsby';
 
-export default function Seo({lang, location, title=null, description=null}) {
+export default function Seo({lang, location, title=null, description=null, page=null}) {
 
 	const data = useStaticQuery(graphql`
 	   query seoQuery {
@@ -21,12 +21,55 @@ export default function Seo({lang, location, title=null, description=null}) {
 		      }
 		    }
 		  }
+		  blogHebrew: strapiBlog(locale: {eq: "he-IL"}) {
+		    Title
+		    Description
+		  }
+		  strapiBlog {
+		    Title
+		    Description
+		  }
+		  strapiAboutPage {
+		    localizations {
+		      data {
+		        attributes {
+		          SeoDescription
+		          SeoTitle
+		        }
+		      }
+		    }
+		    SeoTitle
+		    SeoDescription
+		  }
+		  photographyHebrew: strapiDestinationPhotography(locale: {eq: "he-IL"}) {
+		    SeoDescription
+		    SeoTitle
+		  }
+		  strapiDestinationPhotography {
+		    SeoTitle
+		   	SeoDescription
+		  }
+
+		  strapiConcierge {
+		    SeoTitle
+		    Description
+		    localizations {
+		      data {
+		        attributes {
+		          SeoTitle
+		          Description
+		        }
+		      }
+		    }
+		  }
 		}
 	  `);
 
 
+	console.log(data);
+
 	
-	const localization = data.strapiSeo.localizations.data.find(local => local.attributes.locale == lang);
+	var localization = data.strapiSeo.localizations.data.find(local => local.attributes.locale == lang);
 
 
 	var _title = localization?localization.attributes.Title:data.strapiSeo.Title;
@@ -37,6 +80,65 @@ export default function Seo({lang, location, title=null, description=null}) {
 	}
 	if (description != null) {
 		_description = description;
+	}
+
+	var data2 = null;
+
+	
+	if (page != null) {
+		switch(page) {
+			case 'blog':
+				if (lang == 'he-IL') {
+					_title = data.blogHebrew.strapiBlog.Title;
+					_description = data.blogHebrew.strapiBlog.Description;
+				} else {
+					_title = data.strapiBlog.strapiBlog.Title;
+					_description = data.strapiBlog.strapiBlog.Description;
+				}
+
+				break;
+			case 'about':
+				
+				if (lang == 'he-IL') {
+					localization = data.strapiAbout.localizations.data.find(local => local.locale=='he-IL');
+
+					_title = localization?localization.SeoTitle:data.strapiAboutPage.SeoTitle;
+					_description = localization?localization.SeoDescription:data.strapiAboutPage.SeoDescription;
+				} else {
+					_title = data.strapiAbout.strapiAboutPage.SeoTitle;
+					_description = data.strapiAbout.strapiAboutPage.SeoDescription;
+
+				}
+				
+				break;
+			case 'photography':
+				if (lang == 'he-IL') {
+					_title = data.photographyHebrew.strapiDestinationPhotography.SeoTitle;
+					_description = data.photographyHebrew.strapiDestinationPhotography.SeoDescription;
+				} else {
+					_title = data.strapiDestinationPhotography.SeoTitle;
+					_description = data.strapiDestinationPhotography.SeoDescription;
+				}
+
+				
+				
+				
+				break;
+			case 'concierge':
+				
+
+				if (lang == 'he-IL') {
+					localization = data.strapiConcierge.localizations.data.find(local => local.locale=='he-IL');
+
+					_title = localization?localization.SeoTitle:data.strapiConcierge.SeoTitle;
+					_description = localization?localization.Description:data.strapiConcierge.Description;
+				} else {
+					_title = data.strapiConcierge.SeoTitle;
+					_description = data.strapiConcierge.Description;
+
+				}
+				break;
+		}
 	}
 
 	/*if (location.pathname == '/concierge') {
