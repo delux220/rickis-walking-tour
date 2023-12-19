@@ -67,6 +67,6 @@ export const pageQuery = graphql`query MyQuery {
 }`;
 
 
-export const Head = ({location}) => (<Seo location={location}/>)
+export const Head = ({location}) => (<Seo page="about" location={location}/>)
 
 export default AboutPage;
