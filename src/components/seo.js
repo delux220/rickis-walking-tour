@@ -65,9 +65,6 @@ export default function Seo({lang, location, title=null, description=null, page=
 		}
 	  `);
 
-
-	console.log(data);
-
 	
 	var localization = data.strapiSeo.localizations.data.find(local => local.attributes.locale == lang);
 
