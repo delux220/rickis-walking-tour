@@ -4,7 +4,7 @@ import {Link, Script, navigate, useStaticQuery, graphql} from 'gatsby';
 export default function Seo({lang, location, title=null, description=null, page=null}) {
 
 	const data = useStaticQuery(graphql`
-	   query seoQuery {
+	   query seoQuery2 {
 		  strapiSeo {
 		    Title
 		    Image {
@@ -65,6 +65,8 @@ export default function Seo({lang, location, title=null, description=null, page=
 		}
 	  `);
 
+	console.log(data);
+
 	
 	var localization = data.strapiSeo.localizations.data.find(local => local.attributes.locale == lang);
 
@@ -78,8 +80,6 @@ export default function Seo({lang, location, title=null, description=null, page=
 	if (description != null) {
 		_description = description;
 	}
-
-	var data2 = null;
 
 	
 	if (page != null) {
@@ -97,13 +97,13 @@ export default function Seo({lang, location, title=null, description=null, page=
 			case 'about':
 				
 				if (lang == 'he-IL') {
-					localization = data.strapiAbout.localizations.data.find(local => local.locale=='he-IL');
+					localization = data.strapiAboutPage.localizations.data.find(local => local.locale=='he-IL');
 
 					_title = localization?localization.SeoTitle:data.strapiAboutPage.SeoTitle;
 					_description = localization?localization.SeoDescription:data.strapiAboutPage.SeoDescription;
 				} else {
-					_title = data.strapiAbout.strapiAboutPage.SeoTitle;
-					_description = data.strapiAbout.strapiAboutPage.SeoDescription;
+					_title = data.strapiAboutPage.SeoTitle;
+					_description = data.strapiAboutPage.SeoDescription;
 
 				}
 				

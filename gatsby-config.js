@@ -101,6 +101,9 @@ module.exports = {
     title: `Ricki's Walking Tours`,
     siteUrl: `https://rickiswalkingtours.com`
   },
+  flags: {
+    DEV_SSR: true,
+  },
   plugins: ["gatsby-plugin-postcss", {
     resolve: "gatsby-plugin-sitemap"
   },{

@@ -20,7 +20,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@googlemaps/js-api-loader": "^1.15.1",
-    "gatsby": "^5.10.0",
+    "gatsby": "^5.13.0",
     "gatsby-plugin-google-gtag": "^5.11.0",
     "gatsby-plugin-i18n": "^1.0.1",
     "gatsby-plugin-image": "^3.8.0",
