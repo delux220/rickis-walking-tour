@@ -146,6 +146,9 @@ export default function Seo({lang, location, title=null, description=null, page=
 		description = data.strapiConcierge.localization.data.attributes.Description;
 	}*/
 
+	console.log(_title);
+	console.log(_description);
+
 	const _pathName = location.pathname.replace('/he', '');
 
 	return <>
@@ -154,7 +157,7 @@ export default function Seo({lang, location, title=null, description=null, page=
       <link rel="alternate" hreflang="en-US" href={`https://rickiswalkingtours.com${_pathName}`} />
       	
       <title>{_title}</title>
-      <meta name="description" content={description} />
+      <meta name="description" content={_description} />
       <meta property="og:title" content={_title} />
       <meta property="og:description" content={_description} />
       <meta property="og:type" content="website" />
@@ -163,7 +166,7 @@ export default function Seo({lang, location, title=null, description=null, page=
         <meta property="og:image" content={data.strapiSeo.Image.url}/>
       
       
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
+      <meta name="twitter:title" content={_title} />
+      <meta name="twitter:description" content={_description} />
     </>
 }
