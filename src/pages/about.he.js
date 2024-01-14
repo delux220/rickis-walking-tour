@@ -29,7 +29,7 @@ const AboutPage = ({data}) => {
             <img alt="Ricki Sofer, Tour Guide, NYC" src={data.strapiAboutPage.Photo.formats.large.url} className="hidden md:block max-h-[80vh] mx-auto md:border-8 md:border-white md:shadow-lg xl:-rotate-3"/>
           </div>
           <div className="md:col-span-2 pt-5 mb-10">
-            <h1 className="md:px-6 xl:px-0 hidden md:block font-epicursive text-black font-bold text-6xl mb-5 mx-auto on-scroll">{data.strapiAboutPage.Title}</h1>
+            <h2 className="md:px-6 xl:px-0 hidden md:block font-epicursive text-black font-bold text-6xl mb-5 mx-auto on-scroll">{data.strapiAboutPage.Title}</h2>
             <p className="md:bg-white md:text-black text-white md:p-6 xl:p-0 rounded-md xl:bg-transparent text-xl on-scroll leading-10 md:text-lg on-scroll mb-4">{data.strapiAboutPage.Description.data.Description}</p>
             <a href="https://fareharbor.com/embeds/book/guidedtoursnyc/?full-items=yes&language=en-us&u=f47e9dfd-04ed-4ca1-960c-04da78951fce&from-ssl=yes&ga4t=G-XDVQTYZ0FJ,974959174.1683229789__1684492288%3B&g4=yes&a=yes&back=https://rickiswalkingtours.com/" className="shadow-lg bg-rose-400 block sm:inline-block w-full sm:w-auto sm:inline-block text-center px-8 py-3 rounded-full text-white font-bold hover:bg-rose-500">סיורים בעברית <FontAwesomeIcon icon={faArrowLeft}/></a>
             

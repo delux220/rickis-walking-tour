@@ -242,7 +242,7 @@ const IndexPage = ({data}) => {
 
 			<img alt="Ricki Sofer" src="https://res.cloudinary.com/meshed-nyc/q_auto/IMG_8118_atrpdt.jpg" className="border-8  rounded-xl h-full shadow-xl border-white -rotate-2 motion-safe:animate-fadeIn"/>
 			<div className="">
-				<h1 className="font-epicursive text-black font-bold text-7xl mb-8 mx-auto on-scroll" >Hey<span className="translate-y-4 inline-block">,</span> I'm Ricki!</h1>
+				<h2 className="font-epicursive text-black font-bold text-7xl mb-8 mx-auto on-scroll" >Hey<span className="translate-y-4 inline-block">,</span> I'm Ricki!</h2>
 				<h3 className=" font-goodlife text-teal-900 font-bold text-3xl mb-4 uppercase font-bold ">Your Guide to NYC</h3>
 				<h3 className=" text-teal-900  text-lg font-sans mb-4 block xl:max-w-lg">I'm a photographer 📷, licensed NYC tour guide 🗽, part-time stand up comedian 🎤, and full-time adventurer!</h3>
 				<a href="#tours" className="font-bold font-sans border border-rose-400 bg-rose-400 mr-4 mb-2 lg:mb-0 text-white rounded-full px-10 py-4 block w-full lg:w-auto lg:inline-block"><FontAwesomeIcon icon={faArrowRight} className="mr-4"/>Book a Tour</a>

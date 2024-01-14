@@ -177,7 +177,7 @@ const IndexPage = ({data}) => {
 
 			<img alt="Ricki Sofer, Tour Guide" src="https://res.cloudinary.com/meshed-nyc/q_auto/IMG_8118_atrpdt.jpg" className="border-8 xl:ml-10 rounded-xl h-full shadow-xl border-white rotate-2 motion-safe:animate-fadeIn"/>
 			<div className="">
-				<h1 className="text-right font-epicursive text-black font-bold text-7xl mb-8 mx-auto on-scroll" >אני ריקי</h1>
+				<h2 className="text-right font-epicursive text-black font-bold text-7xl mb-8 mx-auto on-scroll" >אני ריקי</h2>
 				<h3 className="text-right  font-goodlife text-teal-900 font-bold text-3xl mb-4 uppercase font-bold ">המדריכה שלכם לניו יורק סיטי</h3>
 				<h3 className="text-right  text-teal-900  text-lg font-sans mb-4 block xl:max-w-lg">הצטרפו אלי לסימטאות מלאות ההיסטוריה של ניו יורק, לטעום מהמאכלים הטובים ביותר וליהנות מהעיר ללא הפסקה.</h3>
 				
