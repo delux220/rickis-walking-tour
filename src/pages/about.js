@@ -26,7 +26,7 @@ const AboutPage = ({data}) => {
 			<div className="container mx-auto px-6 xl:px-0 md:h-[90vh] flex items-center ">
 				<div className="sm:grid sm:grid-cols-2 md:grid-cols-3 gap-8">
 					<div>
-						<img src={data.strapiAboutPage.Photo.formats.large.url} className="hidden md:block max-h-[80vh] mx-auto md:border-8 md:border-white md:shadow-lg xl:-rotate-3"/>
+						<img alt="Tour Guide Ricki Sofer" src={data.strapiAboutPage.Photo.formats.large.url} className="hidden md:block max-h-[80vh] mx-auto md:border-8 md:border-white md:shadow-lg xl:-rotate-3"/>
 					</div>
 					<div className="md:col-span-2 pt-5 mb-10 ">
 						<h1 className="md:px-6 xl:px-0 hidden md:block font-epicursive text-black font-bold text-6xl mb-5 mx-auto on-scroll">{data.strapiAboutPage.Title}</h1>

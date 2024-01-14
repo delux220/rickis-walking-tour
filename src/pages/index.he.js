@@ -175,7 +175,7 @@ const IndexPage = ({data}) => {
 		<div className=" bg-repeat-x bg-[center_bottom_-5rem] xl:bg-[center_bottom_-12rem]  bg-contain bg-[url(https://res.cloudinary.com/meshed-nyc/image/upload/v1684490282/skyline-new_jxaw7j.png)]">
 		<div className="container mx-auto h-[90vh] lg:h-[80vh] px-4 md:px-0 lg:px-6 py-10 xl:py-6 flex items-center space-x-8 xl:space-x-10  ">
 
-			<img src="https://res.cloudinary.com/meshed-nyc/q_auto/IMG_8118_atrpdt.jpg" className="border-8 xl:ml-10 rounded-xl h-full shadow-xl border-white rotate-2 motion-safe:animate-fadeIn"/>
+			<img alt="Ricki Sofer, Tour Guide" src="https://res.cloudinary.com/meshed-nyc/q_auto/IMG_8118_atrpdt.jpg" className="border-8 xl:ml-10 rounded-xl h-full shadow-xl border-white rotate-2 motion-safe:animate-fadeIn"/>
 			<div className="">
 				<h1 className="text-right font-epicursive text-black font-bold text-7xl mb-8 mx-auto on-scroll" >אני ריקי</h1>
 				<h3 className="text-right  font-goodlife text-teal-900 font-bold text-3xl mb-4 uppercase font-bold ">המדריכה שלכם לניו יורק סיטי</h3>
@@ -198,7 +198,7 @@ const IndexPage = ({data}) => {
 
 						return <div key={`tour-${tour.id}`} className="md:flex on-scroll mb-6 sm:mb-0  xl:col-span-5">
 							
-							{tour.Photo.formats.medium!=null?<img src={tour.Photo.formats.medium.url} className="md:ml-8 object-cover rounded-full mb-4 lg:mb-0 w-full md:w-64 md:h-64 aspect-square lg:w-72 lg:h-72 border-white border-8" />:<img src={tour.Photo.url} className="md:ml-8 object-cover  md:w-64 md:h-64 rounded-full mb-4 lg:mb-0 w-full aspect-square lg:w-72 lg:h-72 border-white border-8" />}
+							{tour.Photo.formats.medium!=null?<img alt={tour.Title} src={tour.Photo.formats.medium.url} className="md:ml-8 object-cover rounded-full mb-4 lg:mb-0 w-full md:w-64 md:h-64 aspect-square lg:w-72 lg:h-72 border-white border-8" />:<img alt={tour.Title} src={tour.Photo.url} className="md:ml-8 object-cover  md:w-64 md:h-64 rounded-full mb-4 lg:mb-0 w-full aspect-square lg:w-72 lg:h-72 border-white border-8" />}
 
 							<div className="">
 								<h3 className=" font-bold text-2xl xl:text-3xl font-goodlife text-white mb-1">{tour.Title}</h3>
@@ -214,7 +214,7 @@ const IndexPage = ({data}) => {
 									
 									
 								</div>
-								<img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1683420929/squiggle-longer-different-pink_oajuo7.png" className="w-48 block my-2 inline-block"/>
+								<img alt="page divider squiggle" src="https://res.cloudinary.com/meshed-nyc/image/upload/v1683420929/squiggle-longer-different-pink_oajuo7.png" className="w-48 block my-2 inline-block"/>
 								<div className="">
 								<p className="text-white/80 text-xl mb-4 xl:text-lg" dangerouslySetInnerHTML={{__html: tour.Description.replaceAll("\n", '<br/>')}}/>
 								</div>
@@ -231,14 +231,14 @@ const IndexPage = ({data}) => {
 			<div className="rounded-lg px-6  container mx-auto py-8 md:py-20">
 				<div className="md:grid grid-cols-2 gap-4 3xl:gap-12">
 					<div className="flex lg:hidden on-scroll items-center 3xl:gap-12 2xl:flex">
-					<img src="https://res.cloudinary.com/meshed-nyc/w_800,c_fill/v1683559297/brooklyn_rqodbm.jpg" className="w-full"/>
+					<img alt="Brooklyn Bridge in background, city street" src="https://res.cloudinary.com/meshed-nyc/w_800,c_fill/v1683559297/brooklyn_rqodbm.jpg" className="w-full"/>
 					</div>
 					<div className="hidden lg:block bg-fixed bg-[url(https://res.cloudinary.com/meshed-nyc/w_800,c_fill/v1683559297/brooklyn_rqodbm.jpg)] rounded-xl bg-no-repeat bg-top-left w-full md:min-h-[520px]  bg-white 2xl:hidden border-8 border-white shadow-xl ">
 						&nbsp;
 					</div>
 					<div className=" lg:px-8 py-6 on-scroll" dir="rtl">
 						<h3 className="text-white text-4xl font-bold font-goodlife">{data.strapiDestinationPhotography.Title}</h3>
-						<img src="https://res.cloudinary.com/meshed-nyc/squiggle-longer-different-pink_oajuo7.png" className="w-48 block my-3"/>
+						<img src="https://res.cloudinary.com/meshed-nyc/squiggle-longer-different-pink_oajuo7.png" className="w-48 block my-3" alt="Pink squiggle page divider"/>
 						<p className="text-white/80 xl:text-lg mb-4" dangerouslySetInnerHTML={{__html: data.strapiDestinationPhotography.Description.data.Description.replaceAll("\n", '<br/>')}}/>
 						
 						<div className="flex items-center space-x-4">
@@ -287,7 +287,7 @@ const IndexPage = ({data}) => {
 								<p className="mb-3 text-sm" dangerouslySetInnerHTML={{__html: review.text.replaceAll("\n", '<br/>')}}></p>
 
 								<div className="flex items-center space-x-3">
-									<img src={review.profile_photo_url} className="w-10 h-10 ml-3"/>
+									<img alt={review.author_name} src={review.profile_photo_url} className="w-10 h-10 ml-3"/>
 									<div >
 										
 											<span className="block font-bold text-slate-900">{review.author_name}</span>
@@ -306,7 +306,7 @@ const IndexPage = ({data}) => {
 				<div className="lg:grid grid-cols-2 gap-10 xl:gap-12 space-y-20 lg:space-y-0">
 					<div className="on-scroll" dir="rtl">
 						<h3 className="text-white text-4xl font-bold font-goodlife">שלחו הודעה ואחזור אליכם בהקדם</h3>
-												<img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1684323019/squiggle-black_desmmw.png" className="w-48 block my-3"/>
+												<img alt="Page squiggle divider" src="https://res.cloudinary.com/meshed-nyc/image/upload/v1684323019/squiggle-black_desmmw.png" className="w-48 block my-3"/>
 
 						<form name="contact" ref={formRef} netlify="true" onSubmit={submitForm}>
 							<input type="hidden" name="form-name" value="contact"/>

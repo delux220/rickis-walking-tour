@@ -96,7 +96,7 @@ const PhotographyPage = ({data}) => {
       <div className="w-full h-full  bg-repeat-x bg-[center_bottom_-5rem] xl:bg-[center_bottom_-12rem]  bg-contain bg-[url(https://res.cloudinary.com/meshed-nyc/image/upload/v1684490282/skyline-new_jxaw7j.png)]">
       <div dir="rtl" className="flex md:container mx-auto  h-full items-end md:items-start md:pt-20 ">
         
-        <img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1684327277/ricki-camera2_sjuyvb.jpg" className="rounded-2xl max-h-[60vh] hidden md:block w-1/3 border-white border-8 shadow-xl rotate-3" alt="Ricki with camera"/>
+        <img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1684327277/ricki-camera2_sjuyvb.jpg" className="rounded-2xl max-h-[60vh] hidden md:block w-1/3 border-white border-8 shadow-xl rotate-3" alt="Photographer Ricki with camera"/>
         
         <div className="py-10 bg-gradient-to-t md:bg-none w-full from-black to-transparent px-6">
             <h1 className="block text-right mt-32 sm:mt-10 md:mt-0 font-epicursive text-white md:text-black font-bold text-6xl mb-8 mx-auto on-scroll">{data.strapiGallery.Title}</h1>
@@ -128,7 +128,7 @@ const PhotographyPage = ({data}) => {
         
           <div id="pricing" dir="rtl" className="border-8 shadow-xl border-rose-300 bg-white px-6 py-8 rounded-2xl mb-20 md:max-w-4xl mx-auto">
           <h3 className="text-black text-3xl font-bold mb-4 font-goodlife text-center ">מחירון טיולים+צילומים</h3>
-          <img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1684323019/squiggle-longer-different-pink_oajuo7.png" alt="" className="w-48 block mx-auto mt-2 mb-4"/>
+          <img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1684323019/squiggle-longer-different-pink_oajuo7.png" alt="Squiggle page divider" className="w-48 block mx-auto mt-2 mb-4"/>
 
           <ul className="  mb-8 rounded-xl space-y-3">
             {
@@ -144,14 +144,14 @@ const PhotographyPage = ({data}) => {
             <div className="container px-6 mx-auto">
           <div className="grid md:grid-cols-3 gap-6 md:mt-8" id="contact">
           <div className="">
-            <img className="sm:mt-12 xl:mt-0 hidden md:block rounded-2xl w-full border-8 border-white shadow-xl rotate-3" alt="" src="https://res.cloudinary.com/meshed-nyc/image/upload/v1684326461/340891683_2480864545405687_8894096958651822475_n_i2yocf.jpg"/>
+            <img className="sm:mt-12 xl:mt-0 hidden md:block rounded-2xl w-full border-8 border-white shadow-xl rotate-3" alt="Photographer Ricki Sofer with camera" src="https://res.cloudinary.com/meshed-nyc/image/upload/v1684326461/340891683_2480864545405687_8894096958651822475_n_i2yocf.jpg"/>
           </div>
           <div className="md:col-span-2">
 
           <div className=" sm:px-6 py-4 rounded-xl">
             <h3 className="text-white text-3xl font-bold mb-4 font-goodlife text-center md:text-right">צור קשר</h3>
             
-            <img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1683420929/squiggle-longer-different-pink_oajuo7.png" className="w-48 block mx-auto md:mx-0 mt-2 mb-3"/>
+            <img alt="Squiggle page divider" src="https://res.cloudinary.com/meshed-nyc/image/upload/v1683420929/squiggle-longer-different-pink_oajuo7.png" className="w-48 block mx-auto md:mx-0 mt-2 mb-3"/>
             <form ref={formRef}  action="/" name="photography" netlify="true" onSubmit={submitForm}>
             <input type="hidden" name="form-name" value="photography"/>
             <div className="space-y-3">
@@ -215,7 +215,7 @@ const PhotographyPage = ({data}) => {
       photoIndex!=null&&<div className="z-40 fixed backdrop-blur bg-black/80 top-0 left-0 w-screen h-screen items-center md:py-5 justify-between flex">
         <button onClick={() => setPhotoIndex(null)} className="z-50 absolute text-gray-200 top-5 right-5 text-3xl hover:text-teal-200"><FontAwesomeIcon icon={faX}/></button>
         <button onClick={() => changeImage(photoIndex-1)} className="z-50 absolute md:relative left-0 text-gray-200 text-3xl ml-5 hover:text-white"><FontAwesomeIcon icon={faArrowLeft}/></button>
-        <img src={data.strapiGallery.Photos[photoIndex].url} className="rounded-xl max-h-full max-w-full motion-safe:animate-fadeIn"/>
+        <img alt={`Photography by Ricki Sofer`} src={data.strapiGallery.Photos[photoIndex].url} className="rounded-xl max-h-full max-w-full motion-safe:animate-fadeIn"/>
         <button onClick={() => changeImage(photoIndex-1)} className="z-50 absolute md:relative right-0 text-gray-200 text-3xl mr-5 hover:text-white"><FontAwesomeIcon icon={faArrowRight}/></button>
       </div>
     }
