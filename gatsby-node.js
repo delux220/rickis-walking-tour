@@ -13,7 +13,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       Description: String!
       Price: Float!
       Duration: Float!
-      Photo: Node!
+      Photo: Node
       MinimumSize: Float
       Private: Boolean
       PriceUnder18: Float
@@ -52,6 +52,26 @@ exports.createSchemaCustomization = ({ actions }) => {
       Content: String!
       Description: String
       Image: Node!
+    }
+
+    type Medium implements Node {
+      url: String
+    }
+
+    type Format implements Node {
+      medium: Medium
+    }
+
+    type Photo implements Node {
+      alternativeText: String
+      url: String!
+      formats: Format
+    }
+
+    type strapiGallery implements Node {
+      Photos: [Photo]
+      Title: String!
+      Description: String!
     }
     
   `
