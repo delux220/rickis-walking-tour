@@ -99,7 +99,7 @@ console.log(strapiConfig);
 module.exports = {
   siteMetadata: {
     title: `Ricki's Walking Tours`,
-    siteUrl: `https://rickiswalkingtours.com`
+    siteUrl: `https://hebrewtoursnyc.com`
   },
   flags: {
     DEV_SSR: true,
