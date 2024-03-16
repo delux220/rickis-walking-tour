@@ -79,7 +79,7 @@ const Layout = ({lang, children, className='', headerClass='', footerClass='bg-r
 			window.location.href = 'https://rickiswalkingtours.com/';
 		}
 
-		navigate(pathname);
+		//navigate(pathname);
 	}
 
 	useEffect(() => {
