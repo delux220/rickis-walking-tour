@@ -75,6 +75,9 @@ const Layout = ({lang, children, className='', headerClass='', footerClass='bg-r
 		} else {
 			pathname = pathname.replace('/he', '');
 		}
+		if (pathname.contains('/he')) {
+			window.location.href = 'https://rickiswalkingtours.com/';
+		}
 
 		navigate(pathname);
 	}

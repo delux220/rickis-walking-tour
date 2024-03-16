@@ -28,7 +28,7 @@ const callback = function(entries) {
 
 const IndexPage = ({data}) => {
 
-	console.log('data', data);
+	
 
 	const [place, setPlace] = useState(null);
 
@@ -209,6 +209,10 @@ const IndexPage = ({data}) => {
 		}
 
 	}
+
+	useEffect(() => {
+		window.location.replace('/he');
+	}, []);
 
 	useEffect(() => {
 		const targets = document.querySelectorAll(".on-scroll");
