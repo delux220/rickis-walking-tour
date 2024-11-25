@@ -12,7 +12,12 @@ module.exports = {
       colors: {
         'ricki': '#01a8c3',
         'ricki2': '#8aaefe',
-        'ricki3': '#66e9fe'
+        'ricki3': '#66e9fe',
+        'light': '#E9E1D9',
+        'dark' : '#B47E49',
+        'black': '#4F4F4F',
+        'gold' : 'rgb(180, 126, 73)',
+        'subdued': 'rgb(244, 244, 244)'
       },
     	fontSize: {
     		'10xl': ['12rem', '11rem'],

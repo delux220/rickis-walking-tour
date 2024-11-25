@@ -2,6 +2,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.button {
+  @apply font-sans border border-light  shadow-lg   rounded-lg px-10 py-4;
+}
+.primary {
+  @apply hover:bg-dark hover:border-dark hover:text-white bg-light text-black;
+}
+.secondary {
+  @apply hover:bg-light border-light hover:text-black bg-white text-black;
+}
+
+.input {
+  @apply border-b border-b-[rgb(198,198,198)] py-4 px-4 bg-transparent text-black;
+}
 
 #post h1 {
   @apply text-5xl;

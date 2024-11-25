@@ -162,9 +162,8 @@ const Layout = ({lang, children, className='', headerClass='', footerClass='bg-r
 		</div>
 		<div className={footerClass}>
 			<div className="container mx-auto px-6 py-10 text-center">
-				<h3 className="text-white text-2xl font-bold font-goodlife text-center">{lang=='en'?'CONNECT WITH ME':'מדיה חברתית'}</h3>
-						<img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1683420929/squiggle-longer-different-pink_oajuo7.png" className="w-48 block mx-auto my-6" alt="Squiggle page divider"/>
-
+				<h3 className="text-gold mb-4 text-2xl font-bold font-goodlife text-center">{lang=='en'?'CONNECT WITH ME':'מדיה חברתית'}</h3>
+						
 				<div className="items-center justify-center flex space-x-8 max-w-lg mx-auto mb-8">
 					<a href={data.strapiSocialMedia.Facebook} target="_blank"><Facebook className="hover:fill-white fill-black w-8 h-8"/></a>
 					<a href={data.strapiSocialMedia.Instagram} target="_blank"><Instagram className="hover:fill-white fill-black w-8 h-8"/></a>

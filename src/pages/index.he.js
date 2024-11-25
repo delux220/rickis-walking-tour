@@ -160,8 +160,8 @@ const IndexPage = ({data}) => {
 	}, [place])
 	
 	
-	return <Layout lang={'he'} footerClass="bg-rose-400">
-		<section dir="rtl" className="bg-cover relative bg-center h-[90vh] md:hidden bg-[url(https://res.cloudinary.com/meshed-nyc/q_auto/IMG_8118_atrpdt.jpg)]">
+	return <Layout lang={'he'} footerClass="bg-light">
+		<section dir="rtl" className="bg-cover relative bg-center h-[90vh] md:hidden ">
 			<div className="absolute w-full bottom-0  px-0">
 				<h1 className="text-center font-epicursive text-white font-bold text-6xl mb-3 mx-auto on-scroll" >אני ריקי</h1>
 				<h3 className=" font-goodlife text-white text-center font-bold text-2xl mb-3 uppercase font-bold on-scroll">המדריכה שלכם לניו יורק סיטי</h3>
@@ -172,53 +172,50 @@ const IndexPage = ({data}) => {
 			</div>
 		</section>
 		<section dir="rtl" className="bg-white hidden md:block">
-		<div className=" bg-repeat-x bg-[center_bottom_-5rem] xl:bg-[center_bottom_-12rem]  bg-contain bg-[url(https://res.cloudinary.com/meshed-nyc/image/upload/v1684490282/skyline-new_jxaw7j.png)]">
 		<div className="container mx-auto h-[90vh] lg:h-[80vh] px-4 md:px-0 lg:px-6 py-10 xl:py-6 flex items-center space-x-8 xl:space-x-10  ">
 
-			<img alt="Ricki Sofer, Tour Guide" src="https://res.cloudinary.com/meshed-nyc/q_auto/IMG_8118_atrpdt.jpg" className="border-8 xl:ml-10 rounded-xl h-full shadow-xl border-white rotate-2 motion-safe:animate-fadeIn"/>
+			<img alt="Ricki Sofer, Tour Guide" src="https://res.cloudinary.com/meshed-nyc/q_auto/IMG_8118_atrpdt.jpg" className="border-8 xl:ml-10 rounded-xl h-full shadow-xl border-white motion-safe:animate-fadeIn"/>
 			<div className="">
-				<h2 className="text-right font-epicursive text-black font-bold text-7xl mb-8 mx-auto on-scroll" >אני ריקי</h2>
-				<h3 className="text-right  font-goodlife text-teal-900 font-bold text-3xl mb-4 uppercase font-bold ">המדריכה שלכם לניו יורק סיטי</h3>
+				<h2 className="text-right font-epicursive text-gold font-bold text-7xl mb-8 mx-auto on-scroll" >אני ריקי</h2>
+				<h3 className="text-right text-gold font-goodlife font-bold text-3xl mb-4 uppercase font-bold ">המדריכה שלכם לניו יורק סיטי</h3>
 				<h3 className="text-right  text-teal-900  text-lg font-sans mb-4 block xl:max-w-lg">הצטרפו אלי לסימטאות מלאות ההיסטוריה של ניו יורק, לטעום מהמאכלים הטובים ביותר וליהנות מהעיר ללא הפסקה.</h3>
 				
 				<div className="text-right">
-				<a href="/#contact" className="font-bold font-sans border bg-white border-black text-black rounded-full px-10 py-4 block w-full text-center lg:w-auto lg:inline-block"><FontAwesomeIcon icon={faEnvelope} className="ml-4"/>צור קשר</a>
-				<a href="https://fareharbor.com/embeds/book/guidedtoursnyc/?full-items=yes&language=en-us&u=f47e9dfd-04ed-4ca1-960c-04da78951fce&from-ssl=yes&ga4t=G-XDVQTYZ0FJ,974959174.1683229789__1684492288%3B&g4=yes&a=yes&back=https://rickiswalkingtours.com/" className="font-bold font-sans border border-rose-400 bg-rose-400 mr-4 mb-2 lg:mb-0 text-white rounded-full px-10 py-4 block w-full lg:w-auto lg:inline-block"><FontAwesomeIcon icon={faArrowLeft} className="ml-4"/>לביצוע הזמנה</a>
+				<a href="/#contact" className="button secondary block w-full lg:w-auto lg:inline-block"><FontAwesomeIcon icon={faEnvelope} className="ml-4"/>צור קשר</a>
+				<a href="https://fareharbor.com/embeds/book/guidedtoursnyc/?full-items=yes&language=en-us&u=f47e9dfd-04ed-4ca1-960c-04da78951fce&from-ssl=yes&ga4t=G-XDVQTYZ0FJ,974959174.1683229789__1684492288%3B&g4=yes&a=yes&back=https://rickiswalkingtours.com/" className="button primary mr-4 mb-2 lg:mb-0 block w-full lg:w-auto lg:inline-block"><FontAwesomeIcon icon={faArrowLeft} className="ml-4"/>לביצוע הזמנה</a>
 				</div>
 			</div>
 		</div>
-		</div>
 		</section>
-		<section className="bg-ricki py-20" id="tours" dir="rtl">
+		<section className="bg-subdued py-20" id="tours" dir="rtl">
 			<div className="container mx-auto px-6 ">
-			<h2 className="mb-20 text-5xl text-center md:text-right text-white font-bold font-goodlife">סיורים בעברית</h2>
+			<h2 className="mb-20 text-5xl text-center md:text-right text-gold font-bold font-goodlife">סיורים בעברית</h2>
 			<div className="sm:grid xl:grid-cols-6 gap-8 xl:gap-10">
 				{
 					data.allStrapiTour.nodes.map(tour => {
 
-						return <div key={`tour-${tour.id}`} className="md:flex on-scroll mb-6 sm:mb-0  xl:col-span-5">
+						return <div key={`tour-${tour.id}`} className="md:flex on-scroll mb-6 sm:mb-4 xl:col-span-5">
 							
-							{tour.Photo!=null?(tour.Photo.formats!=null&&tour.Photo.formats.medium!=null?<img alt={tour.Title} src={tour.Photo.formats.medium.url.replace('.heic', '.jpg')} className="object-cover  rounded-full mb-4 lg:mb-0 w-full md:w-64 md:h-64 aspect-square lg:w-72 lg:h-72 border-white border-8" />:<img alt={tour.Title} src={tour.Photo.url.replace('.heic', '.jpg')} className="object-cover  md:w-64 md:h-64 rounded-full mb-4 lg:mb-0 w-full aspect-square lg:w-72 lg:h-72 border-white border-8" />):<div className="object-cover  md:w-64 md:h-64 rounded-full mb-4 lg:mb-0 w-full aspect-square lg:w-72 lg:h-72 border-white border-8">&nbsp;</div>}
-
+							{tour.Photo!=null?(tour.Photo.formats!=null&&tour.Photo.formats.medium!=null?<img alt={tour.Title} src={tour.Photo.formats.medium.url.replace('.heic', '.jpg')} className="object-cover rounded-lg mb-4 lg:mb-0 w-full md:w-64 md:h-64 aspect-square lg:w-72 lg:h-72 " />:<img alt={tour.Title} src={tour.Photo.url.replace('.heic', '.jpg')} className="object-cover  md:w-64 md:h-64 rounded-lg mb-4 lg:mb-0 w-full aspect-square lg:w-72 lg:h-72 " />):<div className="object-cover  md:w-64 md:h-64 rounded-lg mb-4 lg:mb-0 w-full aspect-square lg:w-72 lg:h-72 ">&nbsp;</div>}
+							<div className="w-0 hidden md:block md:w-12">&nbsp;</div>
 							<div className="">
-								<h3 className=" font-bold text-2xl xl:text-3xl font-goodlife text-white mb-1">{tour.Title}</h3>
+								<h3 className=" font-bold text-2xl xl:text-3xl font-goodlife text-black mb-1">{tour.Title}</h3>
 								<div className="flex items-center text-teal-400 font-bold">
 									
-								<span className="text-white text-sm sm:text-base md:text-lg rounded-full font-bold">{numeral(tour.Price).format('$0,0.00')} לאדם</span>
+								<span className="text-black text-sm sm:text-base md:text-lg rounded-full font-bold">{numeral(tour.Price).format('$0,0.00')} לאדם</span>
 								{
 									tour.PriceUnder18!=null&&tour.PriceUnder18!=''&&<>
 										<span className="mx-2">&middot;</span>
-										<span className="text-white text-sm sm:text-base md:text-lg rounded-full font-bold">{numeral(tour.PriceUnder18).format('$0,0.00')} ילדים מתחת לגיל 18</span>
+										<span className="text-black text-sm sm:text-base md:text-lg rounded-full font-bold">{numeral(tour.PriceUnder18).format('$0,0.00')} ילדים מתחת לגיל 18</span>
 									</>
 								}
 									
 									
 								</div>
-								<img alt="page divider squiggle" src="https://res.cloudinary.com/meshed-nyc/image/upload/v1683420929/squiggle-longer-different-pink_oajuo7.png" className="w-48 block my-2 inline-block"/>
 								<div className="">
-								<p className="text-white/80 text-xl mb-4 xl:text-lg" dangerouslySetInnerHTML={{__html: tour.Description.replaceAll("\n", '<br/>')}}/>
+								<p className="text-black/80 text-xl mb-4 xl:text-lg" dangerouslySetInnerHTML={{__html: tour.Description.replaceAll("\n", '<br/>')}}/>
 								</div>
-									<a href={tour.Link} className="w-full md:w-auto md:inline-block text-xl sm:text-base font-bold font-sans bg-rose-400 shadow-lg text-white rounded-full px-6 py-2 block text-center">אני רוצה להזמין<FontAwesomeIcon icon={faArrowLeft} className="mr-2"/> </a>
+									<a href={tour.Link} className="w-full md:w-auto md:inline-block button primary block">אני רוצה להזמין<FontAwesomeIcon icon={faArrowLeft} className="mr-2"/> </a>
 
 							</div>
 							
@@ -227,7 +224,7 @@ const IndexPage = ({data}) => {
 				</div>
 			</div>
 		</section>
-		<section className="bg-ricki">
+		<section className="bg-white">
 			<div className="rounded-lg px-6  container mx-auto py-8 md:py-20">
 				<div className="md:grid grid-cols-2 gap-4 3xl:gap-12">
 					<div className="flex lg:hidden on-scroll items-center 3xl:gap-12 2xl:flex">
@@ -237,12 +234,12 @@ const IndexPage = ({data}) => {
 						&nbsp;
 					</div>
 					<div className=" lg:px-8 py-6 on-scroll" dir="rtl">
-						<h3 className="text-white text-4xl font-bold font-goodlife">{data.strapiDestinationPhotography.Title}</h3>
-						<img src="https://res.cloudinary.com/meshed-nyc/squiggle-longer-different-pink_oajuo7.png" className="w-48 block my-3" alt="Pink squiggle page divider"/>
-						<p className="text-white/80 xl:text-lg mb-4" dangerouslySetInnerHTML={{__html: data.strapiDestinationPhotography.Description.data.Description.replaceAll("\n", '<br/>')}}/>
+						<h3 className="text-gold mb-4 text-4xl font-bold font-goodlife">{data.strapiDestinationPhotography.Title}</h3>
+						
+						<p className="text-black xl:text-lg mb-4" dangerouslySetInnerHTML={{__html: data.strapiDestinationPhotography.Description.data.Description.replaceAll("\n", '<br/>')}}/>
 						
 						<div className="flex items-center space-x-4">
-							<Link to="/he/photography"  className="px-6 py-2 bg-rose-400 shadow-lg text-white rounded-full font-bold inline-block">צילומים מקצועיים<FontAwesomeIcon icon={faArrowLeft} className="mr-2"/></Link>
+							<Link to="/he/photography"  className="button primary">צילומים מקצועיים<FontAwesomeIcon icon={faArrowLeft} className="mr-2"/></Link>
 							
 						</div>
 					</div>
@@ -250,10 +247,10 @@ const IndexPage = ({data}) => {
 			</div>
 		</section>
 
-		{place!=null&&<section id="reviews" className="bg-rose-400 ">
+		{place!=null&&<section id="reviews" className="bg-subdued">
 			<div className="container mx-auto pt-20 xl:pt-32 px-6">
 
-				<h3 className="text-white on-scroll text-center text-4xl sm:text-5xl font-bold font-goodlife mb-1">אז איך היה</h3>
+				<h3 className="text-gold on-scroll text-center text-4xl sm:text-5xl font-bold font-goodlife mb-1">אז איך היה</h3>
 
 				<div className="text-center on-scroll mb-8">
 					<div className="text-2xl">
@@ -301,37 +298,36 @@ const IndexPage = ({data}) => {
 			</div>
 			</div>
 		</section>}
-		<section className="bg-rose-400 pt-8 pb-12 md:py-20"  id="contact">
+		<section className="bg-subdued pt-8 pb-12 md:py-20"  id="contact">
 			<div className="container mx-auto px-6">
 				<div className="lg:grid grid-cols-2 gap-10 xl:gap-12 space-y-20 lg:space-y-0">
 					<div className="on-scroll" dir="rtl">
-						<h3 className="text-white text-4xl font-bold font-goodlife">שלחו הודעה ואחזור אליכם בהקדם</h3>
-												<img alt="Page squiggle divider" src="https://res.cloudinary.com/meshed-nyc/image/upload/v1684323019/squiggle-black_desmmw.png" className="w-48 block my-3"/>
-
+						<h3 className="text-gold text-4xl font-bold font-goodlife">שלחו הודעה ואחזור אליכם בהקדם</h3>
+						
 						<form name="contact" ref={formRef} netlify="true" onSubmit={submitForm}>
 							<input type="hidden" name="form-name" value="contact"/>
 							<div className="space-y-3">
 								<div>
-									<label className="block text-white text-sm font-bold">* שם</label>
-									<input type="text" className="bg-white rounded-md px-4 py-2 w-full block" ref={nameRef} name="name" />
+									<label className="block text-black text-sm font-bold hidden"></label>
+									<input type="text" className="input w-full block" ref={nameRef} name="name" placeholder="* שם"/>
 								</div>
 								<div>
-									<label className="block text-white text-sm font-bold">* דוא"ל</label>
-									<input type="email" className="bg-white rounded-md px-4 py-2 w-full block" name="email" ref={emailRef}/>
+									<label className="block text-black text-sm font-bold hidden"></label>
+									<input type="email" className="input  w-full block" name="email" ref={emailRef} placeholder="* דוא"/>
 								</div>
 								<div className="sm:grid grid-cols-2 gap-4 space-y-3 sm:space-y-0">
 									<div>
-										<label className="block text-white text-sm font-bold">תאריכים מבוקשים</label>
-										<input name="requested_tour_dates" type="text" className="bg-white rounded-md px-4 py-2 w-full block" />
+										<label className="block text-black text-sm font-bold hidden"></label>
+										<input name="requested_tour_dates" type="text" className="input w-full block" placeholder="תאריכים מבוקשים"/>
 									</div>
 									<div>
-										<label className="block text-white text-sm font-bold">מספר אנשים</label>
-										<input name="number_of_guests" type="number" className="bg-white rounded-md px-4 py-2 w-full block" />
+										<label className="block text- black text-sm font-bold hidden"></label>
+										<input name="number_of_guests" type="number" className="input w-full block" placeholder="מספר אנשים" />
 									</div>
 								</div>
 								<div className="">
-									<label className="block text-white text-sm font-bold">* ההודעה שלך</label>
-									<textarea name="message" ref={messageRef} rows={4} className="bg-white rounded-md px-4 py-2 w-full block" placeholder="איזה טיול מעניין אותך? יש בקשה מיוחדת ?"></textarea>
+									<label className="block text-black text-lg">ההודעה שלך</label>
+									<textarea name="message" ref={messageRef} rows={4} className="input w-full block" placeholder="איזה טיול מעניין אותך? יש בקשה מיוחדת ?"></textarea>
 								</div>
 								<div>
 									<ReCAPTCHA
@@ -341,19 +337,19 @@ const IndexPage = ({data}) => {
 							          />
 								</div>
 								{
-									error!=false&&<div><span className="text-white motion-safe:animate-fadeIn font-bold">{error}</span></div>
+									error!=false&&<div><span className="text-black motion-safe:animate-fadeIn font-bold">{error}</span></div>
 								}
 								{
-									showMessage!=false&&<div><span className="text-white motion-safe:animate-fadeIn font-bold">‏תודה שיצרתם קשר עם ריקי סיורים בניו-יורק אחזור אליכם ‎-תוך 24 שעות אם זה דחוף יש בתחתית העמוד קישור לוואטס אפ מוזמנים ליצור קשר .</span></div>
+									showMessage!=false&&<div><span className="text-black motion-safe:animate-fadeIn font-bold">‏תודה שיצרתם קשר עם ריקי סיורים בניו-יורק אחזור אליכם ‎-תוך 24 שעות אם זה דחוף יש בתחתית העמוד קישור לוואטס אפ מוזמנים ליצור קשר .</span></div>
 								}
 								<div className="">
-									<button type="submit" disabled={disabled||captcha==false} className="disabled:bg-black/30 on-scroll font-bold font-sans  bg-black ml-4 text-white text-center block w-full sm:w-auto rounded-full px-10 py-4 inline-block">שליחה<FontAwesomeIcon icon={faArrowLeft} className="mr-4"/></button>
+									<button type="submit" disabled={disabled||captcha==false} className="disabled:bg-light/50 on-scroll w-full sm:w-auto button primary inline-block">שליחה<FontAwesomeIcon icon={faArrowLeft} className="mr-4"/></button>
 									
 								</div>
 							</div>
 						</form>
 					</div>
-					<div className="hidden lg:block bg-fixed rounded-xl bg-[url(https://res.cloudinary.com/meshed-nyc/h_1440,c_fill,q_auto/IMG_1616_2_acdcec483e.jpg)] bg-no-repeat lg:bg-[right_-20rem_top] xl:bg-[right_-20rem_top_-10rem] 2xl:bg-[right_-30rem_top_-15rem] bg-cover w-full border-8 border-white shadow-xl ">
+					<div className="hidden lg:block bg-fixed bg-[url(https://res.cloudinary.com/meshed-nyc/h_1440,c_fill,q_auto/IMG_1616_2_acdcec483e.jpg)] bg-no-repeat lg:bg-[right_-20rem_top] xl:bg-[right_-20rem_top_-10rem] 2xl:bg-[right_-30rem_top_-15rem] bg-cover w-full ">
 						&nbsp;
 					</div>
 					
