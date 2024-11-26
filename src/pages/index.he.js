@@ -235,18 +235,20 @@ const IndexPage = ({data}) => {
 				        	</div>
 			        	</div>
 			        </div>
-			        <img src={type.Image.formats.large?type.Image.formats.large.url:type.Image.url} className="hidden md:block aspect-square w-full object-cover"/>
+			        <div className="hidden md:block">
+			        	<img src={type.Image.formats.large?type.Image.formats.large.url:type.Image.url} className="block aspect-square w-full object-cover"/>
+			      	</div>
 			      </div>
 			      </div>
 			      )}
 			      
 			    </Slider>
 			</div>
-			<div className="absolute left-0 top-0 h-full flex items-center justify-center">
-				<button onClick={() => { sliderRef.current.slickPrev(); }} className="w-10 h-10 z-50"><FontAwesomeIcon icon={faChevronLeft} className="text-right md:w-20 md:h-20"/></button>
+			<div className="absolute left-0 top-0 h-full md:px-10 flex items-center justify-center">
+				<button onClick={() => { sliderRef.current.slickPrev(); }} className="w-10 h-10 z-50"><FontAwesomeIcon icon={faChevronLeft} className="text-right md:text-2xl"/></button>
 			</div>
-			<div className="absolute right-0 top-0 h-full flex items-center justify-center">
-				<button onClick={() => { sliderRef.current.slickNext(); }} className="w-10 h-10 z-50"><FontAwesomeIcon icon={faChevronRight} className="text-right"/></button>
+			<div className="absolute right-0 top-0 h-full md:px-10 flex items-center justify-center">
+				<button onClick={() => { sliderRef.current.slickNext(); }} className="w-10 h-10 z-50"><FontAwesomeIcon icon={faChevronRight} className="text-right md:text-2xl"/></button>
 			</div>
 		</section>}
 		<section  className="bg-cover my-20 bg-center lg:bg-center xl:bg-top-center bg-[url(https://res.cloudinary.com/meshed-nyc/q_auto/v1732584399/nyc2_ms6vcc.jpg)]">
