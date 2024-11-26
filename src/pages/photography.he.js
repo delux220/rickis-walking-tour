@@ -91,44 +91,28 @@ const PhotographyPage = ({data}) => {
       return false;
   };
   
-  return <Layout lang={'he'} className="bg-ricki" current="photography">
-    <div className="h-[90vh] relative block md:bg-white lg:min-h-[640px] md:h-[85vh] bg-top  bg-no-repeat bg-cover md:bg-none bg-[url(https://res.cloudinary.com/meshed-nyc/image/upload/v1684327277/ricki-camera2_sjuyvb.jpg)]">
-      <div className="w-full h-full  bg-repeat-x bg-[center_bottom_-5rem] xl:bg-[center_bottom_-12rem]  bg-contain bg-[url(https://res.cloudinary.com/meshed-nyc/image/upload/v1684490282/skyline-new_jxaw7j.png)]">
+  return <Layout lang={'he'} className="bg-white" footerClass="bg-light" current="photography">
+    <div className="h-[90vh] relative block  lg:min-h-[640px] md:h-[85vh] bg-top  bg-no-repeat bg-cover ">
+      <div className="w-full h-full  bg-repeat-x bg-[center_bottom_-5rem] xl:bg-[center_bottom_-12rem]  bg-contain ">
       <div dir="rtl" className="flex md:container mx-auto  h-full items-end md:items-start md:pt-20 ">
         
-        <img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1684327277/ricki-camera2_sjuyvb.jpg" className="rounded-2xl max-h-[60vh] hidden md:block w-1/3 border-white border-8 shadow-xl rotate-3" alt="Photographer Ricki with camera"/>
+        <img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1684327277/ricki-camera2_sjuyvb.jpg" className=" max-h-[60vh] hidden md:block w-1/3" alt="Photographer Ricki with camera"/>
         
         <div className="py-10 bg-gradient-to-t md:bg-none w-full from-black to-transparent px-6">
             <h1 className="block text-right mt-32 sm:mt-10 md:mt-0 font-epicursive text-white md:text-black font-bold text-6xl mb-8 mx-auto on-scroll">{data.strapiGallery.Title}</h1>
             <p className="text-lg text-right text-white md:text-black md:font-medium on-scroll mb-8">{data.strapiGallery.Description}</p>
             <div className="space-y-2 md:space-y-0 md:space-x-2 text-right">
-            <a href="#contact" className=" bg-rose-400 px-6 py-3 border-2 border-rose-400 hover:border-rose-500 hover:bg-rose-500 ml-4 text-white text-center font-bold block w-full md:w-auto md:inline-block rounded-full"><FontAwesomeIcon icon={faEnvelope}/> צור קשר</a>
-            <a href="#pricing" className="  bg-white hover:border-white border-2 border-white md:border-black px-6 py-3 text-black text-center font-bold block w-full md:w-auto md:inline-block rounded-full">מחירים לסשן צילומים</a>
+            <a href="#contact" className=" block md:inline-block button bg-black text-white"><FontAwesomeIcon icon={faEnvelope}/> צור קשר</a>
+            <a href="#pricing" className="block md:inline-block  button secondary">מחירים לסשן צילומים</a>
             </div>
         </div>
         
       </div>
       </div>
     </div>
-    <div className="pt-10  md:pt-0 md:-mt-16">
-      <div className="container mx-auto px-6">
-        
-        
-
-        <div className="sm:columns-2 md:columns-3 xl:columns-4 space-y-4 pb-20">
-          {
-            data.strapiGallery.Photos.map((photo, i) => <div className="on-scroll" key={`photo-${photo.id}`}>
-                      <button className="px-0 py-0 my-0 block " onClick={() => setPhotoIndex(i)}><img src={photo.formats.medium.url} className=" h-auto max-w-full rounded-lg" alt="Photography by Ricki Sofer"/></button>
-
-                    </div>)
-          }
-         
-
-        </div>
-        
-          <div id="pricing" dir="rtl" className="border-8 shadow-xl border-rose-300 bg-white px-6 py-8 rounded-2xl mb-20 md:max-w-4xl mx-auto">
+    <div id="pricing" dir="rtl" className=" mb-20 hadow-xl border-rose-300 bg-white px-6 py-8 rounded-2xl mb-20 md:max-w-4xl mx-auto">
           <h3 className="text-black text-3xl font-bold mb-4 font-goodlife text-center ">מחירון טיולים+צילומים</h3>
-          <img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1684323019/squiggle-longer-different-pink_oajuo7.png" alt="Squiggle page divider" className="w-48 block mx-auto mt-2 mb-4"/>
+          <img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1732583816/Vector_snp5wb.png" alt="Floral Branch" className="w-20 block mx-auto mt-2 mb-4"/>
 
           <ul className="  mb-8 rounded-xl space-y-3">
             {
@@ -139,6 +123,23 @@ const PhotographyPage = ({data}) => {
             }
           </ul>
           </div>
+    <div className="pt-10  md:pt-0 md:-mt-16">
+      <div className="container mx-auto px-20">
+        
+        
+
+        <div className="md:columns-2 space-y-4 pb-20">
+          {
+            data.strapiGallery.Photos.map((photo, i) => <div className="on-scroll" key={`photo-${photo.id}`}>
+                      <button className="px-0 py-0 my-0 block w-full" onClick={() => setPhotoIndex(i)}><img src={photo.formats.large.url} className="w-full h-auto max-w-full block" alt="Photography by Ricki Sofer"/></button>
+
+                    </div>)
+          }
+         
+
+        </div>
+        
+          
           </div>
           <div className="md:py-10 pb-20 md:pb-0" dir="rtl">
             <div className="container px-6 mx-auto">
@@ -149,31 +150,30 @@ const PhotographyPage = ({data}) => {
           <div className="md:col-span-2">
 
           <div className=" sm:px-6 py-4 rounded-xl">
-            <h3 className="text-white text-3xl font-bold mb-4 font-goodlife text-center md:text-right">צור קשר</h3>
+            <h3 className="text-gold text-3xl font-bold mb-4 text-center md:text-right">צור קשר</h3>
             
-            <img alt="Squiggle page divider" src="https://res.cloudinary.com/meshed-nyc/image/upload/v1683420929/squiggle-longer-different-pink_oajuo7.png" className="w-48 block mx-auto md:mx-0 mt-2 mb-3"/>
             <form ref={formRef}  action="/" name="photography" netlify="true" onSubmit={submitForm}>
             <input type="hidden" name="form-name" value="photography"/>
             <div className="space-y-3">
             <div>
-                <label htmlFor="name" className="text-sm font-bold block text-white">* שם</label>
-                <input id="name" type="text" ref={nameRef} name="name" className="text-sm border border-white bg-white rounded-md px-4 py-2 w-full block" />
+                <label htmlFor="name" className="text-sm font-bold block text-gold">*</label>
+                <input id="name" type="text" ref={nameRef} name="name" className="input w-full block" placeholder="שם"/>
               </div>
             <div className="md:grid md:grid-cols-2 space-y-2 md:space-y-0 md:gap-4">
             
             <div>
-                <label htmlFor="email" className="text-sm font-bold block text-white">* דוא"ל</label>
-                <input id="email" type="email" ref={emailRef} name="email" placeholder="you@email.com" className="text-sm border border-white bg-white rounded-md px-4 py-2 w-full block" />
+                <label htmlFor="email" className="text-sm font-bold block text-gold">*</label>
+                <input id="email" type="email" ref={emailRef} name="email" placeholder={'דוא"ל'} className="input w-full block" />
               </div>
               <div>
-                <label htmlFor="phone" className="text-sm font-bold block text-white">מספר טלפון</label>
-                <input id="phone" type="text" name="phone" className="text-sm border border-white bg-white rounded-md px-4 py-2 w-full block" />
+                <label htmlFor="phone" className="text-sm font-bold block text-gold">&nbsp;</label>
+                <input id="phone" type="text" name="phone" className="input w-full block" placeholder="מספר טלפון"/>
               </div>
             </div>
             <div>
-              <label htmlFor="package" className="text-sm font-bold block text-white">Which package are you interested in?</label>
-              <select id="package" name="package" className="text-sm border px-3 py-2 rounded-md border-white w-full block">
-                <option value="">-- Choose a package</option>
+              <label htmlFor="package" className="text-sm font-bold block text-white">&nbsp;</label>
+              <select id="package" name="package" className="input w-full block">
+                <option value="">-- באיזה חבילה אתה מעוניין?</option>
                 {
                 data.strapiDestinationPhotography.PriceList.map(price => <option key={`option-${price.id}`} value={price.PackageName}>
                     {price.PackageName}
@@ -182,8 +182,8 @@ const PhotographyPage = ({data}) => {
               </select>
             </div>
             <div>
-                <label htmlFor="message"  className="text-sm font-bold block text-white">* ההודעה שלך</label>
-                <textarea id="message" disabled={disabled} ref={messageRef} name="message" rows={3} placeholder="Include details here..." className="disabled:text-gray-400 text-sm border border-white bg-white rounded-md px-4 py-2 w-full block"></textarea>
+                <label htmlFor="message"  className="text-sm font-bold block text-gold">*</label>
+                <textarea id="message" disabled={disabled} ref={messageRef} name="message" rows={3} placeholder="ההודעה שלך" className="disabled:text-gray-400 input w-full block"></textarea>
               </div>
               <div className="py-2">
                   <ReCAPTCHA
@@ -200,7 +200,7 @@ const PhotographyPage = ({data}) => {
                   showMessage!=false&&<div><span className="text-white font-bold space-x-2 w-full"><FontAwesomeIcon icon={faCheck} className=""/><span>Thank you for your message! I'll be in touch.</span></span></div>
                 }
                 <div>
-                <button disabled={captcha==''||disabled} className="disabled:opacity-50 bg-black px-8 py-3 text-white rounded-full font-bold space-x-2 w-full sm:w-auto block sm:inline-block"><FontAwesomeIcon icon={faArrowLeft}/><span>שליחה</span></button>
+                <button disabled={captcha==''||disabled} className="disabled:opacity-50 button hover:bg-gold bg-black text-white  w-full sm:w-auto block sm:inline-block"><FontAwesomeIcon icon={faArrowLeft} className="ml-2"/><span>שליחה</span></button>
               </div>
               </div>
             </form>
@@ -244,6 +244,9 @@ export const pageQuery = graphql`query MyQuery {
       url
       formats {
         medium {
+          url
+        }
+        large {
           url
         }
       }

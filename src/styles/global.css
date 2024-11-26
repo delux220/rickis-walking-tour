@@ -62,8 +62,8 @@
 }
 
 #post a {
-  @apply text-ricki;
-  @apply hover:text-rose-400;
+  @apply text-gold;
+  @apply hover:underline;
 }
 
 #nav-icon3 span {

@@ -12,7 +12,7 @@ import Seo from '../components/seo';
 
 const HebrewBlog = ({pageContext}) => {
 	
-	return <Layout lang={'he-IL'} className="bg-ricki dark" current="blog">
+	return <Layout lang={'he-IL'} className="bg-ricki dark" current="blog" footerClass="bg-light">
 		<div className="bg-white min-h-[70vh]">
 		<div className="container mx-auto px-4">
 			<div className="pt-20 md:pt-10 mb-10">
@@ -34,7 +34,7 @@ const HebrewBlog = ({pageContext}) => {
 						return <div dir="rtl" key={edge.node.id} className="md:grid md:grid-cols-5 lg:grid-cols-6 gap-4">
 						<div className="col-span-2 mb-4 md:mb-0">
 							<Link className="block" to={`/he/posts/${edge.node.Slug}`}>
-								{edge.node.Image.formats.large!=null?<img src={edge.node.Image.formats.large.url} className="aspect-square sm:aspect-[4/3] w-full object-cover rounded-xl" alt={edge.node.Image.alternativeText}/>:<img src={edge.node.Image.url} className="aspect-square sm:aspect-[4/3] w-full object-cover rounded-xl" alt={edge.node.Image.alternativeText}/>}
+								{edge.node.Image.formats.large!=null?<img src={edge.node.Image.formats.large.url} className="aspect-square sm:aspect-[4/3] w-full object-cover" alt={edge.node.Image.alternativeText}/>:<img src={edge.node.Image.url} className="aspect-square sm:aspect-[4/3] w-full object-cover" alt={edge.node.Image.alternativeText}/>}
 							</Link>
 						</div>
 						<div className="col-span-3">
@@ -44,7 +44,7 @@ const HebrewBlog = ({pageContext}) => {
 							<p>{text}...</p>
 							</div>
 							<div className="mb-2">
-								<Link className="block w-full md:w-auto md:inline-block text-center shadow-lg bg-rose-400 px-6 py-2 font-bold text-white rounded-full inline-block" to={`/he/posts/${edge.node.Slug}`} ><FontAwesomeIcon icon={faArrowLeft} className="ml-2"/>קרא עוד</Link>
+								<Link className="button primary inline-block " to={`/he/posts/${edge.node.Slug}`} ><FontAwesomeIcon icon={faArrowLeft} className="ml-2"/>קרא עוד</Link>
 							</div>
 							
 						</div>

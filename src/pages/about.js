@@ -12,7 +12,7 @@ import Seo from '../components/seo';
 
 const AboutPage = ({data}) => {
 	
-	return <Layout lang={'en'} className="bg-ricki" current="about">
+	return <Layout lang={'en'} className="" current="about" footerClass="bg-light">
 		<div className="hidden md:block bg-white h-96">
 			&nbsp;
     	</div>

@@ -178,9 +178,9 @@ const IndexPage = ({data}) => {
 	
 	return <Layout lang={'he'} footerClass="bg-light">
 		
-		<section dir="rtl" className="bg-white block bg-[url(https://rickiswalkingtours.com/wp-content/uploads/2024/11/5fdaccbc-0f65-4d3c-b35b-d53cd8ac5f0d.jpg)] bg-cover bg-center">
-		
-		<div className="container mx-auto h-[90vh] lg:h-[80vh] px-4 md:px-0 lg:px-6 py-10 xl:py-6 flex items-center space-x-8 xl:space-x-10  ">
+		<section dir="rtl" className="bg-white bg-contain block bg-[url(https://rickiswalkingtours.com/wp-content/uploads/2024/11/5fdaccbc-0f65-4d3c-b35b-d53cd8ac5f0d.jpg)] md:bg-cover bg-top md:bg-center bg-no-repeat">
+		<img src="https://rickiswalkingtours.com/wp-content/uploads/2024/11/5fdaccbc-0f65-4d3c-b35b-d53cd8ac5f0d.jpg" className="md:hidden block w-full"/>
+		<div className="container mx-auto h-[0] md:h-[80vh] px-4 md:px-0 lg:px-6 py-10 xl:py-6 flex items-center space-x-8 xl:space-x-10  ">
 
 			<img alt="Ricki Sofer, Tour Guide" src="https://res.cloudinary.com/meshed-nyc/q_auto/IMG_8118_atrpdt.jpg" className="hidden border-8 xl:ml-10 rounded-xl h-full shadow-xl border-white motion-safe:animate-fadeIn"/>
 			

@@ -141,11 +141,11 @@ const Layout = ({lang, children, className='', headerClass='', footerClass='bg-r
 				</div>
 				<ul dir={lang=='he'?'rtl':'ltr'} className={`${menuOpen?'block motion-safe:animate-menuIn':'hidden md:!translate-x-0'} text-3xl bg-black/90 md:bg-transparent md:backdrop-blur-none backdrop-blur space-y-4 md:space-y-0 top-0 text-right font-calibri md:font-goodlife fixed md:relative h-screen md:h-auto right-0 w-10/12 md:w-auto md:flex  py-20 md:py-0 px-6 md:px-0  font-bold list-style-none md:space-x-8 md:text-base md:uppercase md:tracking-wider lg:text-lg lg:tracking-widest md:font-bold items-center`}>
 					<li className="md:hidden"><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}`}>{lang=='en'?'Home':'בית'}</Link></li>
-					<li><Link className={`md:border-b-4 ${current=='about'?'md:border-ricki':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}about`}>{lang=='en'?'About':'מי אני'}</Link></li>
+					<li><Link className={`md:border-b-2 ${current=='about'?'md:border-gold':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}about`}>{lang=='en'?'About':'מי אני'}</Link></li>
 					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}#tours`}>{lang=='en'?'Tours':'סיורים בעברית'}</Link></li>
-					<li><Link className={`md:border-b-4 ${current=='concierge'?'md:border-ricki':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}concierge`}>{lang=='en'?'Concierge':'תיכנון טיול'}</Link></li>
-					<li><Link className={`md:border-b-4 ${current=='photography'?'md:border-ricki':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}photography`}>{lang=='en'?'Photography':'צילומים מקצועיים'}</Link></li>
-					<li><Link className={`md:border-b-4 ${current=='blog'?'md:border-ricki':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}blog`}>{lang=='en'?'Blog':'המדריך לNY'}</Link></li>
+					<li><Link className={`md:border-b-2 ${current=='concierge'?'md:border-gold':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}concierge`}>{lang=='en'?'Concierge':'תיכנון טיול'}</Link></li>
+					<li><Link className={`md:border-b-2 ${current=='photography'?'md:border-gold':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}photography`}>{lang=='en'?'Photography':'צילומים מקצועיים'}</Link></li>
+					<li><Link className={`md:border-b-2 ${current=='blog'?'md:border-gold':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}blog`}>{lang=='en'?'Blog':'המדריך לNY'}</Link></li>
 					
 					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}#contact`} className="">{lang=='en'?'Contact':'צרו קשר'}</Link></li>
 					<li className="pt-2 md:hidden"><div className="items-center justify-between flex  w-full ">
