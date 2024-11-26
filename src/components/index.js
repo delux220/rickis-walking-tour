@@ -25,12 +25,13 @@ export function Twitter({className=''}) {
 }
 
 export function MenuButton({open=false, className='', onToggle}) {
-	return <button id="nav-icon3" className={`${className} ${open?' open fixed ':' absolute '} top-5 right-5 w-9 h-7 sm:h-14 sm:w-14`} onClick={() => onToggle()}>
+	return <div className={`${className} ${open?' open fixed ':' absolute bg-[#000000]/70'} top-5 right-5 p-4 `}><button id="nav-icon3" className={` ${open?' open  ':' '} w-9 h-7 sm:h-14 sm:w-14`} onClick={() => onToggle()}>
             <span className="h-1"></span>
             <span className="h-1"></span>
             <span className="h-1"></span>
             <span className="h-1"></span>
           </button>
+          </div>
 }
 
 export function concatBlocks(data) {

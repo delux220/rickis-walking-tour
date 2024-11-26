@@ -201,7 +201,7 @@ const IndexPage = ({data}) => {
 			</div>
 		</section>
 		<section >
-			<div className="container max-w-7xl mx-auto px-6 py-20">
+			<div className="container max-w-7xl mx-auto px-6 md:pt-20 pb-20">
 				<div className="sm:grid sm:grid-cols-2 sm:gap-8 space-y-4 sm:space-y-0">
 					<div>
 						<img src="https://res.cloudinary.com/meshed-nyc/q_auto/IMG_8118_atrpdt.jpg"/>
@@ -231,11 +231,11 @@ const IndexPage = ({data}) => {
 			        		</div>
 			        		<div className="mt-10 md:mt-40">
 				        		<div className="text-2xl" dangerouslySetInnerHTML={{__html: type.Description.data.Description}}></div>
-				        		<Link to='/photography' className="z-50 bg-black text-white block text-center sm:inline-block mt-10 button">פרטים</Link>
+				        		<Link to='/he/photography' className="z-50 bg-black text-white block text-center sm:inline-block mt-10 button">פרטים</Link>
 				        	</div>
 			        	</div>
 			        </div>
-			        <img src={type.Image.formats.large?type.Image.formats.large.url:type.Image.url} className="aspect-square w-full object-cover"/>
+			        <img src={type.Image.formats.large?type.Image.formats.large.url:type.Image.url} className="hidden md:block aspect-square w-full object-cover"/>
 			      </div>
 			      </div>
 			      )}

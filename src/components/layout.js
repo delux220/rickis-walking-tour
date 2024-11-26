@@ -105,7 +105,7 @@ const Layout = ({lang, children, className='', headerClass='', footerClass='bg-r
 				<div className="flex items-center space-x-0 md:space-x-4">
 				<Link to={lang=='en'?`/`:`/he`} className="hidden md:block font-epicursive text-2xl lg:text-3xl text-black font-bold"><img src="https://res.cloudinary.com/meshed-nyc/w_600,c_fill,q_auto/ricki-logo-blac_sa6r7u.png" className="h-20" alt="Ricki's Walking Tours"/></Link>
 				<div>
-				<button onClick={() => setOpen(!open)} id="language-button"  className="ml-3 md:ml-0 bg-white rounded-md  text-black  flex-shrink-0  border-white md:border-black z-10 inline-flex items-center py-2.5 px-4 text-sm lg:text-lg text-center md:font-goodlife font-bold" type="button">
+				<button onClick={() => setOpen(!open)} id="language-button"  className="hidden ml-3 md:ml-0 bg-white rounded-md  text-black  flex-shrink-0  border-white md:border-black z-10 inline-flex items-center py-2.5 px-4 text-sm lg:text-lg text-center md:font-goodlife font-bold" type="button">
 		        {lang=='en'?<>
 		        	<USA/> English (US)</>:<>
 		       	    <Israel/> Hebrew (IL)
@@ -113,7 +113,7 @@ const Layout = ({lang, children, className='', headerClass='', footerClass='bg-r
 		         <svg aria-hidden="true" className="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
 		        
 				    </button>
-				    <div id="dropdown-states" className={`${open?'block':'hidden'} z-10 absolute bg-white rounded-lg shadow w-44 mt-1`}>
+				    <div id="dropdown-states" className={`hidden z-10 absolute bg-white rounded-lg shadow w-44 mt-1`}>
 				        <ul className="py-2 text-sm text-black" aria-labelledby="states-button">
 				            <li>
 				                <button onClick={() => changeLanguage('en')} type="button" className="inline-flex w-full px-4 py-2 text-sm text-teal-900 hover:bg-rose-500 hover:text-white">
