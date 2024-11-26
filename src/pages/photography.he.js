@@ -92,7 +92,7 @@ const PhotographyPage = ({data}) => {
   };
   
   return <Layout lang={'he'} className="bg-white" footerClass="bg-light" current="photography">
-    <div className="h-[90vh] relative block bg-[url(https://res.cloudinary.com/meshed-nyc/image/upload/v1684327277/ricki-camera2_sjuyvb.jpg)] lg:min-h-[640px] md:h-[85vh] bg-top  bg-no-repeat bg-cover ">
+    <div className="h-[90vh] relative block md:bg-none bg-[url(https://res.cloudinary.com/meshed-nyc/image/upload/v1684327277/ricki-camera2_sjuyvb.jpg)] lg:min-h-[640px] md:h-[85vh] bg-top  bg-no-repeat bg-cover ">
       <div className="w-full h-full  bg-repeat-x bg-[center_bottom_-5rem] xl:bg-[center_bottom_-12rem]  bg-contain ">
       <div dir="rtl" className="flex md:container mx-auto  h-full items-end md:items-start md:pt-20 ">
         
