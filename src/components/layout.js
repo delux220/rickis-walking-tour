@@ -100,59 +100,30 @@ const Layout = ({lang, children, className='', headerClass='', footerClass='bg-r
 	
 	return <main className={className}>
 		<Script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes" />
-		<header className={`${headerClass==''?'absolute z-20 md:relative text-white md:text-black md:bg-white':headerClass} py-4 w-full`}>
-			<nav className="container mx-auto flex justify-between lg:px-3">
+		<header className={`${headerClass==''?'absolute z-20 md:relative text-black bg-white':headerClass} py-4 w-full`}>
+			<nav className="container mx-auto flex justify-between px-4">
 				<div className="flex items-center space-x-0 md:space-x-4">
-				<Link to={lang=='en'?`/`:`/he`} className="hidden md:block font-epicursive text-2xl lg:text-3xl text-black font-bold"><img src="https://res.cloudinary.com/meshed-nyc/w_600,c_fill,q_auto/ricki-logo-blac_sa6r7u.png" className="h-20" alt="Ricki's Walking Tours"/></Link>
-				<div>
-				<button onClick={() => setOpen(!open)} id="language-button"  className="hidden ml-3 md:ml-0 bg-white rounded-md  text-black  flex-shrink-0  border-white md:border-black z-10 inline-flex items-center py-2.5 px-4 text-sm lg:text-lg text-center md:font-goodlife font-bold" type="button">
-		        {lang=='en'?<>
-		        	<USA/> English (US)</>:<>
-		       	    <Israel/> Hebrew (IL)
-		        </>}
-		         <svg aria-hidden="true" className="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
-		        
-				    </button>
-				    <div id="dropdown-states" className={`hidden z-10 absolute bg-white rounded-lg shadow w-44 mt-1`}>
-				        <ul className="py-2 text-sm text-black" aria-labelledby="states-button">
-				            <li>
-				                <button onClick={() => changeLanguage('en')} type="button" className="inline-flex w-full px-4 py-2 text-sm text-teal-900 hover:bg-rose-500 hover:text-white">
-				                    <div className="inline-flex items-center">
-				                    	<USA/>
-				                        English (US)
-				                    </div>
-				                </button>
-				            </li>
-				            <li>
-				                <button onClick={() => changeLanguage('he')}  type="button" className="inline-flex w-full px-4 py-2 text-sm text-teak-900 hover:bg-rose-500 hover:text-white ">
-				                    <div className="inline-flex items-center">
-				                    	<Israel/>
-				                        Hebrew (IL)
-				                    </div>
-				                </button>
-				            </li>
-				        </ul>
-				    </div>
-    				</div>
+				<Link to={lang=='en'?`/`:`/he`} className="block font-epicursive text-2xl lg:text-3xl text-black font-bold"><img src="https://res.cloudinary.com/meshed-nyc/w_600,c_fill,q_auto/ricki-logo-blac_sa6r7u.png" className="h-20" alt="Ricki's Walking Tours"/></Link>
+				
 				<span className="hidden md:block"><img alt="Phone icon" src="https://res.cloudinary.com/meshed-nyc/image/upload/v1702996815/icons8-phone-30_bobcvq.png" className="w-5 inline-block mr-2"/><a href="tel:+13107755756" className="font-goodlife font-bold">(310) 775-5756</a></span>
 				</div>
 				<div>
 				<MenuButton open={menuOpen} onToggle={() => setMenuOpen(!menuOpen)} className={` md:hidden z-50`}/>
 				</div>
-				<ul dir={lang=='he'?'rtl':'ltr'} className={`${menuOpen?'block motion-safe:animate-menuIn':'hidden md:!translate-x-0'} text-3xl bg-black/90 md:bg-transparent md:backdrop-blur-none backdrop-blur space-y-4 md:space-y-0 top-0 text-right font-calibri md:font-goodlife fixed md:relative h-screen md:h-auto right-0 w-10/12 md:w-auto md:flex  py-20 md:py-0 px-6 md:px-0  font-bold list-style-none md:space-x-8 md:text-base md:uppercase md:tracking-wider lg:text-lg lg:tracking-widest md:font-bold items-center`}>
-					<li className="md:hidden"><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}`}>{lang=='en'?'Home':'בית'}</Link></li>
-					<li><Link className={`md:border-b-2 ${current=='about'?'md:border-gold':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}about`}>{lang=='en'?'About':'מי אני'}</Link></li>
-					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}#tours`}>{lang=='en'?'Tours':'סיורים בעברית'}</Link></li>
-					<li><Link className={`md:border-b-2 ${current=='concierge'?'md:border-gold':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}concierge`}>{lang=='en'?'Concierge':'תיכנון טיול'}</Link></li>
-					<li><Link className={`md:border-b-2 ${current=='photography'?'md:border-gold':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}photography`}>{lang=='en'?'Photography':'צילומים מקצועיים'}</Link></li>
-					<li><Link className={`md:border-b-2 ${current=='blog'?'md:border-gold':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}blog`}>{lang=='en'?'Blog':'המדריך לNY'}</Link></li>
+				<ul dir={lang=='he'?'rtl':'ltr'} className={`${menuOpen?'block motion-safe:animate-menuIn':'hidden md:!translate-x-0'} text-3xl bg-white md:bg-transparent md:backdrop-blur-none backdrop-blur space-y-4 md:space-y-0 top-0 text-right font-calibri md:font-goodlife fixed md:relative h-screen md:h-auto right-0 w-10/12 md:w-auto md:flex  py-20 md:py-0 px-6 md:px-0  font-bold list-style-none md:space-x-8 md:text-base md:uppercase md:tracking-wider lg:text-lg lg:tracking-widest md:font-bold items-center`}>
+					<li className="md:hidden"><Link className="hover:underline " onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}`}>{lang=='en'?'Home':'בית'}</Link></li>
+					<li><Link className={`hover:underline md:border-b-2 ${current=='about'?'md:border-gold':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}about`}>{lang=='en'?'About':'מי אני'}</Link></li>
+					<li><Link className="hover:underline " onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}#tours`}>{lang=='en'?'Tours':'סיורים בעברית'}</Link></li>
+					<li><Link className={`hover:underline md:border-b-2 ${current=='concierge'?'md:border-gold':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}concierge`}>{lang=='en'?'Concierge':'תיכנון טיול'}</Link></li>
+					<li><Link className={`hover:underline md:border-b-2 ${current=='photography'?'md:border-gold':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}photography`}>{lang=='en'?'Photography':'צילומים מקצועיים'}</Link></li>
+					<li><Link className={`hover:underline md:border-b-2 ${current=='blog'?'md:border-gold':'border-transparent'}`} onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}blog`}>{lang=='en'?'Blog':'המדריך לNY'}</Link></li>
 					
-					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}#contact`} className="">{lang=='en'?'Contact':'צרו קשר'}</Link></li>
+					<li><Link onClick={closeMenu} to={`${lang=='en'?'/':'/he/'}#contact`} className="hover:underline ">{lang=='en'?'Contact':'צרו קשר'}</Link></li>
 					<li className="pt-2 md:hidden"><div className="items-center justify-between flex  w-full ">
-							<a href={data.strapiSocialMedia.Facebook} target="_blank"><Facebook className="hover:fill-white fill-white w-8 h-8"/></a>
-							<a href={data.strapiSocialMedia.Instagram} target="_blank"><Instagram className="hover:fill-white fill-white w-8 h-8"/></a>
-							<a href={data.strapiSocialMedia.YouTube} target="_blank"><YouTube className="hover:fill-white fill-white w-8 h-8"/></a>
-							<a href="https://wa.me/13107755756" target="_blank"><WhatsApp className="hover:fill-white fill-white w-8 h-8"/></a>
+							<a href={data.strapiSocialMedia.Facebook} target="_blank"><Facebook className="hover:fill-gold fill-black w-8 h-8"/></a>
+							<a href={data.strapiSocialMedia.Instagram} target="_blank"><Instagram className="hover:fill-gold fill-black w-8 h-8"/></a>
+							<a href={data.strapiSocialMedia.YouTube} target="_blank"><YouTube className="hover:fill-gold fill-black w-8 h-8"/></a>
+							<a href="https://wa.me/13107755756" target="_blank"><WhatsApp className="hover:fill-gold fill-black w-8 h-8"/></a>
 						</div></li>
 				</ul>
 			</nav>

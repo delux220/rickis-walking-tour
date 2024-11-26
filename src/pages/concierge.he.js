@@ -12,15 +12,14 @@ import Seo from '../components/seo';
 
 const HebrewConciergePage = ({data}) => {
   
-  return <Layout lang={'he'} className="bg-ricki" current="about">
-      <div className="bg-white pb-10">
+  return <Layout lang={'he'} className="bg-white" footerClass="bg-light" current="concierge">
+      <div className="bg-white pb-10 min-h-screen">
         <div className="md:container mx-auto xl:px-0" dir="rtl">
           <div className="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-4 xl:gap-8">
             <div className="bg-cover bg-center h-[80vh] md:hidden px-3 py-10 flex items-end justify-center" style={{backgroundImage: "url('"+data.strapiConcierge.Image.formats.large.url+"')"}}>
               <div>
                 <h1 className=" block w-full text-center text-white font-bold text-5xl font-epicursive mb-4">{data.strapiConcierge.Title}</h1>
-                <img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1683420929/squiggle-longer-different-pink_oajuo7.png" className="mx-auto block w-48 my-6" alt="Pink squiggle page divider"/>
-
+               
               </div>
             </div>
             <div className="hidden md:block">
@@ -32,11 +31,11 @@ const HebrewConciergePage = ({data}) => {
             <div className="lg:col-span-2 py-5 px-4 md:px-0">
               <h1 className="hidden md:block font-bold text-5xl font-epicursive mb-4">{data.strapiConcierge.Title}</h1>
               <div className="pl-1 mb-4">
-              <img alt="Pink squiggle page divider" src="https://res.cloudinary.com/meshed-nyc/image/upload/v1683420929/squiggle-longer-different-pink_oajuo7.png" className="hidden md:block w-48 my-6"/>
+              
               <div id="post" dangerouslySetInnerHTML={{__html: data.strapiConcierge.Content.data.Content}}/>
               </div>
               <div>
-                <a href="https://wa.link/w5o5ik" target="_blank" class="shadow-lg bg-lime-500 sm:w-72 w-full text-center px-8 py-3 rounded-full justify-center text-white font-bold hover:bg-lime-400 flex items-center"><WhatsApp className="hover:fill-white fill-white w-5 h-5 ml-2"/><span>צרו קשר בוואטסאפ</span></a>
+                <a href="https://wa.link/w5o5ik" target="_blank" class="button primary inline-block"><WhatsApp className="hover:fill-black fill-black w-5 h-5 ml-2 inline-block"/><span>צרו קשר בוואטסאפ</span></a>
               </div>
             </div>
 

@@ -67,7 +67,7 @@
 }
 
 #nav-icon3 span {
-  @apply bg-white;
+  @apply bg-black;
 }
 
 .dark #nav-icon3:not(.open) span {
