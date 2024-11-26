@@ -100,7 +100,7 @@ const Layout = ({lang, children, className='', headerClass='', footerClass='bg-r
 	
 	return <main className={className}>
 		<Script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes" />
-		<header className={`${headerClass==''?'absolute z-20 md:relative text-black bg-white':headerClass} py-4 w-full`}>
+		<header className={`${headerClass==''?' z-20 md:relative text-black bg-white':headerClass} py-4 w-full`}>
 			<nav className="container mx-auto flex justify-between px-4">
 				<div className="flex items-center space-x-0 md:space-x-4">
 				<Link to={lang=='en'?`/`:`/he`} className="block font-epicursive text-2xl lg:text-3xl text-black font-bold"><img src="https://res.cloudinary.com/meshed-nyc/w_600,c_fill,q_auto/ricki-logo-blac_sa6r7u.png" className="h-20" alt="Ricki's Walking Tours"/></Link>
