@@ -180,20 +180,20 @@ const IndexPage = ({data}) => {
 		
 		<section dir="rtl" className="bg-white bg-contain block bg-[url(https://rickiswalkingtours.com/wp-content/uploads/2024/11/5fdaccbc-0f65-4d3c-b35b-d53cd8ac5f0d.jpg)] md:bg-cover bg-top md:bg-center bg-no-repeat">
 		<img src="https://rickiswalkingtours.com/wp-content/uploads/2024/11/5fdaccbc-0f65-4d3c-b35b-d53cd8ac5f0d.jpg" className="md:hidden block w-full"/>
-		<div className="container mx-auto h-[0] md:h-[80vh] px-4 md:px-0 lg:px-6 py-10 xl:py-6 flex items-center space-x-8 xl:space-x-10  ">
+		<div className="hidden md:block container mx-auto h-[0] md:h-[80vh] px-4 md:px-0 lg:px-6 py-10 xl:py-6 flex items-center space-x-8 xl:space-x-10  ">
 
 			<img alt="Ricki Sofer, Tour Guide" src="https://res.cloudinary.com/meshed-nyc/q_auto/IMG_8118_atrpdt.jpg" className="hidden border-8 xl:ml-10 rounded-xl h-full shadow-xl border-white motion-safe:animate-fadeIn"/>
 			
 		</div>
 		</section>
-		<section className="hidden">
+		<section className="">
 			<div className="container mx-auto  flex items-center justify-center sm:px-6">
 				<div className="bg-white px-4 sm:px-8 py-8">
-					<h2 className=" text-center font-epicursive text-gold font-bold text-7xl mb-8 mx-auto on-scroll" >אני ריקי</h2>
-					<h3 className="text-center text-gold font-goodlife font-bold text-3xl mb-4 uppercase font-bold ">המדריכה שלכם לניו יורק סיטי</h3>
-					<h3 className="text-center text-black  text-lg font-sans mb-8 block xl:max-w-lg">הצטרפו אלי לסימטאות מלאות ההיסטוריה של ניו יורק, לטעום מהמאכלים הטובים ביותר וליהנות מהעיר ללא הפסקה.</h3>
+					<h2 className=" text-center font-epicursive text-gold text-4xl md:text-6xl mb-8 mx-auto on-scroll" >ברוכים הבאים לניו יורק שלא הכרתם</h2>
+					<h3 className="text-center hidden text-gold font-goodlife font-bold text-3xl mb-4 uppercase font-bold ">המדריכה שלכם לניו יורק סיטי</h3>
+					<h3 className="text-center hidden text-black  text-lg font-sans mb-8 block xl:max-w-lg">הצטרפו אלי לסימטאות מלאות ההיסטוריה של ניו יורק, לטעום מהמאכלים הטובים ביותר וליהנות מהעיר ללא הפסקה.</h3>
 					
-					<div className="text-center sm:flex items-center justify-center space-y-2 sm:space-y-0 sm:space-x-4">
+					<div className="text-center hidden items-center justify-center space-y-2 sm:space-y-0 sm:space-x-4">
 					<a href="/#contact" className="button secondary block w-full lg:w-auto lg:inline-block"><FontAwesomeIcon icon={faEnvelope} className="ml-4"/><span>צור קשר</span></a>
 					<a href="https://fareharbor.com/embeds/book/guidedtoursnyc/?full-items=yes&language=en-us&u=f47e9dfd-04ed-4ca1-960c-04da78951fce&from-ssl=yes&ga4t=G-XDVQTYZ0FJ,974959174.1683229789__1684492288%3B&g4=yes&a=yes&back=https://rickiswalkingtours.com/" className="button primary mr-4 lg:mb-0 block w-full lg:w-auto lg:inline-block "><FontAwesomeIcon icon={faArrowLeft} className="ml-4"/><span>לביצוע הזמנה</span></a>
 					</div>
