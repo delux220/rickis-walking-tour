@@ -261,9 +261,9 @@ const IndexPage = ({data}) => {
 					<div className="lg:col-span-2 xl:col-span-3">
 
 					</div>
-					<div className="bg-white px-8 py-20 xl:col-span-2" dir="rtl">
+					<div className="bg-white px-8 pt-20 md:pb-20 pb-10 xl:col-span-2" dir="rtl">
 						<img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1732583816/Vector_snp5wb.png" className="mx-auto block"/>
-						<h3 className="text-black text-center text-4xl my-8">תהנו מאוד בניו יורק!</h3>
+						<h3 className="text-black text-center text-4xl my-8">תהנו בניו יורק!</h3>
 						<p className="text-black text-center text-2xl mb-20">אני אשמח לראות אתכם בסיורים שלי, לצלם את החתונה שלכם, או לעזור לכם להפתיע את בן/בת הזוג שלכם עם הצעת נישואין. אני עונה לכל המיילים שלי תוך פחות מ-24 שעות.</p>
 					</div>
 				</div>
