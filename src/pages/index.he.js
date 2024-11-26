@@ -186,10 +186,10 @@ const IndexPage = ({data}) => {
 			
 		</div>
 		</section>
-		<section className="">
-			<div className="container mx-auto  flex items-center justify-center sm:px-6">
-				<div className="bg-white px-4 sm:px-8 py-8">
-					<h2 className=" text-center font-epicursive text-gold text-4xl md:text-6xl mb-8 mx-auto on-scroll" >ברוכים הבאים לניו יורק שלא הכרתם</h2>
+		<section className="bg-white">
+			<div className="container mx-auto   sm:px-6">
+				<div className=" px-4 sm:px-8 py-4 sm:pt-8">
+					<h2 className="w-full block bg-light text-black md:bg-transparent md:border-0 px-4 py-4 text-center font-epicursive md:text-gold text-4xl md:text-6xl md:mb-8 mx-auto on-scroll" >ברוכים הבאים<span className="block">לניו-יורק שלא</span>הכרתם</h2>
 					<h3 className="text-center hidden text-gold font-goodlife font-bold text-3xl mb-4 uppercase font-bold ">המדריכה שלכם לניו יורק סיטי</h3>
 					<h3 className="text-center hidden text-black  text-lg font-sans mb-8 block xl:max-w-lg">הצטרפו אלי לסימטאות מלאות ההיסטוריה של ניו יורק, לטעום מהמאכלים הטובים ביותר וליהנות מהעיר ללא הפסקה.</h3>
 					
@@ -201,7 +201,7 @@ const IndexPage = ({data}) => {
 			</div>
 		</section>
 		<section >
-			<div className="container max-w-7xl mx-auto px-6 md:pt-20 pb-20">
+			<div className="container max-w-7xl mx-auto px-4 md:pt-10 pb-20">
 				<div className="sm:grid sm:grid-cols-2 sm:gap-8 space-y-4 sm:space-y-0">
 					<div>
 						<img src="https://res.cloudinary.com/meshed-nyc/q_auto/IMG_8118_atrpdt.jpg"/>
