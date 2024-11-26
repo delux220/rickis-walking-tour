@@ -229,8 +229,11 @@ const IndexPage = ({data}) => {
 			        			<h3 className="text-3xl md:text-5xl">{type.Title}</h3>
 
 			        		</div>
-			        		<div className="mt-10 md:mt-40">
-				        		<div className="text-2xl" dangerouslySetInnerHTML={{__html: type.Description.data.Description}}></div>
+			        		<div className="md:hidden mb-4">
+			        			<img src={type.Image.formats.large?type.Image.formats.large.url:type.Image.url} className="block  aspect-square w-full object-cover"/>
+			        		</div>
+			        		<div className=" md:mt-40">
+				        		<div className="text-base md:text-2xl" dangerouslySetInnerHTML={{__html: type.Description.data.Description}}></div>
 				        		<Link to='/he/photography' className="z-50 bg-black text-white block text-center sm:inline-block mt-10 button">פרטים</Link>
 				        	</div>
 			        	</div>
