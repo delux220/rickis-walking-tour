@@ -3,12 +3,16 @@ import {Link, graphql, Script, navigate} from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import {YouTube, Instagram, Facebook, TikTok, Twitter, MenuButton} from '../components/index';
-import {faArrowRight, faArrowLeft, faEnvelope, faStar, faStarEmpty, faTimes, faCheck} from '@fortawesome/free-solid-svg-icons';
+import {faArrowRight, faChevronLeft, faChevronRight, faArrowLeft, faEnvelope, faStar, faStarEmpty, faTimes, faCheck} from '@fortawesome/free-solid-svg-icons';
 import numeral from 'numeral';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 import { Loader } from "@googlemaps/js-api-loader"
 import ReCAPTCHA from "react-google-recaptcha";
+import Slider from "react-slick";
+   import "slick-carousel/slick/slick.css"; 
+   import "slick-carousel/slick/slick-theme.css";
+
 
 const callback = function(entries) {
   entries.forEach(entry => {
@@ -26,7 +30,19 @@ const callback = function(entries) {
   });
 };
 
+const settings = {
+    dots: true,
+    infinite: true,
+    arrows: false,
+    autoPlay: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    rtl: true
+  };
+
 const IndexPage = ({data}) => {
+
+	const sliderRef = useRef();
 
 	const [place, setPlace] = useState(null);
 
@@ -161,46 +177,148 @@ const IndexPage = ({data}) => {
 	
 	
 	return <Layout lang={'he'} footerClass="bg-light">
-		<section dir="rtl" className="bg-cover relative bg-center h-[90vh] md:hidden ">
-			<div className="absolute w-full bottom-0  px-0">
-				<h1 className="text-center font-epicursive text-white font-bold text-6xl mb-3 mx-auto on-scroll" >אני ריקי</h1>
-				<h3 className=" font-goodlife text-white text-center font-bold text-2xl mb-3 uppercase font-bold on-scroll">המדריכה שלכם לניו יורק סיטי</h3>
-				<div className="space-y-2 mb-8 px-6">
-				<a href="https://fareharbor.com/embeds/book/guidedtoursnyc/?full-items=yes&language=en-us&u=f47e9dfd-04ed-4ca1-960c-04da78951fce&from-ssl=yes&ga4t=G-XDVQTYZ0FJ,974959174.1683229789__1684492288%3B&g4=yes&a=yes&back=https://rickiswalkingtours.com/" className="font-bold font-sans border border-rose-400 bg-rose-400 text-white text-center block w-full rounded-full px-10 py-3 inline-block"><FontAwesomeIcon icon={faArrowLeft} className="ml-4"/>לביצוע הזמנה</a>
-				<a href="/#contact" className="font-bold font-sans border bg-white border-white bg-white text-black rounded-full px-10 py-3 text-center block w-full"><FontAwesomeIcon icon={faEnvelope} className="ml-4"/>צור קשר</a>
+		
+		<section dir="rtl" className="bg-white block bg-[url(https://rickiswalkingtours.com/wp-content/uploads/2024/11/5fdaccbc-0f65-4d3c-b35b-d53cd8ac5f0d.jpg)] bg-cover bg-center">
+		
+		<div className="container mx-auto h-[90vh] lg:h-[80vh] px-4 md:px-0 lg:px-6 py-10 xl:py-6 flex items-center space-x-8 xl:space-x-10  ">
+
+			<img alt="Ricki Sofer, Tour Guide" src="https://res.cloudinary.com/meshed-nyc/q_auto/IMG_8118_atrpdt.jpg" className="hidden border-8 xl:ml-10 rounded-xl h-full shadow-xl border-white motion-safe:animate-fadeIn"/>
+			
+		</div>
+		</section>
+		<section>
+			<div className="container mx-auto  flex items-center justify-center sm:px-6">
+				<div className="bg-white px-4 sm:px-8 py-8">
+					<h2 className=" text-center font-epicursive text-gold font-bold text-7xl mb-8 mx-auto on-scroll" >אני ריקי</h2>
+					<h3 className="text-center text-gold font-goodlife font-bold text-3xl mb-4 uppercase font-bold ">המדריכה שלכם לניו יורק סיטי</h3>
+					<h3 className="text-center text-black  text-lg font-sans mb-8 block xl:max-w-lg">הצטרפו אלי לסימטאות מלאות ההיסטוריה של ניו יורק, לטעום מהמאכלים הטובים ביותר וליהנות מהעיר ללא הפסקה.</h3>
+					
+					<div className="text-center sm:flex items-center justify-center space-y-2 sm:space-y-0 sm:space-x-4">
+					<a href="/#contact" className="button secondary block w-full lg:w-auto lg:inline-block"><FontAwesomeIcon icon={faEnvelope} className="ml-4"/><span>צור קשר</span></a>
+					<a href="https://fareharbor.com/embeds/book/guidedtoursnyc/?full-items=yes&language=en-us&u=f47e9dfd-04ed-4ca1-960c-04da78951fce&from-ssl=yes&ga4t=G-XDVQTYZ0FJ,974959174.1683229789__1684492288%3B&g4=yes&a=yes&back=https://rickiswalkingtours.com/" className="button primary mr-4 lg:mb-0 block w-full lg:w-auto lg:inline-block "><FontAwesomeIcon icon={faArrowLeft} className="ml-4"/><span>לביצוע הזמנה</span></a>
+					</div>
 				</div>
 			</div>
 		</section>
-		<section dir="rtl" className="bg-white hidden md:block">
-		<div className="container mx-auto h-[90vh] lg:h-[80vh] px-4 md:px-0 lg:px-6 py-10 xl:py-6 flex items-center space-x-8 xl:space-x-10  ">
-
-			<img alt="Ricki Sofer, Tour Guide" src="https://res.cloudinary.com/meshed-nyc/q_auto/IMG_8118_atrpdt.jpg" className="border-8 xl:ml-10 rounded-xl h-full shadow-xl border-white motion-safe:animate-fadeIn"/>
-			<div className="">
-				<h2 className="text-right font-epicursive text-gold font-bold text-7xl mb-8 mx-auto on-scroll" >אני ריקי</h2>
-				<h3 className="text-right text-gold font-goodlife font-bold text-3xl mb-4 uppercase font-bold ">המדריכה שלכם לניו יורק סיטי</h3>
-				<h3 className="text-right  text-teal-900  text-lg font-sans mb-4 block xl:max-w-lg">הצטרפו אלי לסימטאות מלאות ההיסטוריה של ניו יורק, לטעום מהמאכלים הטובים ביותר וליהנות מהעיר ללא הפסקה.</h3>
-				
-				<div className="text-right">
-				<a href="/#contact" className="button secondary block w-full lg:w-auto lg:inline-block"><FontAwesomeIcon icon={faEnvelope} className="ml-4"/>צור קשר</a>
-				<a href="https://fareharbor.com/embeds/book/guidedtoursnyc/?full-items=yes&language=en-us&u=f47e9dfd-04ed-4ca1-960c-04da78951fce&from-ssl=yes&ga4t=G-XDVQTYZ0FJ,974959174.1683229789__1684492288%3B&g4=yes&a=yes&back=https://rickiswalkingtours.com/" className="button primary mr-4 mb-2 lg:mb-0 block w-full lg:w-auto lg:inline-block"><FontAwesomeIcon icon={faArrowLeft} className="ml-4"/>לביצוע הזמנה</a>
+		<section >
+			<div className="container max-w-7xl mx-auto px-6 py-20">
+				<div className="sm:grid sm:grid-cols-2 sm:gap-8 space-y-4 sm:space-y-0">
+					<div>
+						<img src="https://res.cloudinary.com/meshed-nyc/q_auto/IMG_8118_atrpdt.jpg"/>
+					</div>
+					<div dir="rtl" className="flex justify-center items-center">
+						<div>
+						<img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1732566404/unnamed-file_mikhzk.png" className="mx-auto block mb-8" alt="Quote"/>
+						<h3 className="text-6xl text-center text-gold font-bold font-goodlife">היי, אני ריקי!</h3>
+						<p className="text-2xl font-sans text-center block my-8">אני גר בניו יורק כבר 15 שנים, ועבדתי כקומיקאי סטנדאפ וכצלם. אחרי מגפת הקורונה, החלטתי לשנות קריירה ולהפוך למדריך טיולים בניו יורק. כך הצלחתי לשלב את האהבה שלי לעיר עם כמה בדיחות פה ושם, תוך כדי שאני מצלם כמה תמונות בדרך. אני נהנה להכיר חברים חדשים ולהתחבר לאנשים. מעל לעשור שבו עשיתי סטנדאפ לימדו אותי איך לשבור את הקרח בשתי שניות, כך שכל סיור וצילומים ירגישו כמו בילוי עם חברים ולא כמו משימה מלחיצה.</p>
+						<img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1732566404/Asset-1Flowerz-Underline-1_ysk5ve.png" className="block mx-auto" alt="floral seperator"/>
+					</div>
+					</div>
 				</div>
 			</div>
-		</div>
+		</section>
+		
+		<section className="relative">
+			<div className="">
+				<Slider {...settings} ref={sliderRef}>
+					<div>
+			      <div className="md:grid md:grid-cols-2 overflow-visible pb-10 md:pb-0 px-8 md:px-0"  dir="rtl">
+			        <div className="flex justify-end  h-full overflow-visible">
+			        	<div className="md:aspect-square relative block h-[100%]  sm:max-w-xl">
+			        		<div className="sm:absolute bg-light px-4 py-4 top-10 sm:w-[50vw] right-0" >
+			        			<h3 className="text-3xl md:text-5xl">צילום הצעות נישואין</h3>
+
+			        		</div>
+			        		<div className="mt-10 md:mt-40">
+				        		<p className="text-2xl">זה מתעד אחד הרגעים האינטימיים והשמחים ביותר בחיים—הרגע שבו שני לבבות מחליטים על לנצח. מההמתנה הנרגשת ועד החיוכים הזוהרים וה"כן" מלב, כל פרט נשמר בצורה יפה. בין אם זו הפתעה גדולה ומתוכננת או מחווה אינטימית ושקטה, אנו דואגים שהרגשות, ההקשר והסיפור של ההצעה שלכם יתועדו בצורה אותנטית. התמונות הנצחיות הללו הופכות למזכרת יקרה, חגיגה של אהבה שמסמלת את תחילת הפרק הבא שלכם יחד.</p>
+				        		<Link to='/photography' className="z-50 bg-black text-white block text-center sm:inline-block mt-10 button">פרטים</Link>
+				        	</div>
+			        	</div>
+			        </div>
+			        <div className="hidden sm:block aspect-square bg-[url(https://rickiswalkingtours.com/wp-content/uploads/2024/11/0Y4A8118-1739x2048.jpg)] bg-cover">
+			        	&nbsp;
+			        </div>
+			      </div>
+			      </div>
+
+			      <div>
+			      <div className="md:grid md:grid-cols-2 overflow-visible pb-10 md:pb-0 px-8 md:px-0"  dir="rtl">
+			        <div className="flex justify-end  h-full overflow-visible">
+			        	<div className="md:aspect-square relative block h-[100%]  sm:max-w-xl">
+			        		<div className="sm:absolute bg-light px-4 py-4 top-10 sm:w-[50vw] right-0" >
+			        			<h3 className="text-3xl md:text-5xl">צילום הצעות נישואין</h3>
+
+			        		</div>
+			        		<div className="mt-10 md:mt-40">
+				        		<p className="text-2xl">זה מתעד אחד הרגעים האינטימיים והשמחים ביותר בחיים—הרגע שבו שני לבבות מחליטים על לנצח. מההמתנה הנרגשת ועד החיוכים הזוהרים וה"כן" מלב, כל פרט נשמר בצורה יפה. בין אם זו הפתעה גדולה ומתוכננת או מחווה אינטימית ושקטה, אנו דואגים שהרגשות, ההקשר והסיפור של ההצעה שלכם יתועדו בצורה אותנטית. התמונות הנצחיות הללו הופכות למזכרת יקרה, חגיגה של אהבה שמסמלת את תחילת הפרק הבא שלכם יחד.</p>
+				        		<Link to='/photography' className="z-50 bg-black text-white block text-center sm:inline-block mt-10 button">פרטים</Link>
+				        	</div>
+			        	</div>
+			        </div>
+			        <div className="hidden sm:block aspect-square bg-[url(https://rickiswalkingtours.com/wp-content/uploads/2024/11/0Y4A8118-1739x2048.jpg)] bg-cover">
+			        	&nbsp;
+			        </div>
+			      </div>
+			      </div>
+
+			      <div>
+			      <div className="md:grid md:grid-cols-2 overflow-visible pb-10 md:pb-0 px-8 md:px-0"  dir="rtl">
+			        <div className="flex justify-end  h-full overflow-visible">
+			        	<div className="md:aspect-square relative block h-[100%]  sm:max-w-xl">
+			        		<div className="sm:absolute bg-light px-4 py-4 top-10 sm:w-[50vw] right-0" >
+			        			<h3 className="text-3xl md:text-5xl">צילום הצעות נישואין</h3>
+
+			        		</div>
+			        		<div className="mt-10 md:mt-40">
+				        		<p className="text-2xl">זה מתעד אחד הרגעים האינטימיים והשמחים ביותר בחיים—הרגע שבו שני לבבות מחליטים על לנצח. מההמתנה הנרגשת ועד החיוכים הזוהרים וה"כן" מלב, כל פרט נשמר בצורה יפה. בין אם זו הפתעה גדולה ומתוכננת או מחווה אינטימית ושקטה, אנו דואגים שהרגשות, ההקשר והסיפור של ההצעה שלכם יתועדו בצורה אותנטית. התמונות הנצחיות הללו הופכות למזכרת יקרה, חגיגה של אהבה שמסמלת את תחילת הפרק הבא שלכם יחד.</p>
+				        		<Link to='/photography' className="z-50 bg-black text-white block text-center sm:inline-block mt-10 button">פרטים</Link>
+				        	</div>
+			        	</div>
+			        </div>
+			        <div className="hidden sm:block aspect-square bg-[url(https://rickiswalkingtours.com/wp-content/uploads/2024/11/0Y4A8118-1739x2048.jpg)] bg-cover">
+			        	&nbsp;
+			        </div>
+			      </div>
+			      </div>
+			      
+			    </Slider>
+			</div>
+			<div className="absolute left-0 top-0 h-full flex items-center justify-center">
+				<button onClick={() => { sliderRef.current.slickPrev(); }} className="w-10 h-10 z-50"><FontAwesomeIcon icon={faChevronLeft} className="text-right md:w-20 md:h-20"/></button>
+			</div>
+			<div className="absolute right-0 top-0 h-full flex items-center justify-center">
+				<button onClick={() => { sliderRef.current.slickNext(); }} className="w-10 h-10 z-50"><FontAwesomeIcon icon={faChevronRight} className="text-right"/></button>
+			</div>
+		</section>
+		<section  className="bg-cover my-20 bg-center lg:bg-center xl:bg-top-center bg-[url(https://res.cloudinary.com/meshed-nyc/q_auto/v1732584399/nyc2_ms6vcc.jpg)]">
+
+			<div className="lg:container mx-auto">
+				<div className="sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 grid mx-auto">
+					<div className="lg:col-span-2 xl:col-span-3">
+
+					</div>
+					<div className="bg-white px-8 py-20 xl:col-span-2" dir="rtl">
+						<img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1732583816/Vector_snp5wb.png" className="mx-auto block"/>
+						<h3 className="text-black text-center text-4xl my-8">תהנו מאוד בניו יורק!</h3>
+						<p className="text-black text-center text-2xl mb-20">אני אשמח לראות אתכם בסיורים שלי, לצלם את החתונה שלכם, או לעזור לכם להפתיע את בן/בת הזוג שלכם עם הצעת נישואין. אני עונה לכל המיילים שלי תוך פחות מ-24 שעות.</p>
+					</div>
+				</div>
+			</div>
 		</section>
 		<section className="bg-subdued py-20" id="tours" dir="rtl">
 			<div className="container mx-auto px-6 ">
-			<h2 className="mb-20 text-5xl text-center md:text-right text-gold font-bold font-goodlife">סיורים בעברית</h2>
-			<div className="sm:grid xl:grid-cols-6 gap-8 xl:gap-10">
+			<h2 className="mb-20 text-5xl text-gold font-bold text-center">סיורים בעברית</h2>
+			<div className="sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-8 space-y-8 sm:space-y-0">
 				{
 					data.allStrapiTour.nodes.map(tour => {
 
-						return <div key={`tour-${tour.id}`} className="md:flex on-scroll mb-6 sm:mb-4 xl:col-span-5">
+						return <div key={`tour-${tour.id}`} className="">
 							
-							{tour.Photo!=null?(tour.Photo.formats!=null&&tour.Photo.formats.medium!=null?<img alt={tour.Title} src={tour.Photo.formats.medium.url.replace('.heic', '.jpg')} className="object-cover rounded-lg mb-4 lg:mb-0 w-full md:w-64 md:h-64 aspect-square lg:w-72 lg:h-72 " />:<img alt={tour.Title} src={tour.Photo.url.replace('.heic', '.jpg')} className="object-cover  md:w-64 md:h-64 rounded-lg mb-4 lg:mb-0 w-full aspect-square lg:w-72 lg:h-72 " />):<div className="object-cover  md:w-64 md:h-64 rounded-lg mb-4 lg:mb-0 w-full aspect-square lg:w-72 lg:h-72 ">&nbsp;</div>}
-							<div className="w-0 hidden md:block md:w-12">&nbsp;</div>
+							{tour.Photo!=null?(tour.Photo.formats!=null&&tour.Photo.formats.medium!=null?<img alt={tour.Title} src={tour.Photo.formats.medium.url.replace('.heic', '.jpg')} className="object-cover rounded-lg mb-4 block w-full  aspect-square " />:<img alt={tour.Title} src={tour.Photo.url.replace('.heic', '.jpg')} className="object-cover  rounded-lg mb-4 block w-full aspect-square  " />):<div className="object-cover   rounded-lg mb-4 block w-full aspect-square ">&nbsp;</div>}
+							
 							<div className="">
-								<h3 className=" font-bold text-2xl xl:text-3xl font-goodlife text-black mb-1">{tour.Title}</h3>
-								<div className="flex items-center text-teal-400 font-bold">
+								<h3 className=" text-2xl xl:text-3xl text-black mb-1">{tour.Title}</h3>
+								<div className="font-bold">
 									
 								<span className="text-black text-sm sm:text-base md:text-lg rounded-full font-bold">{numeral(tour.Price).format('$0,0.00')} לאדם</span>
 								{
@@ -213,9 +331,9 @@ const IndexPage = ({data}) => {
 									
 								</div>
 								<div className="">
-								<p className="text-black/80 text-xl mb-4 xl:text-lg" dangerouslySetInnerHTML={{__html: tour.Description.replaceAll("\n", '<br/>')}}/>
+								<p className="hidden text-black/80 text-xl mb-4 xl:text-lg" dangerouslySetInnerHTML={{__html: tour.Description.replaceAll("\n", '<br/>')}}/>
 								</div>
-									<a href={tour.Link} className="w-full md:w-auto md:inline-block button primary block">אני רוצה להזמין<FontAwesomeIcon icon={faArrowLeft} className="mr-2"/> </a>
+									<a href={tour.Link} className="mt-4 w-full text-center button primary block">אני רוצה להזמין<FontAwesomeIcon icon={faArrowLeft} className="mr-2"/> </a>
 
 							</div>
 							
@@ -224,7 +342,7 @@ const IndexPage = ({data}) => {
 				</div>
 			</div>
 		</section>
-		<section className="bg-white">
+		<section className="bg-white hidden">
 			<div className="rounded-lg px-6  container mx-auto py-8 md:py-20">
 				<div className="md:grid grid-cols-2 gap-4 3xl:gap-12">
 					<div className="flex lg:hidden on-scroll items-center 3xl:gap-12 2xl:flex">
@@ -250,7 +368,7 @@ const IndexPage = ({data}) => {
 		{place!=null&&<section id="reviews" className="bg-subdued">
 			<div className="container mx-auto pt-20 xl:pt-32 px-6">
 
-				<h3 className="text-gold on-scroll text-center text-4xl sm:text-5xl font-bold font-goodlife mb-1">אז איך היה</h3>
+				<h3 className="text-gold on-scroll text-center text-4xl sm:text-5xl  mb-1">אז איך היה</h3>
 
 				<div className="text-center on-scroll mb-8">
 					<div className="text-2xl">
@@ -261,7 +379,7 @@ const IndexPage = ({data}) => {
 				</div>
 
 
-				<div dir="rtl" className="md:columns-2 lg:columns-2 pb-20">
+				<div dir="rtl" className="md:columns-2 lg:columns-3 pb-20">
 					{
 						place.reviews.map(review => {
 							const stars = [];
@@ -275,13 +393,13 @@ const IndexPage = ({data}) => {
 								emptyStars.push(<FontAwesomeIcon icon={faStar} className="text-gray-300"/>);
 							}
 
-							return <div className="on-scroll mb-4 w-full shadow-xl inline-block bg-white px-4 py-4 rounded-xl" key={`review-${review.author_name.replace(' ', '-')}`}>
+							return <div className="on-scroll bg-light mb-4 w-full inline-block px-4 py-4 rounded-xl" key={`review-${review.author_name.replace(' ', '-')}`}>
 								<div className="text-center mb-4">
 									{stars}
 									{emptyStars}
 
 								</div>
-								<p className="mb-3 text-sm" dangerouslySetInnerHTML={{__html: review.text.replaceAll("\n", '<br/>')}}></p>
+								<p className="mb-3 text-lg" dangerouslySetInnerHTML={{__html: review.text.replaceAll("\n", '<br/>')}}></p>
 
 								<div className="flex items-center space-x-3">
 									<img alt={review.author_name} src={review.profile_photo_url} className="w-10 h-10 ml-3"/>
@@ -349,8 +467,8 @@ const IndexPage = ({data}) => {
 							</div>
 						</form>
 					</div>
-					<div className="hidden lg:block bg-fixed bg-[url(https://res.cloudinary.com/meshed-nyc/h_1440,c_fill,q_auto/IMG_1616_2_acdcec483e.jpg)] bg-no-repeat lg:bg-[right_-20rem_top] xl:bg-[right_-20rem_top_-10rem] 2xl:bg-[right_-30rem_top_-15rem] bg-cover w-full ">
-						&nbsp;
+					<div>
+					<img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1732629750/8X9A5730-1365x2048_yvkzkw.jpg"/>
 					</div>
 					
 				</div>

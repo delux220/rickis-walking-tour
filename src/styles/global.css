@@ -16,6 +16,10 @@
   @apply border-b border-b-[rgb(198,198,198)] py-4 px-4 bg-transparent text-black;
 }
 
+.slick-arrow.slick-prev {
+  @apply z-50 absolute text-black text-2xl;
+}
+
 #post h1 {
   @apply text-5xl;
   @apply mb-3;
