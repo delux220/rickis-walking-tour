@@ -186,7 +186,7 @@ const IndexPage = ({data}) => {
 			
 		</div>
 		</section>
-		<section>
+		<section className="hidden">
 			<div className="container mx-auto  flex items-center justify-center sm:px-6">
 				<div className="bg-white px-4 sm:px-8 py-8">
 					<h2 className=" text-center font-epicursive text-gold font-bold text-7xl mb-8 mx-auto on-scroll" >אני ריקי</h2>
@@ -218,68 +218,27 @@ const IndexPage = ({data}) => {
 			</div>
 		</section>
 		
-		<section className="relative">
+		{data.allStrapiPhotographyType&&<section className="relative">
 			<div className="">
 				<Slider {...settings} ref={sliderRef}>
-					<div>
+					{data.allStrapiPhotographyType.nodes.map(type => <div key={type.id}>
 			      <div className="md:grid md:grid-cols-2 overflow-visible pb-10 md:pb-0 px-8 md:px-0"  dir="rtl">
 			        <div className="flex justify-end  h-full overflow-visible">
 			        	<div className="md:aspect-square relative block h-[100%]  sm:max-w-xl">
 			        		<div className="sm:absolute bg-light px-4 py-4 top-10 sm:w-[50vw] right-0" >
-			        			<h3 className="text-3xl md:text-5xl">צילום הצעות נישואין</h3>
+			        			<h3 className="text-3xl md:text-5xl">{type.Title}</h3>
 
 			        		</div>
 			        		<div className="mt-10 md:mt-40">
-				        		<p className="text-2xl">זה מתעד אחד הרגעים האינטימיים והשמחים ביותר בחיים—הרגע שבו שני לבבות מחליטים על לנצח. מההמתנה הנרגשת ועד החיוכים הזוהרים וה"כן" מלב, כל פרט נשמר בצורה יפה. בין אם זו הפתעה גדולה ומתוכננת או מחווה אינטימית ושקטה, אנו דואגים שהרגשות, ההקשר והסיפור של ההצעה שלכם יתועדו בצורה אותנטית. התמונות הנצחיות הללו הופכות למזכרת יקרה, חגיגה של אהבה שמסמלת את תחילת הפרק הבא שלכם יחד.</p>
+				        		<div className="text-2xl" dangerouslySetInnerHTML={{__html: type.Description.data.Description}}></div>
 				        		<Link to='/photography' className="z-50 bg-black text-white block text-center sm:inline-block mt-10 button">פרטים</Link>
 				        	</div>
 			        	</div>
 			        </div>
-			        <div className="hidden sm:block aspect-square bg-[url(https://rickiswalkingtours.com/wp-content/uploads/2024/11/0Y4A8118-1739x2048.jpg)] bg-cover">
-			        	&nbsp;
-			        </div>
+			        <img src={type.Image.formats.large?type.Image.formats.large.url:type.Image.url} className="aspect-square w-full object-cover"/>
 			      </div>
 			      </div>
-
-			      <div>
-			      <div className="md:grid md:grid-cols-2 overflow-visible pb-10 md:pb-0 px-8 md:px-0"  dir="rtl">
-			        <div className="flex justify-end  h-full overflow-visible">
-			        	<div className="md:aspect-square relative block h-[100%]  sm:max-w-xl">
-			        		<div className="sm:absolute bg-light px-4 py-4 top-10 sm:w-[50vw] right-0" >
-			        			<h3 className="text-3xl md:text-5xl">צילום הצעות נישואין</h3>
-
-			        		</div>
-			        		<div className="mt-10 md:mt-40">
-				        		<p className="text-2xl">זה מתעד אחד הרגעים האינטימיים והשמחים ביותר בחיים—הרגע שבו שני לבבות מחליטים על לנצח. מההמתנה הנרגשת ועד החיוכים הזוהרים וה"כן" מלב, כל פרט נשמר בצורה יפה. בין אם זו הפתעה גדולה ומתוכננת או מחווה אינטימית ושקטה, אנו דואגים שהרגשות, ההקשר והסיפור של ההצעה שלכם יתועדו בצורה אותנטית. התמונות הנצחיות הללו הופכות למזכרת יקרה, חגיגה של אהבה שמסמלת את תחילת הפרק הבא שלכם יחד.</p>
-				        		<Link to='/photography' className="z-50 bg-black text-white block text-center sm:inline-block mt-10 button">פרטים</Link>
-				        	</div>
-			        	</div>
-			        </div>
-			        <div className="hidden sm:block aspect-square bg-[url(https://rickiswalkingtours.com/wp-content/uploads/2024/11/0Y4A8118-1739x2048.jpg)] bg-cover">
-			        	&nbsp;
-			        </div>
-			      </div>
-			      </div>
-
-			      <div>
-			      <div className="md:grid md:grid-cols-2 overflow-visible pb-10 md:pb-0 px-8 md:px-0"  dir="rtl">
-			        <div className="flex justify-end  h-full overflow-visible">
-			        	<div className="md:aspect-square relative block h-[100%]  sm:max-w-xl">
-			        		<div className="sm:absolute bg-light px-4 py-4 top-10 sm:w-[50vw] right-0" >
-			        			<h3 className="text-3xl md:text-5xl">צילום הצעות נישואין</h3>
-
-			        		</div>
-			        		<div className="mt-10 md:mt-40">
-				        		<p className="text-2xl">זה מתעד אחד הרגעים האינטימיים והשמחים ביותר בחיים—הרגע שבו שני לבבות מחליטים על לנצח. מההמתנה הנרגשת ועד החיוכים הזוהרים וה"כן" מלב, כל פרט נשמר בצורה יפה. בין אם זו הפתעה גדולה ומתוכננת או מחווה אינטימית ושקטה, אנו דואגים שהרגשות, ההקשר והסיפור של ההצעה שלכם יתועדו בצורה אותנטית. התמונות הנצחיות הללו הופכות למזכרת יקרה, חגיגה של אהבה שמסמלת את תחילת הפרק הבא שלכם יחד.</p>
-				        		<Link to='/photography' className="z-50 bg-black text-white block text-center sm:inline-block mt-10 button">פרטים</Link>
-				        	</div>
-			        	</div>
-			        </div>
-			        <div className="hidden sm:block aspect-square bg-[url(https://rickiswalkingtours.com/wp-content/uploads/2024/11/0Y4A8118-1739x2048.jpg)] bg-cover">
-			        	&nbsp;
-			        </div>
-			      </div>
-			      </div>
+			      )}
 			      
 			    </Slider>
 			</div>
@@ -289,7 +248,7 @@ const IndexPage = ({data}) => {
 			<div className="absolute right-0 top-0 h-full flex items-center justify-center">
 				<button onClick={() => { sliderRef.current.slickNext(); }} className="w-10 h-10 z-50"><FontAwesomeIcon icon={faChevronRight} className="text-right"/></button>
 			</div>
-		</section>
+		</section>}
 		<section  className="bg-cover my-20 bg-center lg:bg-center xl:bg-top-center bg-[url(https://res.cloudinary.com/meshed-nyc/q_auto/v1732584399/nyc2_ms6vcc.jpg)]">
 
 			<div className="lg:container mx-auto">
@@ -487,6 +446,26 @@ export const pageQuery = graphql`query MyQuery {
 			}
 		}
 	}
+  allStrapiPhotographyType(filter:{locale:{eq: "he-IL"}}) {
+    nodes{
+    	id
+      Title
+      Description {
+        
+        data {
+          Description
+        }
+      }
+      Image {
+        url
+        formats{
+          large{
+            url
+          }
+        }
+      }
+    }
+  }
   allStrapiTour(filter: {locale: {eq: "he-IL"}}) {
     nodes {
       id

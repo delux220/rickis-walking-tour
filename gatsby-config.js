@@ -24,6 +24,18 @@ const strapiConfig = {
         'Image': '*'
       }
     }
+  },{
+    singularName: 'photography-type',
+    pluginOptions: {
+      i18n: {
+        locale: "all", // Fetch all localizations
+      },
+    },
+    queryParams: {
+      'populate': {
+        'Image': '*'
+      }
+    }
   }],
   singleTypes: ['social-media', {
     singularName:'about-page',
