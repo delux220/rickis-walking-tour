@@ -210,7 +210,8 @@ const IndexPage = ({data}) => {
 						<div>
 						<img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1732566404/unnamed-file_mikhzk.png" className="mx-auto block mb-8" alt="Quote"/>
 						<h3 className="text-6xl text-center text-gold font-bold font-goodlife">היי, אני ריקי!</h3>
-						<p className="text-2xl font-sans text-center block my-8">אני גר בניו יורק כבר 15 שנים, ועבדתי כקומיקאי סטנדאפ וכצלם. אחרי מגפת הקורונה, החלטתי לשנות קריירה ולהפוך למדריך טיולים בניו יורק. כך הצלחתי לשלב את האהבה שלי לעיר עם כמה בדיחות פה ושם, תוך כדי שאני מצלם כמה תמונות בדרך. אני נהנה להכיר חברים חדשים ולהתחבר לאנשים. מעל לעשור שבו עשיתי סטנדאפ לימדו אותי איך לשבור את הקרח בשתי שניות, כך שכל סיור וצילומים ירגישו כמו בילוי עם חברים ולא כמו משימה מלחיצה.</p>
+						<p className="text-2xl font-sans text-center block my-8">תושבת ניו יורק כבר 15 שנה וסטאנדאפיסטית לשעבר 🙂
+אני מזמינה אתכם לחוות את ניו יורק בדרך ייחודית דרך עדשת המצלמה. באפשרותכם לבחור בסיור עם צילומים או ללא. אם בחרתם בסיור עם צילומים, אז תתכוננו! ביחד ניצור תמונות מושלמות שיתפסו את הרגעים הכי יפים ומצחיקים וכך תזכו להכיר את העיר בצורה אינטימית ומרגשת, עם תמונות שיישארו אתכם לכל החיים. וגם אם אתם לא אוהבים להצטלם מוזמנים לסיור באווירה טובה וקלילה עם מנת היסטוריה וחוויה.</p>
 						<img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1732566404/Asset-1Flowerz-Underline-1_ysk5ve.png" className="block mx-auto" alt="floral seperator"/>
 					</div>
 					</div>
