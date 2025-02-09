@@ -296,7 +296,7 @@ const IndexPage = ({data}) => {
 									
 								</div>
 								<div className="">
-								<p className="hidden text-black/80 text-xl mb-4 xl:text-lg" dangerouslySetInnerHTML={{__html: tour.Description.replaceAll("\n", '<br/>')}}/>
+								<p className="text-black/80 text-lg mb-4 xl:text-lg" dangerouslySetInnerHTML={{__html: tour.Description.replaceAll("\n", '<br/>')}}/>
 								</div>
 									<a href={tour.Link} className="mt-4 w-full text-center button primary block">אני רוצה להזמין<FontAwesomeIcon icon={faArrowLeft} className="mr-2"/> </a>
 
