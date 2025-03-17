@@ -285,7 +285,7 @@ const IndexPage = ({data}) => {
 								<h3 className=" text-2xl xl:text-3xl text-black mb-1">{tour.Title}</h3>
 								<div className="font-bold">
 									
-								<span className="text-black text-sm sm:text-base md:text-lg rounded-full font-bold">{numeral(tour.Price).format('$0,0.00')} לאדם</span>
+								<span className="text-black text-sm sm:text-base md:text-lg rounded-full font-bold">{numeral(tour.Price).format('$0,0.00')}</span>
 								{
 									tour.PriceUnder18!=null&&tour.PriceUnder18!=''&&<>
 										<span className="mx-2">&middot;</span>
