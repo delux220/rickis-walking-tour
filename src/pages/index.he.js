@@ -204,7 +204,7 @@ const IndexPage = ({data}) => {
 			<div className="container max-w-7xl mx-auto px-4 md:pt-10 pb-20">
 				<div className="sm:grid sm:grid-cols-2 sm:gap-8 space-y-4 sm:space-y-0">
 					<div>
-						<img src="https://res.cloudinary.com/meshed-nyc/q_auto/IMG_8118_atrpdt.jpg"/>
+						<img src="https://res.cloudinary.com/meshed-nyc/image/upload/v1751373885/large_rs_w_1534_m_copy_829d469c65.jpg" alt="Ricki Sofer"/>
 					</div>
 					<div dir="rtl" className="flex justify-center items-center">
 						<div>
