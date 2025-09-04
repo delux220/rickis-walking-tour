@@ -285,12 +285,12 @@ const IndexPage = ({data}) => {
 								<h3 className=" text-2xl xl:text-3xl text-black mb-1">{tour.Title}</h3>
 								<div className="font-bold">
 									
-								<span className="text-black text-sm sm:text-base md:text-lg rounded-full font-bold">{numeral(tour.Price).format('$0,0.00')}</span>
+								<span className="s text-black text-sm sm:text-base md:text-lg rounded-full font-bold">{numeral(tour.Price).format('$0,0.00')}</span>
 								{
-									tour.PriceUnder18!=null&&tour.PriceUnder18!=''&&<>
+									/*tour.PriceUnder18!=null&&tour.PriceUnder18!=''&&<>
 										<span className="mx-2">&middot;</span>
 										<span className="text-black text-sm sm:text-base md:text-lg rounded-full font-bold">{numeral(tour.PriceUnder18).format('$0,0.00')} ילדים מתחת לגיל 18</span>
-									</>
+									</>*/
 								}
 									
 									
@@ -471,7 +471,7 @@ export const pageQuery = graphql`query MyQuery {
         }
       }
     }
-  }
+  } 
   allStrapiTour(filter: {locale: {eq: "he-IL"}}) {
     nodes {
       id
@@ -482,7 +482,6 @@ export const pageQuery = graphql`query MyQuery {
       Link
       locale
       Price
-      PriceUnder18
       Title
       Photo {
       	url
